@@ -1,4 +1,4 @@
-spouts,max_spout,topology_level,netty_min_wait,message_size,bolts,throughput,latency
+$spouts,$max_spout,$topology_level,$netty_min_wait,$message_size,$bolts,<$throughput,<$latency
 1,1,2,10,10,1,7368.8,1.3511
 1,1,2,10,10,2,7238.5,1.3052
 1,1,2,10,10,3,7513,1.2069
