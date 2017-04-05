@@ -20,6 +20,26 @@ class data_point:
                " Dependent Values: " + ','.join(map(str, self.objectives))
 
 
+class container(object):
+    def __init__(self, name, epsilon_value):
+        self.name = name
+        self.epsilon_value = epsilon_value
+        # Pareto Front Size
+        self.pfs = []
+        self.evals = []
+
+    def set_evals(self, evals):
+        self.evals = evals
+
+    def append_eval(self, eval):
+        self.evals.append(eval)
+
+    def append_pfs(self, pfs):
+        self.pfs.append(pfs)
+
+    def set_pfs(self, pfs):
+        self.pfs = pfs
+
 # Read from a file and return a dataframe
 def read_file(filename):
     content = pd.read_csv(filename)
@@ -81,13 +101,16 @@ def draw_pareto_front(actual_dependent, true_pf, predicted_pf, filename=""):
     import matplotlib.pyplot as plt
     plt.scatter([d[0] for d in actual_dependent], [d[1] for d in actual_dependent], color='r')
     plt.plot([p[0] for p in true_pf], [p[1] for p in true_pf], color='black', marker='x', markersize=8)
-    plt.plot([p[0] for p in predicted_pf], [p[1] for p in predicted_pf], color='orange', marker='v', markersize=12)
+    plt.plot([p[0] for p in predicted_pf], [p[1] for p in predicted_pf], color='green', marker='o')
     if filename == "": plt.show()
     else: plt.savefig('./Figures/' + filename + ".png")
+    plt.cla()
 
 
-def generational_distance(actual, predicted):
-    def euclidean_distance(list1, list2):
+def generational_distance(actual, predicted, ranges):
+    def euclidean_distance(rlist1, rlist2):
+        list1 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist1)]
+        list2 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist2)]
         assert(len(list1) == len(list2)), "The points don't have the same dimension"
         distance = sum([(i - j) ** 2 for i, j in zip(list1, list2)])
         assert(distance >= 0), "Distance can't be less than 0"
@@ -101,9 +124,24 @@ def generational_distance(actual, predicted):
         min_distances.append(min_dist)
     return np.mean(min_distances)
 
+ranges = {}
+# ranges[filename] = [[min(obj1), max(obj2)], [min(obj2), max(obj2)]]
+ranges["./Data/wc+sol-3d-c4.csv"] =  [[3983.3, 63734.0], [2.1844, 93904.0]]
+ranges["./Data/wc-c3-3d-c1.csv"] =  [[121.5, 11930.0], [247.45, 57645.0]]
+ranges["./Data/noc_CM_log.csv"] =  [[6.144515496, 9.965784285], [4.309193816, 5.123159887]]
+ranges["./Data/wc-c1-3d-c1.csv"] =  [[288.56, 23075.0], [148.88, 9421.0]]
+ranges["./Data/llvm_input.csv"] =  [[199.68, 270.4], [11.0, 29.0]]
+ranges["./Data/sort_256.csv"] =  [[7.087462841, 16.24881706], [2.858160813, 14.71664238]]
+ranges["./Data/wc-6d-c1.csv"] =  [[72.75, 34740.0], [3.3172, 55209.0]]
+ranges["./Data/wc+rs-3d-c4.csv"] =  [[4275.4, 72394.0], [1.9243, 99722.0]]
+ranges["./Data/wc-3d-c4.csv"] =  [[5042.6, 95094.0], [1.2994, 94553.0]]
+ranges["./Data/wc-5d-c5.csv"] =  [[2122.2, 20591.0], [47.387, 405.5]]
+ranges["./Data/rs-6d-c3.csv"] =  [[68.062, 232000.0], [1.9, 34733.0]]
+ranges["./Data/wc+wc-3d-c4.csv"] =  [[3964.2, 65823.0], [2.0815, 105000.0]]
 
 if __name__ == "__main__":
     files = ["./Data/" + file for file in os.listdir('./Data/') if ".csv" in file]
     for file in files:
         data = read_file(file)
         split_data(data, 40, 20, 40)
+

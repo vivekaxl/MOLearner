@@ -3,28 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-
-
-class container(object):
-    def __init__(self, name, epsilon_value):
-        self.name = name
-        self.epsilon_value = epsilon_value
-        # Pareto Front Size
-        self.pfs = []
-        self.evals = []
-
-    def set_evals(self, evals):
-        self.evals = evals
-
-    def append_eval(self, eval):
-        self.evals.append(eval)
-
-    def append_pfs(self, pfs):
-        self.pfs.append(pfs)
-
-    def set_pfs(self, pfs):
-        self.pfs = pfs
-
+from utility import container
 
 def process(folder):
     """To extract the number of point in the predicted frontier and number of evaluations"""

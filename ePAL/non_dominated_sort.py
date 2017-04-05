@@ -1,5 +1,4 @@
 from __future__ import division
-from utility import read_file
 from collections import defaultdict
 import sys
 
@@ -45,21 +44,21 @@ def non_dominated_sort(raw_dependents, lessismore):
                     break
 
         if dominating_fits[first_count] == 0:
-            print ". ", dependents[first_count]
-            sys.stdout.flush()
+            # print ". ", dependents[first_count]
+            # sys.stdout.flush()
             non_dominated_indexes.append(first_count)
 
     return non_dominated_indexes
 
 
-if __name__ == "__main__":
-    data = read_file("./Data/noc_CM_log.csv")
-    dependents = [d.objectives for d in data]
-    pf_indexes = non_dominated_sort(dependents, [False, True])
-    pf = [dependents[i] for i in pf_indexes]
-    pf = sorted(pf, key=lambda x:x[0])
-
-    import matplotlib.pyplot as plt
-    plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
-    plt.plot([p[0] for p in pf], [p[1] for p in pf], color='black', marker='x')
-    plt.show()
+# if __name__ == "__main__":
+#     data = read_file("./Data/noc_CM_log.csv")
+#     dependents = [d.objectives for d in data]
+#     pf_indexes = non_dominated_sort(dependents, [False, True])
+#     pf = [dependents[i] for i in pf_indexes]
+#     pf = sorted(pf, key=lambda x:x[0])
+#
+#     import matplotlib.pyplot as plt
+#     plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
+#     plt.plot([p[0] for p in pf], [p[1] for p in pf], color='black', marker='x')
+#     plt.show()
