@@ -2,6 +2,7 @@ from __future__ import division
 import numpy as np
 import os
 import sys
+from utility import lessismore
 
 
 
@@ -77,19 +78,6 @@ if __name__ == "__main__":
              './Data/wc-3d-c4.csv', './Data/wc-5d-c5.csv', './Data/wc-6d-c1.csv', './Data/wc-c1-3d-c1.csv',
              './Data/wc-c3-3d-c1.csv']
 
-    lessismore = {}
-    lessismore['./Data/llvm_input.csv'] = [False, False]
-    lessismore['./Data/noc_CM_log.csv'] = [False, False]
-    lessismore['./Data/sort_256.csv'] = [False, False]
-    lessismore['./Data/rs-6d-c3.csv'] = [False, True]
-    lessismore['./Data/wc+rs-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc+sol-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc+wc-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc-5d-c5.csv'] = [False, True]
-    lessismore['./Data/wc-6d-c1.csv'] = [False, True]
-    lessismore['./Data/wc-c1-3d-c1.csv'] = [False, True]
-    lessismore['./Data/wc-c3-3d-c1.csv'] = [False, True]
 
     all_data = {}
     for file in files:
