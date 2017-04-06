@@ -11,9 +11,13 @@ class data_point:
         self.decisions = decisions
         self.objectives = objectives
         self.rank = rank
+        self.evaluated = False
 
     def set_rank(self, rank):
         self.rank = rank
+
+    def set_evaluated(self):
+        self.evaluated = True
 
     def __str__(self):
         return "Id: " + str(self.id) + " Independent Values: " + ','.join(map(str, self.decisions)) +\
@@ -100,10 +104,10 @@ def build_model(training, testing):
 def draw_pareto_front(actual_dependent, true_pf, predicted_pf, filename=""):
     import matplotlib.pyplot as plt
     plt.scatter([d[0] for d in actual_dependent], [d[1] for d in actual_dependent], color='r')
-    plt.plot([p[0] for p in true_pf], [p[1] for p in true_pf], color='black', marker='x', markersize=8)
+    plt.plot([p[0] for p in true_pf], [p[1] for p in true_pf], color='black', marker='x', markersize=15)
     plt.plot([p[0] for p in predicted_pf], [p[1] for p in predicted_pf], color='green', marker='o')
     if filename == "": plt.show()
-    else: plt.savefig('./Figures/' + filename + ".png")
+    else: plt.savefig('./Figures_Rank/' + filename + ".png")
     plt.cla()
 
 
@@ -138,6 +142,21 @@ ranges["./Data/wc-3d-c4.csv"] =  [[5042.6, 95094.0], [1.2994, 94553.0]]
 ranges["./Data/wc-5d-c5.csv"] =  [[2122.2, 20591.0], [47.387, 405.5]]
 ranges["./Data/rs-6d-c3.csv"] =  [[68.062, 232000.0], [1.9, 34733.0]]
 ranges["./Data/wc+wc-3d-c4.csv"] =  [[3964.2, 65823.0], [2.0815, 105000.0]]
+
+
+lessismore = {}
+lessismore['./Data/llvm_input.csv'] = [False, False]
+lessismore['./Data/noc_CM_log.csv'] = [False, False]
+lessismore['./Data/sort_256.csv'] = [False, False]
+lessismore['./Data/rs-6d-c3.csv'] = [False, True]
+lessismore['./Data/wc+rs-3d-c4.csv'] = [False, True]
+lessismore['./Data/wc+sol-3d-c4.csv'] = [False, True]
+lessismore['./Data/wc+wc-3d-c4.csv'] = [False, True]
+lessismore['./Data/wc-3d-c4.csv'] = [False, True]
+lessismore['./Data/wc-5d-c5.csv'] = [False, True]
+lessismore['./Data/wc-6d-c1.csv'] = [False, True]
+lessismore['./Data/wc-c1-3d-c1.csv'] = [False, True]
+lessismore['./Data/wc-c3-3d-c1.csv'] = [False, True]
 
 if __name__ == "__main__":
     files = ["./Data/" + file for file in os.listdir('./Data/') if ".csv" in file]

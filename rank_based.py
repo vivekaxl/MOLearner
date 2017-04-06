@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
         print file
         data = read_file(file)
-        for _ in xrange(40):
+        for rep in xrange(40):
             print ". ",
             sys.stdout.flush()
             splits = split_data(data, 40, 2, 58)
@@ -117,11 +117,11 @@ if __name__ == "__main__":
             filtered_predicted_pf_index = non_dominated_sort(predicted_actual, lessismore[file])
 
             true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x:x[0])
-            # predicted_pf = sorted([predicted_actual[i] for i in filtered_predicted_pf_index], key=lambda x:x[0])
-            predicted_pf = sorted([actual_dependent[i] for i in predicted_pf_indexes], key=lambda x:x[0])
+            predicted_pf = sorted([predicted_actual[i] for i in filtered_predicted_pf_index], key=lambda x:x[0])
+            # predicted_pf = sorted([actual_dependent[i] for i in predicted_pf_indexes], key=lambda x:x[0])
 
             from utility import draw_pareto_front, generational_distance, ranges
-            # draw_pareto_front(actual_dependent, true_pf, predicted_pf, filename=file.split('/')[-1])
+            draw_pareto_front(actual_dependent, true_pf, predicted_pf, filename=file.split('/')[-1] + "_" + str(rep))
             # print "Length of Training set: ", len(temp)
             # print "Length of Validation set: ", len(splits[1])
             # print "Generation Distance: ", generational_distance(true_pf, predicted_pf)

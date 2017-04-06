@@ -10,6 +10,7 @@ def process():
     mmre = pickle.load(open(folder + "mmre-based.p"))
     rank = pickle.load(open(folder + "rank-based.p"))
     epal = pickle.load(open(folder + "epal.p"))
+    al = pickle.load(open(folder + "al-based.p"))
 
     files = mmre.keys()
     mmre_gd = []
@@ -32,6 +33,8 @@ def process():
     epal_evals_7 = []
     epal_gd_8 = []
     epal_evals_8 = []
+    al_gd = []
+    al_evals = []
     for file in files:
         mmre_gd.append(np.mean(mmre[file]['gen_dist']))
         mmre_evals.append(np.mean(mmre[file]['evals']))
@@ -55,22 +58,28 @@ def process():
         epal_gd_8.append(np.mean(epal[file][0.3]['gen_dist']))
         epal_evals_8.append(np.mean(epal[file][0.3]['evals']))
 
+        al_gd.append(np.mean(al[file]['gen_dist']))
+        al_evals.append(np.mean(al[file]['evals']))
+
     arr = [1+7*i for i in xrange(len(files))]
     ind = np.array(arr)  # the x locations for the groups
 
     width = 0.5       # the width of the bars
 
     fig, ax = plt.subplots()
-    rects1 = ax.bar(ind, mmre_evals, width/2,log=True, color='red')
-    rects2 = ax.bar(ind+width, rank_evals, width/2,log=True, color='green')
-    rects3 = ax.bar(ind+2*width, epal_evals_1, width/2,log=True)
-    rects4 = ax.bar(ind+3*width, epal_evals_2, width/2,log=True)
-    rects5 = ax.bar(ind+4*width, epal_evals_3, width/2,log=True)
-    rects6 = ax.bar(ind+5*width, epal_evals_4, width/2,log=True)
-    rects7 = ax.bar(ind+6*width, epal_evals_5, width/2,log=True)
-    rects8 = ax.bar(ind+7*width, epal_evals_6, width/2,log=True)
-    rects9 = ax.bar(ind+8*width, epal_evals_7, width/2,log=True)
-    rects10 = ax.bar(ind+9*width, epal_evals_8, width/2,log=True)
+
+    rects3 = ax.bar(ind+0*width, epal_evals_1, width/2,log=True)
+    rects4 = ax.bar(ind+1*width, epal_evals_2, width/2,log=True)
+    rects5 = ax.bar(ind+2*width, epal_evals_3, width/2,log=True)
+    rects6 = ax.bar(ind+3*width, epal_evals_4, width/2,log=True)
+    rects7 = ax.bar(ind+4*width, epal_evals_5, width/2,log=True)
+    rects8 = ax.bar(ind+5*width, epal_evals_6, width/2,log=True)
+    rects9 = ax.bar(ind+6*width, epal_evals_7, width/2,log=True)
+    rects10 = ax.bar(ind+7*width, epal_evals_8, width/2,log=True)
+    rects11 = ax.bar(ind+8*width, mmre_evals, width/2,log=True, color='red')
+    rects12 = ax.bar(ind+9*width, rank_evals, width/2,log=True, color='green')
+    rects13 = ax.bar(ind+10*width, al_evals, width/2,log=True, color='yellow')
+
 
     ax.set_xticks(ind + 3*width / 2)
     ax.set_xticklabels([file.split('/')[-1][:-4] for file in files], rotation=30)
@@ -79,7 +88,7 @@ def process():
     plt.tight_layout()
     fig.set_size_inches(14, 5)
     # plt.show()
-    plt.savefig('evals.png', bbox_inches='tight')
+    plt.savefig('evals_1_25.png', bbox_inches='tight')
 
 
 if __name__ == "__main__":
