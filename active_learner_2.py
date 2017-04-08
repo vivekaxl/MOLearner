@@ -21,7 +21,7 @@ def loss(x1, x2, mins=None, maxs=None):
 
     o = min(len(x1), len(x2))  # len of x1 and x2 should be equal
     # print x1, x2
-    return sum([math.exp((x2i - x1i) / o) for x1i, x2i in zip(x1, x2)]) / o
+    return sum([-1*math.exp((x2i - x1i) / o) for x1i, x2i in zip(x1, x2)]) / o
 
 
 def get_cdom_values(objectives, lessismore):
@@ -76,6 +76,7 @@ def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
 
     return [testing_indep[i] for i in pf_indexes], [merged_predicted_objectves[i] for i in pf_indexes]
 
+
 def same_list(list1, list2):
     assert(len(list1) == len(list2)), "Something is wrong"
     for i, j in zip(list1, list2):
@@ -125,14 +126,12 @@ if __name__ == "__main__":
             key = ",".join(map(str, d.decisions))
             objectives_dict[key] = d.objectives
 
-
-
         def get_evals():
             return sum(1 if counting_dict[key]>0 else 0 for key in counting_dict.keys())
 
         evals = []
         pfs = []
-        for rep in xrange(10):
+        for rep in xrange(20):
             print ". ",
             sys.stdout.flush()
             shuffle(data)
@@ -188,6 +187,10 @@ if __name__ == "__main__":
                 after_pf_indexes = non_dominated_sort(training_dep + [next_point_dependent], lessismore[file])
                 after_pf = [(training_dep + [next_point_dependent])[i] for i in after_pf_indexes]
 
+                import itertools
+                after_pf.sort()
+                after_pf = [k for k, _ in itertools.groupby(after_pf)]
+
                 # See if the new point is a dominant point
                 previously_seen = []
                 previously_not_seen = []
@@ -215,7 +218,6 @@ if __name__ == "__main__":
             current_pf = [training_dependent[i] for i in pf_indexes]
             print "Size of the frontier = ", len(current_pf), " Evals: ", get_evals()
             all_data[file]['evals'].append(get_evals())
-
 
             actual_dependent = [get_objective_score(d) for d in testing_data]
             true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])

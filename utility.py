@@ -107,7 +107,7 @@ def draw_pareto_front(actual_dependent, true_pf, predicted_pf, filename=""):
     plt.plot([p[0] for p in true_pf], [p[1] for p in true_pf], color='black', marker='x', markersize=15)
     plt.plot([p[0] for p in predicted_pf], [p[1] for p in predicted_pf], color='green', marker='o')
     if filename == "": plt.show()
-    else: plt.savefig('./Figures_Rank/' + filename + ".png")
+    else: plt.savefig('./AL3_Figures/' + filename + ".png")
     plt.cla()
 
 

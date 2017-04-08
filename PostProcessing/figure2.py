@@ -14,6 +14,7 @@ def process():
     epal = pickle.load(open(folder + "epal.p"))
     al = pickle.load(open(folder + "al-based.p"))
     al_2 = pickle.load(open(folder + "al-based-2.p"))
+    al_3 = pickle.load(open(folder + "al-based-3.p"))
 
     files = mmre.keys()
     mmre_gd = []
@@ -40,7 +41,10 @@ def process():
     al_evals = []
     al2_gd = []
     al2_evals = []
-    for file in files:
+    al3_gd = []
+    al3_evals = []
+
+    for file in sorted(files):
         mmre_gd.append(np.mean(mmre[file]['gen_dist']))
         mmre_evals.append(np.mean(mmre[file]['evals']))
         rank_gd.append(np.mean(rank[file]['gen_dist']))
@@ -69,6 +73,9 @@ def process():
         al2_gd.append(np.mean(al_2[file]['gen_dist']))
         al2_evals.append(np.mean(al_2[file]['evals']))
 
+        al3_gd.append(np.mean(al_3[file]['gen_dist']))
+        al3_evals.append(np.mean(al_3[file]['evals']))
+
 
     arr = [1+7*i for i in xrange(len(files))]
     ind = np.array(arr)  # the x locations for the groups
@@ -89,10 +96,11 @@ def process():
     rects12 = ax.bar(ind+9*width, rank_evals, width/2,log=True, color='green', label="rank-prog")
     rects13 = ax.bar(ind+10*width, al_evals, width/2,log=True, color='yellow', label="AL1")
     rect14 = ax.bar(ind+11*width, al2_evals, width/2, color='orange', label=r"\textbf{AL2}")
+    rect14 = ax.bar(ind + 12 * width, al3_evals, width / 2, color='black', label=r"AL3")
 
 
     ax.set_xticks(ind + 3*width / 2)
-    ax.set_xticklabels([r"$"+str(file.split('/')[-1][:-4] + "$")  for file in files], rotation=30)
+    ax.set_xticklabels([r"$"+str(file.split('/')[-1][:-4] + "$")  for file in sorted(files)], rotation=30)
     ax.legend(frameon=False, loc='upper center',
               bbox_to_anchor=(0.5, -0.15),fancybox=True, ncol=6)
 
@@ -100,7 +108,7 @@ def process():
     plt.tight_layout()
     fig.set_size_inches(14, 5)
     # plt.show()
-    plt.savefig('evals_al2.png', bbox_inches='tight')
+    plt.savefig('evals_al3.png', bbox_inches='tight')
 
 
 if __name__ == "__main__":
