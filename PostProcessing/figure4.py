@@ -1,0 +1,121 @@
+import pickle
+import numpy as np
+import sys
+sys.path.append("/Users/viveknair/GIT/MOLearner/")
+from utility import container
+import matplotlib.pyplot as plt
+from matplotlib import rc
+
+gd_dict = {}
+gd_dict["./Data/llvm_input.csv"]=0.360329920244
+gd_dict["./Data/noc_CM_log.csv"]=0.704628549643
+gd_dict["./Data/sort_256.csv"]=1.55761291391
+gd_dict["./Data/wc+rs-3d-c4.csv"]=0.134803836127
+gd_dict["./Data/wc+sol-3d-c4.csv"]=0.114014753636
+gd_dict["./Data/wc+wc-3d-c4.csv"]=0.13036871388
+gd_dict["./Data/wc-3d-c4.csv"]=0.250331006239
+gd_dict["./Data/wc-5d-c5.csv"]=0.845786462421
+gd_dict["./Data/wc-6d-c1.csv"]=0.216850793562
+gd_dict["./Data/wc-c1-3d-c1.csv"]=1.66409809577
+gd_dict["./Data/wc-c3-3d-c1.csv"]=1.6408431896
+gd_dict["./Data/rs-6d-c3.csv"]=0.812171390735
+
+
+def process():
+    # activate latex text rendering
+    rc('text', usetex=True)
+
+    folder = "./PickleLocker/"
+    mmre = pickle.load(open(folder + "mmre-based.p"))
+    rank = pickle.load(open(folder + "rank-based.p"))
+    epal = pickle.load(open(folder + "epal.p"))
+    al = pickle.load(open(folder + "al-based.p"))
+    al_2 = pickle.load(open(folder + "al-based-2.p"))
+
+    files = mmre.keys()
+    mmre_gd = []
+    mmre_evals = []
+    rank_gd = []
+    rank_evals = []
+    epal_gd_1 = []
+    epal_evals_1 = []
+    epal_gd_2 = []
+    epal_evals_2 = []
+    epal_gd_3 = []
+    epal_evals_3 = []
+    epal_gd_4 = []
+    epal_evals_4 = []
+    epal_gd_5 = []
+    epal_evals_5 = []
+    epal_gd_6 = []
+    epal_evals_6 = []
+    epal_gd_7 = []
+    epal_evals_7 = []
+    epal_gd_8 = []
+    epal_evals_8 = []
+    al_gd = []
+    al_evals = []
+    al2_gd = []
+    al2_evals = []
+    for file in files:
+        mmre_gd.append(np.mean(mmre[file]['gen_dist'])/gd_dict[file])
+        mmre_evals.append(np.mean(mmre[file]['evals']))
+        rank_gd.append(np.mean(rank[file]['gen_dist'])/gd_dict[file])
+        rank_evals.append(np.mean(rank[file]['evals']))
+
+        epal_gd_1.append(np.mean(epal[file][0.01]['gen_dist'])/gd_dict[file])
+        epal_evals_1.append(np.mean(epal[file][0.01]['evals']))
+        epal_gd_2.append(np.mean(epal[file][0.02]['gen_dist'])/gd_dict[file])
+        epal_evals_2.append(np.mean(epal[file][0.02]['evals']))
+        epal_gd_3.append(np.mean(epal[file][0.04]['gen_dist'])/gd_dict[file])
+        epal_evals_3.append(np.mean(epal[file][0.04]['evals']))
+        epal_gd_4.append(np.mean(epal[file][0.08]['gen_dist'])/gd_dict[file])
+        epal_evals_4.append(np.mean(epal[file][0.08]['evals']))
+        epal_gd_5.append(np.mean(epal[file][0.12]['gen_dist'])/gd_dict[file])
+        epal_evals_5.append(np.mean(epal[file][0.12]['evals']))
+        epal_gd_6.append(np.mean(epal[file][0.16]['gen_dist'])/gd_dict[file])
+        epal_evals_6.append(np.mean(epal[file][0.16]['evals']))
+        epal_gd_7.append(np.mean(epal[file][0.2]['gen_dist'])/gd_dict[file])
+        epal_evals_7.append(np.mean(epal[file][0.2]['evals']))
+        epal_gd_8.append(np.mean(epal[file][0.3]['gen_dist'])/gd_dict[file])
+        epal_evals_8.append(np.mean(epal[file][0.3]['evals']))
+
+        al_gd.append(np.mean(al[file]['gen_dist'])/gd_dict[file])
+        al_evals.append(np.mean(al[file]['evals']))
+
+        al2_gd.append(np.mean(al_2[file]['gen_dist'])/gd_dict[file])
+        al2_evals.append(np.mean(al_2[file]['evals']))
+
+    arr = [1+7*i for i in xrange(len(files))]
+    ind = np.array(arr)  # the x locations for the groups
+
+    width = 0.5       # the width of the bars
+
+    fig, ax = plt.subplots()
+    rects3 = ax.bar(ind+0*width, epal_gd_1, width/2, label=r"epal\-0.01", color="#79CDCD")
+    rects4 = ax.bar(ind+1*width, epal_gd_2, width/2, label=r"epal\-0.02", color="#66CCCC")
+    rects5 = ax.bar(ind+2*width, epal_gd_3, width/2, label=r"epal\-0.04", color="#AEEEEE")
+    rects6 = ax.bar(ind+3*width, epal_gd_4, width/2, label=r"epal\-0.08", color="#37FDFC")
+    rects7 = ax.bar(ind+4*width, epal_gd_5, width/2, label=r"epal\-0.12", color="#00CDCD")
+    rects8 = ax.bar(ind+5*width, epal_gd_6, width/2, label=r"epal\-0.16", color="#00FFFF")
+    rects9 = ax.bar(ind+6*width, epal_gd_7, width/2, label=r"epal\-0.20", color="#E0FFFF")
+    rects10 = ax.bar(ind+7*width, epal_gd_8, width/2, label=r"epal\-0.3", color="#00E5EE")
+    rects11 = ax.bar(ind+8*width, mmre_gd, width/2, color='red', label="mmre-prog")
+    rects12 = ax.bar(ind+9*width, rank_gd, width/2, color='green', label="rank-prog")
+    rects12 = ax.bar(ind+10*width, al_gd, width/2, color='yellow', label="AL1")
+    rect13 = ax.bar(ind+11*width, al2_gd, width/2, color='orange', label=r"\textbf{AL2}")
+
+    ax.set_xticks(ind + 3*width / 2)
+    ax.set_xticklabels([r"$"+str(file.split('/')[-1][:-4] + "$")  for file in files], rotation=30)
+    ax.legend(frameon=False, loc='upper center',
+              bbox_to_anchor=(0.5, -0.15),fancybox=True, ncol=6)
+
+    ax.set_ylabel('Generational Distance Ratio')
+    plt.tight_layout()
+    fig.set_size_inches(14, 5)
+    # plt.show()
+    plt.savefig('gd-al2-ratio.png', bbox_inches='tight')
+
+
+if __name__ == "__main__":
+    process()

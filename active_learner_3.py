@@ -212,14 +212,10 @@ def pick_new_points(training_indep, training_dep, testing_data, number_of_object
     # print "3. Length of Predicted ND solutions: ", len(predicted_pf)
     return predicted_pf
 
-def run_main():
+if __name__ == "__main__":
     from utility import read_file, split_data, build_model
 
-    files = [ './Data/llvm_input.csv', './Data/noc_CM_log.csv',
-             './Data/sort_256.csv',
-             './Data/wc+rs-3d-c4.csv', './Data/wc+sol-3d-c4.csv', './Data/wc+wc-3d-c4.csv',
-             './Data/wc-3d-c4.csv', './Data/wc-5d-c5.csv', './Data/wc-6d-c1.csv', './Data/wc-c1-3d-c1.csv',
-             './Data/wc-c3-3d-c1.csv', './Data/rs-6d-c3.csv',]
+    files = []
 
     all_data = {}
     initial_sample_size = 20
@@ -325,5 +321,3 @@ def run_main():
 
     import pickle
     pickle.dump(all_data, open('al-based-3.p', 'w'))
-
-run_main()
