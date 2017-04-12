@@ -1,0 +1,216 @@
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS1} & \textbf{llvm\_input} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.02 & \quart{0}{12}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.01 & \quart{0}{6}{0}{0} \\
+  1 &    ePAL-0.04 &    0.01  &  0.01 & \quart{0}{6}{6}{0} \\
+  1 &    ePAL-0.01 &    0.01  &  0.01 & \quart{0}{6}{6}{0} \\
+  1 &    ePAL-0.16 &    0.01  &  0.01 & \quart{0}{6}{6}{0} \\
+  1 &    ePAL-0.12 &    0.01  &  0.0 & \quart{6}{0}{6}{0} \\
+  1 &    ePAL-0.02 &    0.01  &  0.01 & \quart{0}{6}{6}{0} \\
+  1 &     ePAL-0.2 &    0.01  &  0.0 & \quart{6}{0}{6}{0} \\
+  1 &    ePAL-0.08 &    0.01  &  0.0 & \quart{6}{0}{6}{0} \\
+  1 &     ePAL-0.3 &    0.01  &  0.01 & \quart{0}{6}{6}{0} \\
+  1 &    Rank-Prog &    0.01  &  0.02 & \quart{0}{12}{6}{0} \\
+\hline  2 &    MMRE-Prog &    0.03  &  0.12 & \quart{6}{73}{18}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS2} & \textbf{noc\_CM\_log} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS3} & \textbf{rs-6d-c3} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS4} & \textbf{sort\_256} & \textbf{} & \textbf{} & \\\hline
+  1 &    MMRE-Prog &    0.0  &  0.01 & \quart{0}{39}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.01 & \quart{0}{39}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.01 & \quart{0}{39}{0}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.01  &  0.02 & \quart{0}{79}{39}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS5} & \textbf{wc+rs-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.01 & \quart{0}{5}{0}{0} \\
+  1 &     ePAL-0.3 &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &     \hl{AL2} &    0.01  &  0.01 & \quart{5}{6}{5}{0} \\
+  1 &          AL3 &    0.02  &  0.01 & \quart{5}{6}{11}{0} \\
+  1 &    Rank-Prog &    0.02  &  0.14 & \quart{0}{79}{11}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS6} & \textbf{wc+sol-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 &    ePAL-0.01 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.02 & \quart{0}{8}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.01 & \quart{0}{4}{0}{0} \\
+  1 &     ePAL-0.3 &    0.01  &  0.02 & \quart{0}{8}{4}{0} \\
+  1 &          AL1 &    0.01  &  0.0 & \quart{4}{0}{4}{0} \\
+  1 &          AL3 &    0.02  &  0.02 & \quart{4}{8}{8}{0} \\
+  1 &     \hl{AL2} &    0.02  &  0.01 & \quart{8}{4}{8}{0} \\
+\hline  2 &    Rank-Prog &    0.09  &  0.18 & \quart{4}{75}{37}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS7} & \textbf{wc+wc-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.01 & \quart{0}{13}{0}{0} \\
+  1 &     ePAL-0.2 &    0.01  &  0.01 & \quart{0}{13}{13}{0} \\
+  1 &     ePAL-0.3 &    0.01  &  0.01 & \quart{0}{13}{13}{0} \\
+  1 &    Rank-Prog &    0.01  &  0.06 & \quart{0}{79}{13}{0} \\
+  1 &          AL1 &    0.01  &  0.0 & \quart{13}{0}{13}{0} \\
+  1 &     \hl{AL2} &    0.02  &  0.01 & \quart{13}{13}{26}{0} \\
+  1 &          AL3 &    0.02  &  0.02 & \quart{13}{26}{26}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS8} & \textbf{wc-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.01 & \quart{0}{19}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.01 & \quart{0}{19}{0}{0} \\
+  1 &    MMRE-Prog &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.01 & \quart{0}{19}{0}{0} \\
+  1 &    ePAL-0.02 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &          AL3 &    0.01  &  0.02 & \quart{0}{39}{19}{0} \\
+  1 &    ePAL-0.16 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &    ePAL-0.12 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &     ePAL-0.3 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &     ePAL-0.2 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &     \hl{AL2} &    0.01  &  0.01 & \quart{19}{20}{19}{0} \\
+\hline  2 &    Rank-Prog &    0.03  &  0.02 & \quart{39}{40}{59}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS9} & \textbf{wc-5d-c5} & \textbf{} & \textbf{} & \\\hline
+  1 &     \hl{AL2} &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.0  &  0.04 & \quart{0}{29}{0}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.1 & \quart{0}{72}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.04 & \quart{0}{29}{0}{0} \\
+  1 &    ePAL-0.02 &    0.01  &  0.04 & \quart{0}{29}{7}{0} \\
+  1 &    ePAL-0.08 &    0.01  &  0.09 & \quart{0}{65}{7}{0} \\
+  1 &    ePAL-0.01 &    0.01  &  0.11 & \quart{0}{79}{7}{0} \\
+  1 &     ePAL-0.2 &    0.01  &  0.09 & \quart{0}{65}{7}{0} \\
+  1 &     ePAL-0.3 &    0.03  &  0.1 & \quart{0}{72}{21}{0} \\
+  1 &    ePAL-0.16 &    0.03  &  0.09 & \quart{0}{65}{21}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS10} & \textbf{wc-6d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     \hl{AL2} &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &          AL3 &    0.01  &  0.01 & \quart{0}{19}{19}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.02  &  0.04 & \quart{0}{79}{39}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS11} & \textbf{wc-c1-3d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.08 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS12} & \textbf{wc-c3-3d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &    MMRE-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    Rank-Prog &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL1 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL3 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.02 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &     \hl{AL2} &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &     ePAL-0.3 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.12 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.16 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.04 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &     ePAL-0.2 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &    ePAL-0.08 &    0.01  &  0.01 & \quart{0}{79}{79}{0} \\
+\hline \end{tabular}}
