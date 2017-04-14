@@ -2,6 +2,7 @@ from __future__ import division
 import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 import sys
+from utility import draw_pareto_front, generational_distance, ranges,inverted_generational_distance
 
 
 def policy(scores, threshold):
@@ -76,6 +77,7 @@ if __name__ == "__main__":
         all_data[file] = {}
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
+        all_data[file]['igd'] = []
 
         print file
         for _ in xrange(40):
@@ -100,14 +102,18 @@ if __name__ == "__main__":
             # predicted_pf = sorted([predicted_actual[i] for i in filtered_predicted_pf_index], key=lambda x:x[0])
             predicted_pf = sorted([actual_dependent[i] for i in predicted_pf_indexes], key=lambda x:x[0])
 
-            from utility import draw_pareto_front, generational_distance, ranges
             # draw_pareto_front(actual_dependent, true_pf, predicted_pf) #, filename=file.split('/')[-1])
             # print "Length of Training set: ", len(temp)
             # print "Length of Validation set: ", len(splits[1])
             # print "Generation Distance: ", generational_distance(true_pf, predicted_pf)
             all_data[file]['evals'].append(len(temp) + len(splits[1]))
             all_data[file]['gen_dist'].append(generational_distance(true_pf, predicted_pf, ranges[file]))
+            all_data[file]['igd'].append(inverted_generational_distance(true_pf, predicted_pf, ranges[file]))
         print
+
+        print [round(x, 5) for x in all_data[file]['evals']]
+        print [round(x, 5) for x in all_data[file]['gen_dist']]
+        print [round(x, 5) for x in all_data[file]['igd']]
 
     import pickle
     pickle.dump(all_data, open('mmre-based.p', 'w'))

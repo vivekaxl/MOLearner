@@ -1,0 +1,204 @@
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS1} & \textbf{llvm\_input} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  2.0 & \quart{2}{2}{2}{0} \\
+\hline  2 &     ePAL-0.3 &    35.0  &  14.0 & \quart{2}{14}{4}{0} \\
+  2 &          AL3 &    42.0  &  28.0 & \quart{0}{29}{11}{0} \\
+  2 &     ePAL-0.2 &    41.0  &  17.0 & \quart{5}{18}{10}{0} \\
+\hline  3 &    ePAL-0.16 &    42.0  &  17.0 & \quart{6}{18}{11}{0} \\
+  3 &    ePAL-0.12 &    43.0  &  16.0 & \quart{8}{17}{12}{0} \\
+  3 &    ePAL-0.08 &    49.0  &  20.0 & \quart{11}{21}{18}{0} \\
+  3 & \colorbox{blue}{pop0} &    51.0  &  0.0 & \quart{21}{0}{21}{0} \\
+  3 &          AL1 &    67.0  &  20.0 & \quart{23}{21}{37}{0} \\
+\hline  4 &    ePAL-0.01 &    69.0  &  43.0 & \quart{28}{45}{39}{0} \\
+  4 &    ePAL-0.04 &    70.0  &  31.0 & \quart{25}{32}{41}{0} \\
+  4 &    ePAL-0.02 &    74.0  &  49.0 & \quart{28}{51}{45}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS2} & \textbf{noc\_CM\_log} & \textbf{} & \textbf{} & \\\hline
+  1 & \colorbox{blue}{pop0} &    12.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &     ePAL-0.2 &    27.0  &  18.0 & \quart{8}{15}{12}{0} \\
+  2 &    ePAL-0.16 &    28.0  &  16.0 & \quart{9}{14}{13}{0} \\
+  2 &     ePAL-0.3 &    29.0  &  20.0 & \quart{7}{17}{14}{0} \\
+  2 &          AL3 &    31.0  &  10.0 & \quart{12}{8}{15}{0} \\
+  2 &          AL2 &    32.0  &  3.0 & \quart{15}{3}{16}{0} \\
+  2 &    ePAL-0.12 &    36.0  &  19.0 & \quart{10}{16}{19}{0} \\
+  2 &          AL1 &    35.0  &  9.0 & \quart{14}{8}{19}{0} \\
+  2 &    ePAL-0.08 &    36.0  &  13.0 & \quart{13}{11}{19}{0} \\
+\hline  3 &    ePAL-0.02 &    48.0  &  30.0 & \quart{22}{25}{29}{0} \\
+  3 &    ePAL-0.01 &    53.0  &  68.0 & \quart{23}{56}{34}{0} \\
+  3 &    ePAL-0.04 &    60.0  &  69.0 & \quart{22}{57}{39}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS3} & \textbf{rs-6d-c3} & \textbf{} & \textbf{} & \\\hline
+  1 &     ePAL-0.2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+  1 &     ePAL-0.3 &    30.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &    ePAL-0.16 &    31.0  &  2.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    36.0  &  5.0 & \quart{0}{2}{1}{0} \\
+\hline  2 &    ePAL-0.12 &    40.0  &  15.0 & \quart{1}{5}{3}{0} \\
+  2 &    ePAL-0.08 &    56.0  &  43.0 & \quart{2}{14}{8}{0} \\
+  2 &          AL3 &    111.0  &  39.0 & \quart{18}{12}{25}{0} \\
+\hline  3 &    ePAL-0.04 &    113.0  &  89.0 & \quart{15}{28}{26}{0} \\
+  3 &          AL1 &    115.0  &  61.0 & \quart{22}{19}{26}{0} \\
+\hline  4 &    ePAL-0.02 &    143.0  &  104.0 & \quart{23}{32}{35}{0} \\
+  4 &    ePAL-0.01 &    187.0  &  151.0 & \quart{32}{47}{49}{0} \\
+  4 & \colorbox{blue}{pop0} &    192.0  &  0.0 & \quart{51}{0}{51}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS4} & \textbf{sort\_256} & \textbf{} & \textbf{} & \\\hline
+  1 & \colorbox{blue}{pop0} &    10.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &     ePAL-0.3 &    20.0  &  6.0 & \quart{6}{5}{7}{0} \\
+  2 &          AL2 &    23.0  &  2.0 & \quart{8}{2}{9}{0} \\
+\hline  3 &          AL3 &    25.0  &  4.0 & \quart{9}{3}{11}{0} \\
+\hline  4 &          AL1 &    27.0  &  6.0 & \quart{10}{4}{12}{0} \\
+  4 &     ePAL-0.2 &    27.0  &  8.0 & \quart{10}{6}{12}{0} \\
+\hline  5 &    ePAL-0.16 &    31.0  &  16.0 & \quart{13}{11}{15}{0} \\
+\hline  6 &    ePAL-0.12 &    36.0  &  11.0 & \quart{15}{8}{19}{0} \\
+\hline  7 &    ePAL-0.08 &    51.0  &  36.0 & \quart{19}{26}{30}{0} \\
+  7 &    ePAL-0.04 &    67.0  &  36.0 & \quart{26}{26}{41}{0} \\
+\hline  8 &    ePAL-0.02 &    77.0  &  39.0 & \quart{38}{28}{49}{0} \\
+  8 &    ePAL-0.01 &    86.0  &  51.0 & \quart{42}{37}{55}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS5} & \textbf{wc+rs-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 & \colorbox{blue}{pop0} &    9.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL3 &    31.0  &  9.0 & \quart{9}{4}{11}{0} \\
+\hline  3 &          AL2 &    38.0  &  2.0 & \quart{14}{1}{14}{0} \\
+\hline  4 &          AL1 &    45.0  &  9.0 & \quart{15}{5}{18}{0} \\
+\hline  5 &     ePAL-0.3 &    71.0  &  28.0 & \quart{25}{14}{31}{0} \\
+\hline  6 &    ePAL-0.12 &    78.0  &  51.0 & \quart{26}{26}{34}{0} \\
+  6 &     ePAL-0.2 &    79.0  &  72.0 & \quart{26}{36}{35}{0} \\
+  6 &    ePAL-0.16 &    89.0  &  73.0 & \quart{28}{37}{40}{0} \\
+\hline  7 &    ePAL-0.08 &    102.0  &  58.0 & \quart{32}{30}{47}{0} \\
+  7 &    ePAL-0.02 &    112.0  &  74.0 & \quart{41}{37}{52}{0} \\
+  7 &    ePAL-0.04 &    114.0  &  50.0 & \quart{44}{25}{53}{0} \\
+\hline  8 &    ePAL-0.01 &    139.0  &  56.0 & \quart{51}{28}{65}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS6} & \textbf{wc+sol-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 & \colorbox{blue}{pop0} &    9.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL3 &    29.0  &  10.0 & \quart{8}{4}{9}{0} \\
+\hline  3 &          AL2 &    37.0  &  6.0 & \quart{11}{3}{13}{0} \\
+\hline  4 &          AL1 &    46.0  &  5.0 & \quart{16}{2}{17}{0} \\
+\hline  5 &     ePAL-0.3 &    73.0  &  34.0 & \quart{22}{16}{30}{0} \\
+  5 &    ePAL-0.16 &    77.0  &  56.0 & \quart{23}{27}{32}{0} \\
+  5 &     ePAL-0.2 &    77.0  &  44.0 & \quart{24}{21}{32}{0} \\
+  5 &    ePAL-0.12 &    85.0  &  60.0 & \quart{25}{29}{36}{0} \\
+  5 &    ePAL-0.08 &    97.0  &  62.0 & \quart{31}{30}{42}{0} \\
+\hline  6 &    ePAL-0.02 &    117.0  &  66.0 & \quart{38}{31}{51}{0} \\
+  6 &    ePAL-0.04 &    119.0  &  71.0 & \quart{37}{34}{52}{0} \\
+  6 &    ePAL-0.01 &    132.0  &  75.0 & \quart{44}{35}{58}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS7} & \textbf{wc+wc-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 & \colorbox{blue}{pop0} &    9.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL3 &    27.0  &  7.0 & \quart{8}{3}{8}{0} \\
+\hline  3 &          AL2 &    37.0  &  3.0 & \quart{12}{2}{13}{0} \\
+\hline  4 &          AL1 &    42.0  &  10.0 & \quart{14}{5}{15}{0} \\
+\hline  5 &     ePAL-0.3 &    69.0  &  40.0 & \quart{23}{19}{29}{0} \\
+  5 &     ePAL-0.2 &    71.0  &  37.0 & \quart{22}{18}{30}{0} \\
+  5 &    ePAL-0.16 &    77.0  &  52.0 & \quart{28}{25}{32}{0} \\
+\hline  6 &    ePAL-0.08 &    91.0  &  76.0 & \quart{27}{36}{39}{0} \\
+  6 &    ePAL-0.12 &    96.0  &  61.0 & \quart{27}{30}{42}{0} \\
+\hline  7 &    ePAL-0.04 &    111.0  &  54.0 & \quart{37}{26}{49}{0} \\
+  7 &    ePAL-0.01 &    120.0  &  77.0 & \quart{42}{37}{53}{0} \\
+  7 &    ePAL-0.02 &    131.0  &  66.0 & \quart{39}{32}{59}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS8} & \textbf{wc-3d-c4} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  4.0 & \quart{0}{1}{0}{0} \\
+\hline  2 & \colorbox{blue}{pop0} &    37.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &          AL3 &    44.0  &  21.0 & \quart{0}{5}{2}{0} \\
+\hline  4 &     ePAL-0.3 &    55.0  &  44.0 & \quart{2}{12}{5}{0} \\
+  4 &     ePAL-0.2 &    57.0  &  62.0 & \quart{1}{17}{6}{0} \\
+  4 &    ePAL-0.16 &    66.0  &  29.0 & \quart{4}{8}{8}{0} \\
+  4 &          AL1 &    68.0  &  23.0 & \quart{5}{6}{8}{0} \\
+\hline  5 &    ePAL-0.12 &    72.0  &  77.0 & \quart{4}{21}{9}{0} \\
+  5 &    ePAL-0.08 &    88.0  &  161.0 & \quart{7}{42}{14}{0} \\
+  5 &    ePAL-0.04 &    91.0  &  82.0 & \quart{6}{21}{14}{0} \\
+  5 &    ePAL-0.02 &    121.0  &  113.0 & \quart{14}{29}{22}{0} \\
+\hline  6 &    ePAL-0.01 &    210.0  &  241.0 & \quart{16}{63}{46}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS9} & \textbf{wc-5d-c5} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    29.0  &  2.0 & \quart{0}{4}{2}{0} \\
+  1 &     ePAL-0.3 &    30.0  &  1.0 & \quart{4}{2}{4}{0} \\
+  1 &    ePAL-0.16 &    31.0  &  2.0 & \quart{4}{5}{6}{0} \\
+  1 &     ePAL-0.2 &    31.0  &  2.0 & \quart{4}{5}{6}{0} \\
+\hline  2 &    ePAL-0.12 &    32.0  &  3.0 & \quart{4}{7}{9}{0} \\
+  2 &    ePAL-0.08 &    33.0  &  5.0 & \quart{6}{12}{11}{0} \\
+\hline  3 &          AL1 &    35.0  &  14.0 & \quart{6}{32}{15}{0} \\
+  3 &    ePAL-0.04 &    35.0  &  10.0 & \quart{11}{23}{15}{0} \\
+  3 &    ePAL-0.02 &    36.0  &  12.0 & \quart{13}{28}{18}{0} \\
+\hline  4 &          AL3 &    40.0  &  20.0 & \quart{9}{45}{27}{0} \\
+  4 &    ePAL-0.01 &    48.0  &  28.0 & \quart{15}{64}{45}{0} \\
+  4 & \colorbox{blue}{pop0} &    54.0  &  0.0 & \quart{59}{0}{59}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS10} & \textbf{wc-6d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    38.0  &  7.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &          AL3 &    68.0  &  30.0 & \quart{2}{5}{4}{0} \\
+  2 &          AL1 &    95.0  &  13.0 & \quart{7}{2}{8}{0} \\
+\hline  3 &    ePAL-0.08 &    132.0  &  170.0 & \quart{7}{24}{14}{0} \\
+  3 &     ePAL-0.2 &    138.0  &  90.0 & \quart{9}{13}{14}{0} \\
+  3 &    ePAL-0.16 &    148.0  &  277.0 & \quart{8}{40}{16}{0} \\
+  3 &     ePAL-0.3 &    140.0  &  172.0 & \quart{8}{25}{15}{0} \\
+  3 &    ePAL-0.12 &    144.0  &  321.0 & \quart{10}{47}{15}{0} \\
+  3 & \colorbox{blue}{pop0} &    144.0  &  0.0 & \quart{15}{0}{15}{0} \\
+\hline  4 &    ePAL-0.04 &    180.0  &  337.0 & \quart{13}{48}{21}{0} \\
+  4 &    ePAL-0.01 &    215.0  &  269.0 & \quart{13}{39}{26}{0} \\
+  4 &    ePAL-0.02 &    216.0  &  463.0 & \quart{13}{66}{26}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS11} & \textbf{wc-c1-3d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  4.0 & \quart{0}{2}{1}{0} \\
+\hline  2 &          AL1 &    36.0  &  5.0 & \quart{2}{3}{3}{0} \\
+\hline  3 &          AL3 &    43.0  &  52.0 & \quart{1}{27}{7}{0} \\
+  3 & \colorbox{blue}{pop0} &    67.0  &  0.0 & \quart{19}{0}{19}{0} \\
+  3 &     ePAL-0.2 &    70.0  &  28.0 & \quart{12}{14}{21}{0} \\
+  3 &     ePAL-0.3 &    74.0  &  22.0 & \quart{13}{11}{23}{0} \\
+\hline  4 &    ePAL-0.16 &    77.0  &  30.0 & \quart{19}{16}{25}{0} \\
+  4 &    ePAL-0.12 &    77.0  &  22.0 & \quart{17}{12}{25}{0} \\
+\hline  5 &    ePAL-0.08 &    87.0  &  110.0 & \quart{22}{57}{30}{0} \\
+  5 &    ePAL-0.04 &    88.0  &  38.0 & \quart{24}{20}{30}{0} \\
+  5 &    ePAL-0.02 &    90.0  &  35.0 & \quart{25}{18}{31}{0} \\
+  5 &    ePAL-0.01 &    112.0  &  103.0 & \quart{25}{53}{43}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS12} & \textbf{wc-c3-3d-c1} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  7.0 & \quart{0}{2}{1}{0} \\
+\hline  2 &          AL1 &    40.0  &  10.0 & \quart{2}{3}{3}{0} \\
+\hline  3 &          AL3 &    59.0  &  26.0 & \quart{4}{8}{9}{0} \\
+\hline  4 &     ePAL-0.2 &    60.0  &  113.0 & \quart{5}{35}{10}{0} \\
+  4 &    ePAL-0.16 &    74.0  &  91.0 & \quart{5}{28}{14}{0} \\
+  4 & \colorbox{blue}{pop0} &    75.0  &  0.0 & \quart{14}{0}{14}{0} \\
+  4 &     ePAL-0.3 &    101.0  &  82.0 & \quart{5}{26}{22}{0} \\
+\hline  5 &    ePAL-0.08 &    109.0  &  176.0 & \quart{11}{55}{25}{0} \\
+  5 &    ePAL-0.12 &    134.0  &  187.0 & \quart{9}{57}{32}{0} \\
+  5 &    ePAL-0.04 &    222.0  &  180.0 & \quart{12}{55}{59}{0} \\
+\hline  6 &    ePAL-0.02 &    245.0  &  184.0 & \quart{16}{56}{67}{0} \\
+  6 &    ePAL-0.01 &    248.0  &  200.0 & \quart{18}{61}{67}{0} \\
+\hline \end{tabular}}

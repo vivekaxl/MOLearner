@@ -2,7 +2,7 @@ from __future__ import division
 import os
 import sys
 sys.path.append("/Users/viveknair/GIT/MOLearner/")
-from utility import generational_distance, ranges
+from utility import generational_distance, ranges,inverted_generational_distance
 from utility import container
 
 # mapping between pareto data and raw data
@@ -33,9 +33,11 @@ def process(epsilon_value, predicted_sub_folder, actual_pareto_file, range):
     data = {}
     data['evals'] = data_dict[key][str(epsilon_value)].evals
     data['gen_dist'] = []
+    data['igd'] = []
     for f_file in filtered_files:
         predicted_pf = [map(float, line.strip().split(',')) for line in open(f_file).readlines()]
         data['gen_dist'].append(generational_distance(true_pf, predicted_pf, range))
+        data['igd'].append(inverted_generational_distance(true_pf, predicted_pf, range))
     return data
 
 

@@ -28,7 +28,7 @@ def non_dominated_sort(raw_dependents, lessismore):
         for i in xrange(len(lessismore)):
             # if lessismore[i] is true - Minimization else Maximization
             if lessismore[i] is False:
-                temp.append(1/rd[i])
+                temp.append(-1*rd[i])
             else:
                 temp.append(rd[i])
         dependents.append(temp)
@@ -53,13 +53,13 @@ def non_dominated_sort(raw_dependents, lessismore):
 
 
 if __name__ == "__main__":
-    data = read_file("./Data/sol-6d-c2.csv")
+    data = read_file("./Data/Sac1_2.csv")
     dependents = [d.objectives for d in data]
     pf_indexes = non_dominated_sort(dependents, [False, True])
     pf = [dependents[i] for i in pf_indexes]
     pf = sorted(pf, key=lambda x:x[0])
 
-    import matplotlib.pyplot as plt
-    plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
-    plt.plot([p[0] for p in pf], [p[1] for p in pf], color='green', marker='o')
-    plt.show()
+    # import matplotlib.pyplot as plt
+    # plt.scatter([d[0] for d in dependents], [d[1] for d in dependents], color='r')
+    # plt.plot([p[0] for p in pf], [p[1] for p in pf], color='green', marker='o')
+    # plt.show()

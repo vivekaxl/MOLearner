@@ -17,12 +17,13 @@ def process():
     al = pickle.load(open(folder + "al-based.p"))
     al_2 = pickle.load(open(folder + "al-based-2.p"))
     al_3 = pickle.load(open(folder + "al-based-3.p"))
+    pop0 = pickle.load(open(folder + "pop0-based.p"))
 
     files = mmre.keys()
     for i, file in enumerate(sorted(files)):
         lists = list()
-        lists.append(["MMRE-Prog"] + mmre[file]['evals'])
-        lists.append(["Rank-Prog"] + rank[file]['evals'])
+        # lists.append(["MMRE-Prog"] + mmre[file]['evals'])
+        # lists.append(["Rank-Prog"] + rank[file]['evals'])
 
         lists.append(["ePAL-0.01"] + epal[file][0.01]['evals'])
         lists.append(["ePAL-0.02"] + epal[file][0.02]['evals'])
@@ -36,7 +37,8 @@ def process():
         lists.append(["AL1"] + al[file]['evals'])
         lists.append(["AL2"] + al_2[file]['evals'])
         lists.append(["AL3"] + al_3[file]['evals'])
-        rdivDemo("SS" + str(i + 1),file.split('/')[-1].split('.')[0],  lists, globalMinMax=False, isLatex=True)
+        lists.append(["\colorbox{blue}{pop0}"] + pop0[file]['evals'])
+        rdivDemo("SS" + str(i + 1),file.split('/')[-1].split('.')[0].replace('_', '\_'),  lists, globalMinMax=False, isLatex=True)
 
 
 

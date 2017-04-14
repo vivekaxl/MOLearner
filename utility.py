@@ -121,6 +121,23 @@ def generational_distance(actual, predicted, ranges):
         return distance
 
     min_distances = []
+    for p in predicted:
+        min_dist = sys.maxint
+        for a in actual:
+            min_dist = min(min_dist, euclidean_distance(a, p))
+        min_distances.append(min_dist)
+    return np.mean(min_distances)
+
+def inverted_generational_distance(actual, predicted, ranges):
+    def euclidean_distance(rlist1, rlist2):
+        list1 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist1)]
+        list2 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist2)]
+        assert(len(list1) == len(list2)), "The points don't have the same dimension"
+        distance = sum([(i - j) ** 2 for i, j in zip(list1, list2)])
+        assert(distance >= 0), "Distance can't be less than 0"
+        return distance
+
+    min_distances = []
     for a in actual:
         min_dist = sys.maxint
         for p in predicted:

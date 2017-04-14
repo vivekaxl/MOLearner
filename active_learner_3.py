@@ -3,7 +3,7 @@ import numpy as np
 import os
 import sys
 from random import shuffle
-from utility import lessismore, generational_distance, ranges
+from utility import lessismore, generational_distance, ranges,inverted_generational_distance
 from non_dominated_sort import non_dominated_sort
 import math
 
@@ -227,6 +227,7 @@ def run_main():
         all_data[file] = {}
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
+        all_data[file]['igd'] = []
 
         print file
         data = read_file(file)
@@ -317,10 +318,13 @@ def run_main():
             from utility import draw_pareto_front
             # draw_pareto_front(actual_dependent, true_pf, current_pf)
             all_data[file]['gen_dist'].append(generational_distance(true_pf, current_pf, ranges[file]))
+            all_data[file]['igd'].append(inverted_generational_distance(true_pf, current_pf, ranges[file]))
+
         # raw_input()
 
-        print all_data[file]['evals']
-        print all_data[file]['gen_dist']
+        print [round(x, 5) for x in all_data[file]['evals']]
+        print [round(x, 5) for x in all_data[file]['gen_dist']]
+        print [round(x, 5) for x in all_data[file]['igd']]
 
 
     import pickle

@@ -3,7 +3,7 @@ import numpy as np
 import os
 import sys
 from random import shuffle
-from utility import lessismore, generational_distance, ranges
+from utility import lessismore, generational_distance, ranges, inverted_generational_distance
 from non_dominated_sort import non_dominated_sort
 import math
 
@@ -115,6 +115,7 @@ if __name__ == "__main__":
         all_data[file] = {}
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
+        all_data[file]['igd'] = []
 
         print file
         data = read_file(file)
@@ -161,7 +162,7 @@ if __name__ == "__main__":
                     # print "@@| ", counting_dict[key]
                     return objectives_dict[key]
 
-                print "Length of training Data: ", len(training_data), get_evals()
+
                 training_dep = [get_objective_score(r) for r in training_data]
 
                 training_sequence, return_nd_independent = get_training_sequence(file, training_data, training_dep, testing_data)
@@ -171,10 +172,10 @@ if __name__ == "__main__":
                 while not_in_cache(next_point, training_data) is False and count < len(training_sequence):
                     next_point = return_nd_independent[training_sequence[count]]
                     count += 1
-                    print "# ", #next_point
+                    # print "# ", #next_point
                     sys.stdout.flush()
 
-                print
+                # print
                 next_point_dependent = get_objective_score(next_point)
 
 
@@ -212,11 +213,11 @@ if __name__ == "__main__":
 
                 if lives == 0: break
 
+            print "Size of the frontier = ", len(training_data), " Evals: ", get_evals(),
             # Calculate the True ND
             training_dependent = [get_objective_score(r) for r in training_data]
             pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
             current_pf = [training_dependent[i] for i in pf_indexes]
-            print "Size of the frontier = ", len(current_pf), " Evals: ", get_evals()
             all_data[file]['evals'].append(get_evals())
 
             actual_dependent = [get_objective_score(d) for d in testing_data]
@@ -226,10 +227,15 @@ if __name__ == "__main__":
             from utility import draw_pareto_front
             # draw_pareto_front(actual_dependent, true_pf, current_pf)
             all_data[file]['gen_dist'].append(generational_distance(true_pf, current_pf, ranges[file]))
+            all_data[file]['igd'].append(inverted_generational_distance(true_pf, current_pf, ranges[file]))
+
+            print " GD: ",  all_data[file]['gen_dist'][-1],
+            print " IGD: ",  all_data[file]['igd'][-1]
 
 
-        print all_data[file]['evals']
-        print all_data[file]['gen_dist']
+        print [round(x, 5) for x in all_data[file]['evals']]
+        print [round(x, 5) for x in all_data[file]['gen_dist']]
+        print [round(x, 5) for x in all_data[file]['igd']]
 
 
     import pickle

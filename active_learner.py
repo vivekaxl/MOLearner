@@ -3,7 +3,7 @@ import numpy as np
 import os
 import sys
 from random import shuffle
-from utility import lessismore, generational_distance, ranges
+from utility import lessismore, generational_distance, ranges,inverted_generational_distance
 from non_dominated_sort import non_dominated_sort
 
 
@@ -89,6 +89,7 @@ if __name__ == "__main__":
         all_data[file] = {}
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
+        all_data[file]['igd'] = []
 
         print file
         data = read_file(file)
@@ -107,7 +108,7 @@ if __name__ == "__main__":
 
         evals = []
         pfs = []
-        for rep in xrange(3):
+        for rep in xrange(20):
             # Creating Count Dict -- To make sure that if a point is evaluated twice, it is counted as once
             counting_dict = {}
             for d in data:
@@ -171,7 +172,7 @@ if __name__ == "__main__":
             training_dependent = [get_objective_score(r) for r in training_data]
             pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
             current_pf = [training_dependent[i] for i in pf_indexes]
-            print "Size of the frontier = ", len(current_pf), " Evals: ", get_evals()
+            print "Size of the frontier = ", len(current_pf), " Evals: ", get_evals(),
             pfs.append(current_pf)
             evals.append(get_evals())
             all_data[file]['evals'].append(get_evals())
@@ -184,6 +185,9 @@ if __name__ == "__main__":
             from utility import draw_pareto_front
             # draw_pareto_front(actual_dependent, true_pf, current_pf)
             all_data[file]['gen_dist'].append(generational_distance(true_pf, current_pf, ranges[file]))
+            all_data[file]['igd'].append(inverted_generational_distance(true_pf, current_pf, ranges[file]))
+            print " GD: ",  all_data[file]['gen_dist'][-1],
+            print " IGD: ",  all_data[file]['igd'][-1]
 
         print all_data[file]['evals']
         print all_data[file]['gen_dist']
