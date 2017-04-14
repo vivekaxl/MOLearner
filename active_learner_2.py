@@ -4,7 +4,8 @@ import os
 import sys
 from random import shuffle
 from utility import lessismore, generational_distance, ranges, inverted_generational_distance
-from non_dominated_sort import non_dominated_sort
+# from non_dominated_sort import non_dominated_sort
+from non_dominated_sort_fast import non_dominated_sort_fast
 import math
 
 def normalize(x, min, max):
@@ -71,7 +72,7 @@ def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
     assert(len(merged_predicted_objectves) == len(predicted_objectives[0])), "Something is wrong"
 
     # Find Non-Dominated Solutions
-    pf_indexes = non_dominated_sort(merged_predicted_objectves, lessismore[filename])
+    pf_indexes = non_dominated_sort_fast(merged_predicted_objectves, lessismore[filename])
     # print "Number of ND Solutions: ", len(pf_indexes)
 
     return [testing_indep[i] for i in pf_indexes], [merged_predicted_objectves[i] for i in pf_indexes]
@@ -132,6 +133,9 @@ if __name__ == "__main__":
 
         evals = []
         pfs = []
+        actual_dependent = [d.objectives for d in data]
+        true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
+        true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
         for rep in xrange(20):
             print ". ",
             sys.stdout.flush()
@@ -180,12 +184,12 @@ if __name__ == "__main__":
 
 
                 # Add it to training set and see if it is a dominating point
-                before_pf_indexes = non_dominated_sort(training_dep, lessismore[file])
+                before_pf_indexes = non_dominated_sort_fast(training_dep, lessismore[file])
                 before_pf = [training_dep[i] for i in before_pf_indexes]
 
                 added_training = training_data + [next_point]
 
-                after_pf_indexes = non_dominated_sort(training_dep + [next_point_dependent], lessismore[file])
+                after_pf_indexes = non_dominated_sort_fast(training_dep + [next_point_dependent], lessismore[file])
                 after_pf = [(training_dep + [next_point_dependent])[i] for i in after_pf_indexes]
 
                 import itertools
@@ -216,13 +220,9 @@ if __name__ == "__main__":
             print "Size of the frontier = ", len(training_data), " Evals: ", get_evals(),
             # Calculate the True ND
             training_dependent = [get_objective_score(r) for r in training_data]
-            pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
+            pf_indexes = non_dominated_sort_fast(training_dependent, lessismore[file])
             current_pf = [training_dependent[i] for i in pf_indexes]
             all_data[file]['evals'].append(get_evals())
-
-            actual_dependent = [get_objective_score(d) for d in testing_data]
-            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
-            true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x:x[0])
             current_pf = sorted(current_pf, key=lambda x:x[0])
             from utility import draw_pareto_front
             # draw_pareto_front(actual_dependent, true_pf, current_pf)

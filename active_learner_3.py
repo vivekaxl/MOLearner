@@ -4,7 +4,8 @@ import os
 import sys
 from random import shuffle
 from utility import lessismore, generational_distance, ranges,inverted_generational_distance
-from non_dominated_sort import non_dominated_sort
+# from non_dominated_sort import non_dominated_sort
+from non_dominated_sort_fast import non_dominated_sort_fast
 import math
 
 
@@ -207,7 +208,7 @@ def pick_new_points(training_indep, training_dep, testing_data, number_of_object
 
     # Convert temp_predicted_objs into tuples
     predicted_objs = [[t[i] for t in temp_predicted_objs] for i in xrange(len(temp_predicted_objs[0]))]
-    predicted_pf_indexes = non_dominated_sort(predicted_objs, lessismore_status)
+    predicted_pf_indexes = non_dominated_sort_fast(predicted_objs, lessismore_status)
     predicted_pf = sorted([compliant_data[i] for i in predicted_pf_indexes], key=lambda x: x[0])
     # print "3. Length of Predicted ND solutions: ", len(predicted_pf)
     return predicted_pf
@@ -267,7 +268,7 @@ def run_main():
 
                 predicted_pf = pick_new_points(training_indep, training_dep, testing_data, number_of_objectives, lessismore[file])
                 actual_dep_predicted_pf = [get_objective_score(r) for r in predicted_pf]
-                current_pf_indexes = non_dominated_sort(training_dep + actual_dep_predicted_pf, lessismore[file])
+                current_pf_indexes = non_dominated_sort_fast(training_dep + actual_dep_predicted_pf, lessismore[file])
                 current_pf = [(training_indep + predicted_pf)[i] for i in current_pf_indexes]
 
                 # Remove Duplicates
@@ -304,7 +305,7 @@ def run_main():
 
             # Calculate the True ND
             training_dependent = [get_objective_score(r) for r in training_indep]
-            pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
+            pf_indexes = non_dominated_sort_fast(training_dependent, lessismore[file])
             current_pf = [training_dependent[i] for i in pf_indexes]
             all_data[file]['evals'].append(get_evals())
 
@@ -312,7 +313,7 @@ def run_main():
             # print "Evaluations: ", get_evals()
 
             actual_dependent = [get_objective_score(d) for d in testing_data]
-            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
+            true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
             true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
             current_pf = sorted(current_pf, key=lambda x: x[0])
             from utility import draw_pareto_front

@@ -4,9 +4,8 @@ import os
 import sys
 from random import shuffle
 from utility import lessismore, generational_distance, ranges,inverted_generational_distance
-from non_dominated_sort import non_dominated_sort
-
-
+# from non_dominated_sort import non_dominated_sort
+from non_dominated_sort_fast import non_dominated_sort_fast
 
 def policy1(scores, lives=3):
         """
@@ -64,7 +63,7 @@ def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
     assert(len(merged_predicted_objectves) == len(predicted_objectives[0])), "Something is wrong"
 
     # Find Non-Dominated Solutions
-    pf_indexes = non_dominated_sort(merged_predicted_objectves, lessismore[filename])
+    pf_indexes = non_dominated_sort_fast(merged_predicted_objectves, lessismore[filename])
     # print "Number of ND Solutions: ", len(pf_indexes)
 
     return [testing_indep[i] for i in pf_indexes][:10]
@@ -81,7 +80,12 @@ if __name__ == "__main__":
              './Data/rs-6d-c3.csv', './Data/sort_256.csv',
              './Data/wc+rs-3d-c4.csv', './Data/wc+sol-3d-c4.csv', './Data/wc+wc-3d-c4.csv',
              './Data/wc-3d-c4.csv', './Data/wc-5d-c5.csv', './Data/wc-6d-c1.csv', './Data/wc-c1-3d-c1.csv',
-             './Data/wc-c3-3d-c1.csv']
+             './Data/wc-c3-3d-c1.csv', './Data/SaC1_2.csv',
+             './Data/SaC_3_4.csv', './Data/SaC_5_6.csv', './Data/SaC_7_8.csv',
+             './Data/SaC_9_10.csv', './Data/SaC_11_12.csv', './Data/TriMesh_1_2.csv', './Data/TriMesh_2_3.csv',
+             './Data/x264-DB_1_2.csv', './Data/x264-DB_2_3.csv', './Data/x264-DB_3_4.csv', './Data/x264-DB_4_5.csv',
+             './Data/x264-DB_5_6.csv',]
+    sys.stdout.flush()
 
     all_data = {}
     initial_sample_size = 20
@@ -101,11 +105,12 @@ if __name__ == "__main__":
             key = ",".join(map(str, d.decisions))
             objectives_dict[key] = d.objectives
 
-
-
         def get_evals():
             return sum(1 if counting_dict[key]>0 else 0 for key in counting_dict.keys())
 
+        actual_dependent = [d.objectives for d in data]
+        true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
+        true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x:x[0])
         evals = []
         pfs = []
         for rep in xrange(20):
@@ -140,7 +145,7 @@ if __name__ == "__main__":
                 return_actual_dependent_values = [get_objective_score(r) for r in return_nd_independent]
 
                 # Get Actual Pareto Front --- Size of Predicted PF >> Size of Actual PF
-                current_pf_indexes = non_dominated_sort(return_actual_dependent_values, lessismore[file])
+                current_pf_indexes = non_dominated_sort_fast(return_actual_dependent_values, lessismore[file])
                 current_pf = [return_nd_independent[i] for i in current_pf_indexes]
 
                 training_data = training_data + return_nd_independent
@@ -170,17 +175,12 @@ if __name__ == "__main__":
             # print "Number of Evaluations = ", get_evals()
             # Calculate the True ND
             training_dependent = [get_objective_score(r) for r in training_data]
-            pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
+            pf_indexes = non_dominated_sort_fast(training_dependent, lessismore[file])
             current_pf = [training_dependent[i] for i in pf_indexes]
             print "Size of the frontier = ", len(current_pf), " Evals: ", get_evals(),
             pfs.append(current_pf)
             evals.append(get_evals())
             all_data[file]['evals'].append(get_evals())
-
-
-            actual_dependent = [get_objective_score(d) for d in testing_data]
-            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
-            true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x:x[0])
             current_pf = sorted(current_pf, key=lambda x:x[0])
             from utility import draw_pareto_front
             # draw_pareto_front(actual_dependent, true_pf, current_pf)
@@ -189,8 +189,12 @@ if __name__ == "__main__":
             print " GD: ",  all_data[file]['gen_dist'][-1],
             print " IGD: ",  all_data[file]['igd'][-1]
 
+
         print all_data[file]['evals']
         print all_data[file]['gen_dist']
+        import pickle
 
-    import pickle
-    pickle.dump(all_data, open('al-based.p', 'w'))
+        pickle.dump(all_data, open('al-based_' + file.split('/')[-1][:-4] + '.p', 'w'))
+
+    # import pickle
+    # pickle.dump(all_data, open('al-based.p', 'w'))
