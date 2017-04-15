@@ -5,8 +5,6 @@ files += [f for f in os.listdir(".") if "al2-" in f]
 files += [f for f in os.listdir(".") if "mmre-" in f]
 files += [f for f in os.listdir(".") if "rank-" in f]
 
-import pdb
-pdb.set_trace()
 
 for file in files:
     cmd = "python " + file + "&"
