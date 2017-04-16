@@ -9,5 +9,5 @@ files += [f for f in os.listdir(".") if "rank-" in f and ".py" in f]
 
 for file in files:
     cmd = "python " + file + "&"
-    # os.system(cmd)
-    print cmd
+    os.system(cmd)
+    # print cmd
