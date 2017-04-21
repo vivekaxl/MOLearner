@@ -28,7 +28,7 @@ all_data = {}
 for subfolder in subfolders:
     repeats = [subfolder + f + "/" for f in os.listdir(subfolder) if ".DS_Store" not in f]
     print subfolder
-    if "SPEA2" not in subfolder: continue
+    if "SWAY5" not in subfolder: continue
 
     if "NSGAII" in subfolder or "SPEA2" in subfolder:
         # Find appropriate file
@@ -41,19 +41,19 @@ for subfolder in subfolders:
 
     elif "SWAY5" in subfolder:
         # Find appropriate file
-        problem_name_1 = subfolder.split('/')[-2].replace('SWAY5_', '')
-        problem_name_2 = ""
+        problem_name_1 = "_".join(subfolder.split('/')[-2].replace('SWAY5_', '').replace("-", "_").split("_")[:6])
+        problem_name_2 = subfolder.split("-")[-1][:-1]
+
 
     true_pf_dict = pickle.load(open(actual_pf_p, 'r'))
 
     problem_name = problem_name_1 + "_" + problem_name_2
-    import pdb
-    pdb.set_trace()
     all_data[problem_name] = {}
     all_data[problem_name]['evals'] = []
     all_data[problem_name]['gen_dist'] = []
     all_data[problem_name]['igd'] = []
     for repeat in repeats:
+        print problem_name
         if "NSGAII" in subfolder:
             file = repeat + "20.txt"
         elif  "SPEA2" in subfolder:
@@ -83,7 +83,7 @@ for subfolder in subfolders:
     print
 
 
-pickle.dump(all_data, open("SPEA2_monrp.p", "w"))
+pickle.dump(all_data, open("SWAY5_monrp.p", "w"))
 
 
 
