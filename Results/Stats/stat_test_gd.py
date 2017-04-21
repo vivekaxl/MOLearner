@@ -8,40 +8,90 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 from sk import rdivDemo
 
+
 def process():
     rc('text', usetex=True)
-    folder = "./PickleLocker/"
-    mmre = pickle.load(open(folder + "mmre-based.p"))
-    rank = pickle.load(open(folder + "rank-based.p"))
-    epal = pickle.load(open(folder + "epal.p"))
-    al = pickle.load(open(folder + "al-based.p"))
-    al_2 = pickle.load(open(folder + "al-based-2.p"))
-    al_3 = pickle.load(open(folder + "al-based-3.p"))
-    pop0 = pickle.load(open(folder + "pop0-based.p"))
+    content = pickle.load(open("./consolidated_result.p"))
+    problems = [
+        # '_wc-3d-c4.p',
+        # 'llvm_input.p',
+        # 'noc_CM_log.p',
+        # 'rs-6d-c3.p',
+        # 'sort_256.p',
+        # 'wc+rs-3d-c4.p',
+        # 'wc+sol-3d-c4.p',
+        # 'wc+wc-3d-c4.p',
+        # 'wc-5d-c5.p',
+        # 'wc-6d-c1.p',
+        # 'wc-c1-3d-c1.p',
+        # 'wc-c3-3d-c1.p',
+        #
+        # 'SaC1_2.p',
+        'SaC_11_12.p',
+        # 'SaC_3_4.p',
+        # 'SaC_5_6.p',
+        # 'SaC_9_10.p',
+        #
+        # 'x264-DB_1_2.p',
+        # 'x264-DB_2_3.p',
+        # 'x264-DB_3_4.p',
+        # 'x264-DB_4_5.p',
+        # 'x264-DB_5_6.p',
+        #
+        # 'POM3A-p10000-d9-o3-dataset1.p',
+        # 'POM3A-p10000-d9-o3-dataset2.p',
+        # 'POM3B-p10000-d9-o3-dataset1.p',
+        # 'POM3B-p10000-d9-o3-dataset2.p',
+        # 'POM3C-p10000-d9-o3-dataset1.p',
+        # 'POM3C-p10000-d9-o3-dataset2.p',
+        # 'POM3D-p10000-d9-o3-dataset1.p',
+        # 'POM3D-p10000-d9-o3-dataset2.p',
+        #
+        # 'xomo_all-p10000-d27-o4-dataset1.p',
+        # 'xomo_all-p10000-d27-o4-dataset2.p',
+        # 'xomo_all-p10000-d27-o4-dataset3.p',
+        # 'xomo_flight-p10000-d27-o4-dataset1.p',
+        # 'xomo_flight-p10000-d27-o4-dataset2.p',
+        # 'xomo_flight-p10000-d27-o4-dataset3.p',
+        # 'xomo_ground-p10000-d27-o4-dataset1.p',
+        # 'xomo_ground-p10000-d27-o4-dataset2.p',
+        # 'xomo_ground-p10000-d27-o4-dataset3.p',
+        # 'xomo_osp-p10000-d27-o4-dataset1.p',
+        # 'xomo_osp-p10000-d27-o4-dataset2.p',
+        # 'xomo_osp-p10000-d27-o4-dataset3.p',
+        # 'xomoo2-p10000-d27-o4-dataset1.p',
+        # 'xomoo2-p10000-d27-o4-dataset2.p',
+        # 'xomoo2-p10000-d27-o4-dataset3.p',
+        #
+        # 'MONRP_50_4_5_0_110-p10000-d50-o3-dataset1.p',
+        # 'MONRP_50_4_5_0_110-p10000-d50-o3-dataset2.p',
+        # 'MONRP_50_4_5_0_90-p10000-d50-o3-dataset1.p',
+        # 'MONRP_50_4_5_0_90-p10000-d50-o3-dataset2.p',
+        # 'MONRP_50_4_5_4_110-p10000-d50-o3-dataset1.p',
+        # 'MONRP_50_4_5_4_110-p10000-d50-o3-dataset2.p',
+        # 'MONRP_50_4_5_4_90-p10000-d50-o3-dataset1.p',
+        # 'MONRP_50_4_5_4_90-p10000-d50-o3-dataset2.p',
 
-    files = mmre.keys()
-    for i, file in enumerate(sorted(files)):
+
+
+    ]
+    count = 0
+    for problem in problems:
+        if count in [45, 30, 22, 17, 12]:
+            print "\\newpage"
+
+        count += 1
+        problem_content = content[problem]
         lists = list()
-        # lists.append(["MMRE-Prog"] + mmre[file]['gen_dist'])
-        # lists.append(["Rank-Prog"] + rank[file]['gen_dist'])
-
-        lists.append(["ePAL-0.01"] + epal[file][0.01]['gen_dist'])
-        lists.append(["ePAL-0.02"] + epal[file][0.02]['gen_dist'])
-        lists.append(["ePAL-0.04"] + epal[file][0.04]['gen_dist'])
-        lists.append(["ePAL-0.08"] + epal[file][0.08]['gen_dist'])
-        lists.append(["ePAL-0.12"] + epal[file][0.12]['gen_dist'])
-        lists.append(["ePAL-0.16"] + epal[file][0.16]['gen_dist'])
-        lists.append(["ePAL-0.2"] + epal[file][0.2]['gen_dist'])
-        lists.append(["ePAL-0.3"] + epal[file][0.3]['gen_dist'])
-
-        lists.append(["AL1"] + al[file]['gen_dist'])
-        lists.append(["\hl{AL2}"] + al_2[file]['gen_dist'])
-        lists.append(["AL3"] + al_3[file]['gen_dist'])
-        lists.append(["\colorbox{blue}{pop0}"] + pop0[file]['gen_dist'])
-
-        rdivDemo("SS" + str(i + 1),file.split('/')[-1].split('.')[0].replace('_', '\_'), lists, globalMinMax=False, isLatex=True)
-
-
+        lists.append(['AL1'] + problem_content['al1']['gen_dist'])
+        lists.append(['AL2'] + problem_content['al2']['gen_dist'])
+        lists.append(['MMRE'] + problem_content['mmre']['gen_dist'])
+        lists.append(['Rank'] + problem_content['rank']['gen_dist'])
+        import pdb
+        pdb.set_trace()
+        name = problem.replace('_', '\_').replace('-p10000-d27-o4-dataset', '-')
+        name = name.replace('-p10000-d9-o3-dataset', '-').replace('-p10000-d50-o3-dataset', '-')
+        rdivDemo(name, "", lists, globalMinMax=False, isLatex=True)
 
 
 process()

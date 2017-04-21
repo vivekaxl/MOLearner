@@ -132,6 +132,14 @@ def inverted_generational_distance(actual, predicted, ranges):
     def euclidean_distance(rlist1, rlist2):
         list1 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist1)]
         list2 = [(element - ranges[obj_no][0])/(ranges[obj_no][1] - ranges[obj_no][0]) for obj_no, element in enumerate(rlist2)]
+
+        # check if any element is less than 0 replace it with 0
+        list1 = [l if l >=0 else 0 for l in list1]
+        list2 = [l if l >=0 else 0 for l in list2]
+        for l in list1: assert(l >= 0), "Somethign is wrong"
+        for l in list2: assert(l >= 0), "Something is wrong"
+
+
         assert(len(list1) == len(list2)), "The points don't have the same dimension"
         distance = sum([(i - j) ** 2 for i, j in zip(list1, list2)])
         assert(distance >= 0), "Distance can't be less than 0"
@@ -148,6 +156,7 @@ def inverted_generational_distance(actual, predicted, ranges):
 ranges = {}
 # ranges[filename] = [[min(obj1), max(obj1)], [min(obj2), max(obj2)]]
 ranges["./Data/SaC1_2.csv"] = [[0, 134],[0.39, 91.57]]
+#TODO: Range is wrong
 ranges["./Data/SaC_11_12.csv"] = [[0, 134],[0.39, 91.57]]
 ranges["./Data/SaC_3_4.csv"] = [[0.25, 90.59],[0, 272]]
 ranges["./Data/SaC_5_6.csv"] = [[24, 40376],[180144, 5397648]]

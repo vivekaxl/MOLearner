@@ -7,28 +7,45 @@ from utility import draw_pareto_front, generational_distance, ranges, inverted_g
 
 
 if __name__ == "__main__":
-    from utility import read_file, split_data, build_model
-    from non_dominated_sort import non_dominated_sort
+    from utility import read_file, split_data, build_model, lessismore
+    from non_dominated_sort_fast import non_dominated_sort_fast
+    import os
 
-    files = ['./Data/llvm_input.csv', './Data/noc_CM_log.csv',
-             './Data/rs-6d-c3.csv', './Data/sort_256.csv',
-             './Data/wc+rs-3d-c4.csv', './Data/wc+sol-3d-c4.csv', './Data/wc+wc-3d-c4.csv',
-             './Data/wc-3d-c4.csv', './Data/wc-5d-c5.csv', './Data/wc-6d-c1.csv', './Data/wc-c1-3d-c1.csv',
-             './Data/wc-c3-3d-c1.csv']
+    # files = ["./Data/" + f for f in os.listdir("./Data/") if ".csv" in f]
 
-    lessismore = {}
-    lessismore['./Data/llvm_input.csv'] = [False, False]
-    lessismore['./Data/noc_CM_log.csv'] = [False, False]
-    lessismore['./Data/sort_256.csv'] = [False, False]
-    lessismore['./Data/rs-6d-c3.csv'] = [False, True]
-    lessismore['./Data/wc+rs-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc+sol-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc+wc-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc-3d-c4.csv'] = [False, True]
-    lessismore['./Data/wc-5d-c5.csv'] = [False, True]
-    lessismore['./Data/wc-6d-c1.csv'] = [False, True]
-    lessismore['./Data/wc-c1-3d-c1.csv'] = [False, True]
-    lessismore['./Data/wc-c3-3d-c1.csv'] = [False, True]
+    files = [
+        "./Data/sort_256.csv",
+        "./Data/TriMesh_1_2.csv",
+        "./Data/TriMesh_2_3.csv",
+        "./Data/wc+rs-3d-c4.csv",
+        "./Data/wc+sol-3d-c4.csv",
+        "./Data/wc+wc-3d-c4.csv",
+        "./Data/wc-3d-c4.csv",
+        "./Data/wc-5d-c5.csv",
+        "./Data/wc-6d-c1.csv",
+        "./Data/wc-c1-3d-c1.csv",
+        "./Data/wc-c3-3d-c1.csv",
+        "./Data/x264-DB_1_2.csv",
+        "./Data/x264-DB_2_3.csv",
+        "./Data/x264-DB_3_4.csv",
+        "./Data/x264-DB_4_5.csv",
+        "./Data/x264-DB_5_6.csv",
+        "./Data/xomo_all-p10000-d27-o4-dataset1.csv",
+        "./Data/xomo_all-p10000-d27-o4-dataset2.csv",
+        "./Data/xomo_all-p10000-d27-o4-dataset3.csv",
+        "./Data/xomo_flight-p10000-d27-o4-dataset1.csv",
+        "./Data/xomo_flight-p10000-d27-o4-dataset2.csv",
+        "./Data/xomo_flight-p10000-d27-o4-dataset3.csv",
+        "./Data/xomo_ground-p10000-d27-o4-dataset1.csv",
+        "./Data/xomo_ground-p10000-d27-o4-dataset2.csv",
+        "./Data/xomo_ground-p10000-d27-o4-dataset3.csv",
+        "./Data/xomo_osp-p10000-d27-o4-dataset1.csv",
+        "./Data/xomo_osp-p10000-d27-o4-dataset2.csv",
+        "./Data/xomo_osp-p10000-d27-o4-dataset3.csv",
+        "./Data/xomoo2-p10000-d27-o4-dataset1.csv",
+        "./Data/xomoo2-p10000-d27-o4-dataset2.csv",
+        "./Data/xomoo2-p10000-d27-o4-dataset3.csv",
+    ]
 
     all_data = {}
     for file in files:
@@ -36,22 +53,22 @@ if __name__ == "__main__":
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
         all_data[file]['igd'] = []
+        data = read_file(file)
+        actual_dependent = [d.objectives for d in data]
+        actual_data_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
+        actual_pf = sorted([actual_dependent[i] for i in actual_data_pf_indexes], key=lambda x: x[0])
 
         print file
-        for _ in xrange(40):
+        for _ in xrange(20):
             print ". ",
             sys.stdout.flush()
-            data = read_file(file)
+
             shuffle(data)
 
             selected_data = data[:int(len(data)*0.05)]
             selected_actual_dependent = [d.objectives for d in selected_data]
-            selected_data_pf_indexes = non_dominated_sort(selected_actual_dependent, lessismore[file])
+            selected_data_pf_indexes = non_dominated_sort_fast(selected_actual_dependent, lessismore[file])
             selected_pf = sorted([selected_actual_dependent[i] for i in selected_data_pf_indexes], key=lambda x:x[0])
-
-            actual_dependent = [d.objectives for d in data]
-            actual_data_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
-            actual_pf = sorted([actual_dependent[i] for i in actual_data_pf_indexes], key=lambda x:x[0])
 
 
             # print generational_distance(actual_pf, selected_pf, ranges[file])
@@ -64,11 +81,7 @@ if __name__ == "__main__":
             all_data[file]['igd'].append(inverted_generational_distance(actual_pf, selected_actual_dependent, ranges[file]))
         print
 
-        print [round(x, 5) for x in all_data[file]['evals']]
-        print [round(x, 5) for x in all_data[file]['gen_dist']]
-        print [round(x, 5) for x in all_data[file]['igd']]
-
-    import pickle
-    pickle.dump(all_data, open('pop0-based.p', 'w'))
+        import pickle
+        pickle.dump(all_data[file], open('pop0-based-'+file.split('/')[-1][:-4]+'.p', 'w'))
 
 

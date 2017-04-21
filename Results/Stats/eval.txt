@@ -1,0 +1,482 @@
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{\_wc-3d-c4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  4.0 & \quart{0}{1}{0}{0} \\
+  1 &         Rank &    35.0  &  7.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &          AL1 &    60.0  &  22.0 & \quart{5}{6}{7}{0} \\
+\hline  3 &         MMRE &    316.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{llvm\_input.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  1.0 & \quart{0}{2}{0}{0} \\
+  1 &         MMRE &    34.0  &  8.0 & \quart{0}{17}{2}{0} \\
+\hline  2 &         Rank &    44.0  &  13.0 & \quart{13}{29}{24}{0} \\
+\hline  3 &          AL1 &    61.0  &  12.0 & \quart{53}{26}{62}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{noc\_CM\_log.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    17.0  &  7.0 & \quart{0}{24}{6}{0} \\
+  1 &         Rank &    21.0  &  3.0 & \quart{13}{11}{20}{0} \\
+\hline  2 &          AL2 &    32.0  &  3.0 & \quart{55}{11}{59}{0} \\
+  2 &          AL1 &    34.0  &  7.0 & \quart{55}{24}{66}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{rs-6d-c3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    109.0  &  17.0 & \quart{3}{1}{3}{0} \\
+\hline  3 &          AL1 &    141.0  &  57.0 & \quart{3}{3}{5}{0} \\
+\hline  4 &         MMRE &    1611.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{sort\_256.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    19.0  &  3.0 & \quart{0}{3}{1}{0} \\
+\hline  2 &          AL2 &    25.0  &  3.0 & \quart{6}{4}{8}{0} \\
+  2 &          AL1 &    26.0  &  7.0 & \quart{7}{9}{10}{0} \\
+\hline  3 &         MMRE &    57.0  &  47.0 & \quart{20}{59}{49}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc+rs-3d-c4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    17.0  &  1.0 & \quart{0}{1}{0}{0} \\
+\hline  2 &          AL2 &    37.0  &  4.0 & \quart{22}{5}{25}{0} \\
+\hline  3 &          AL1 &    46.0  &  8.0 & \quart{31}{10}{36}{0} \\
+\hline  4 &         MMRE &    80.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc+sol-3d-c4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    17.0  &  2.0 & \quart{0}{2}{0}{0} \\
+\hline  2 &          AL2 &    36.0  &  3.0 & \quart{21}{4}{24}{0} \\
+\hline  3 &          AL1 &    44.0  &  12.0 & \quart{29}{15}{34}{0} \\
+\hline  4 &         MMRE &    80.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc+wc-3d-c4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    19.0  &  3.0 & \quart{0}{3}{2}{0} \\
+\hline  2 &          AL2 &    37.0  &  4.0 & \quart{22}{5}{25}{0} \\
+\hline  3 &          AL1 &    47.0  &  14.0 & \quart{30}{18}{38}{0} \\
+\hline  4 &         MMRE &    80.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc-5d-c5.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    29.0  &  5.0 & \quart{0}{3}{2}{0} \\
+\hline  2 &          AL1 &    34.0  &  6.0 & \quart{3}{5}{6}{0} \\
+\hline  3 &         Rank &    48.0  &  11.0 & \quart{12}{8}{17}{0} \\
+\hline  4 &         MMRE &    111.0  &  30.0 & \quart{56}{23}{66}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc-6d-c1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    36.0  &  7.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    94.0  &  19.0 & \quart{3}{1}{4}{0} \\
+  2 &          AL1 &    94.0  &  26.0 & \quart{3}{2}{4}{0} \\
+\hline  3 &         MMRE &    1208.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc-c1-3d-c1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    29.0  &  6.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    40.0  &  9.0 & \quart{1}{1}{1}{0} \\
+\hline  3 &         Rank &    54.0  &  14.0 & \quart{2}{3}{4}{0} \\
+\hline  4 &         MMRE &    562.0  &  302.0 & \quart{34}{45}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{wc-c3-3d-c1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    29.0  &  6.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    43.0  &  9.0 & \quart{1}{1}{1}{0} \\
+\hline  3 &         Rank &    58.0  &  29.0 & \quart{2}{4}{3}{0} \\
+\hline  4 &         MMRE &    633.0  &  268.0 & \quart{44}{35}{79}{0} \\
+\hline \end{tabular}}
+\newpage
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SaC1\_2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    145.0  &  345.0 & \quart{0}{10}{3}{0} \\
+\hline  3 &         Rank &    1346.0  &  32.0 & \quart{38}{1}{38}{0} \\
+\hline  4 &         MMRE &    2170.0  &  962.0 & \quart{51}{28}{63}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SaC\_11\_12.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    32.0  &  19.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1344.0  &  18.0 & \quart{8}{0}{8}{0} \\
+\hline  4 &         MMRE &    8863.0  &  6174.0 & \quart{41}{38}{55}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SaC\_3\_4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    47.0  &  26.0 & \quart{0}{1}{0}{0} \\
+\hline  3 &         Rank &    1329.0  &  13.0 & \quart{42}{0}{42}{0} \\
+\hline  4 &         MMRE &    2073.0  &  576.0 & \quart{61}{18}{66}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SaC\_5\_6.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    34.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    77.0  &  34.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1344.0  &  32.0 & \quart{15}{0}{15}{0} \\
+\hline  4 &         MMRE &    4268.0  &  3739.0 & \quart{35}{44}{50}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SaC\_9\_10.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    36.0  &  9.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1336.0  &  14.0 & \quart{8}{0}{8}{0} \\
+\hline  4 &         MMRE &    8693.0  &  5327.0 & \quart{46}{33}{54}{0} \\
+\hline \end{tabular}}
+\newpage
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{x264-DB\_1\_2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    37.0  &  4.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    79.0  &  34.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1094.0  &  16.0 & \quart{5}{0}{5}{0} \\
+\hline  4 &         MMRE &    12748.0  &  4163.0 & \quart{57}{22}{68}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{x264-DB\_2\_3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    36.0  &  5.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    114.0  &  40.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1100.0  &  13.0 & \quart{5}{0}{5}{0} \\
+\hline  4 &         MMRE &    12321.0  &  3441.0 & \quart{61}{18}{67}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{x264-DB\_3\_4.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    98.0  &  77.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1096.0  &  24.0 & \quart{6}{0}{6}{0} \\
+\hline  4 &         MMRE &    11545.0  &  2672.0 & \quart{62}{17}{74}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{x264-DB\_4\_5.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  6.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    82.0  &  61.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1097.0  &  8.0 & \quart{6}{0}{6}{0} \\
+\hline  4 &         MMRE &    11750.0  &  3310.0 & \quart{60}{19}{68}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{x264-DB\_5\_6.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  7.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    70.0  &  35.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    1096.0  &  11.0 & \quart{6}{0}{6}{0} \\
+\hline  4 &         MMRE &    11015.0  &  5725.0 & \quart{47}{32}{63}{0} \\
+\hline \end{tabular}}
+\newpage
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3A-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  5.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    45.0  &  23.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    229.0  &  16.0 & \quart{3}{0}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3A-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    52.0  &  26.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    236.0  &  19.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3B-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    32.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    69.0  &  46.0 & \quart{0}{1}{0}{0} \\
+\hline  3 &         Rank &    241.0  &  25.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3B-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    48.0  &  40.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    225.0  &  26.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3C-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    34.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    88.0  &  32.0 & \quart{0}{1}{1}{0} \\
+\hline  3 &         Rank &    228.0  &  22.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3C-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    229.0  &  32.0 & \quart{3}{1}{3}{0} \\
+  2 &          AL1 &    286.0  &  221.0 & \quart{3}{4}{4}{0} \\
+\hline  3 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3D-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    54.0  &  40.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    235.0  &  17.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{POM3D-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    41.0  &  16.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    224.0  &  16.0 & \quart{3}{0}{3}{0} \\
+\hline  4 &         MMRE &    4197.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+\newpage
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_all-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    44.0  &  14.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    238.0  &  21.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_all-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    38.0  &  27.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    229.0  &  20.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_all-3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    135.0  &  175.0 & \quart{0}{4}{2}{0} \\
+\hline  3 &         Rank &    234.0  &  16.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_flight-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    41.0  &  14.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    245.0  &  35.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_flight-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    29.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    47.0  &  27.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    233.0  &  31.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_flight-3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    31.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    216.0  &  134.0 & \quart{2}{2}{3}{0} \\
+  2 &         Rank &    230.0  &  24.0 & \quart{3}{1}{3}{0} \\
+\hline  3 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_ground-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    38.0  &  13.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    242.0  &  33.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_ground-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    49.0  &  33.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    236.0  &  29.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_ground-3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    98.0  &  134.0 & \quart{0}{3}{1}{0} \\
+\hline  3 &         Rank &    233.0  &  22.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_osp-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    38.0  &  24.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    227.0  &  17.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_osp-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    51.0  &  20.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    245.0  &  41.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomo\_osp-3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    126.0  &  148.0 & \quart{1}{2}{1}{0} \\
+\hline  3 &         Rank &    238.0  &  22.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomoo2-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    38.0  &  19.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    236.0  &  37.0 & \quart{3}{1}{3}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomoo2-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    39.0  &  17.0 & \quart{0}{0}{0}{0} \\
+\hline  3 &         Rank &    240.0  &  42.0 & \quart{3}{1}{4}{0} \\
+\hline  4 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{xomoo2-3.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    30.0  &  2.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &          AL1 &    145.0  &  220.0 & \quart{1}{4}{2}{0} \\
+  2 &         Rank &    237.0  &  27.0 & \quart{3}{1}{3}{0} \\
+\hline  3 &         MMRE &    4199.0  &  0.0 & \quart{79}{0}{79}{0} \\
+\hline \end{tabular}}
+\newpage
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_0\_110-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    32.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    231.0  &  22.0 & \quart{4}{0}{4}{0} \\
+\hline  3 &         MMRE &    476.0  &  308.0 & \quart{5}{7}{9}{0} \\
+\hline  4 &          AL1 &    2584.0  &  1644.0 & \quart{43}{36}{57}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_0\_110-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    36.0  &  4.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    236.0  &  27.0 & \quart{2}{1}{3}{0} \\
+\hline  3 &         MMRE &    501.0  &  408.0 & \quart{4}{6}{7}{0} \\
+\hline  4 &          AL1 &    5077.0  &  694.0 & \quart{69}{10}{76}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_0\_90-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    33.0  &  1.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    232.0  &  24.0 & \quart{3}{1}{3}{0} \\
+\hline  3 &         MMRE &    641.0  &  1449.0 & \quart{4}{27}{11}{0} \\
+\hline  4 &          AL1 &    3761.0  &  963.0 & \quart{61}{18}{70}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_0\_90-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    232.0  &  33.0 & \quart{2}{0}{2}{0} \\
+\hline  3 &         MMRE &    444.0  &  717.0 & \quart{2}{9}{5}{0} \\
+\hline  4 &          AL1 &    5998.0  &  850.0 & \quart{69}{10}{73}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_4\_110-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    34.0  &  3.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    233.0  &  39.0 & \quart{2}{1}{2}{0} \\
+\hline  3 &         MMRE &    446.0  &  435.0 & \quart{3}{6}{5}{0} \\
+\hline  4 &          AL1 &    4930.0  &  1406.0 & \quart{60}{19}{69}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_4\_110-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    36.0  &  4.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    231.0  &  30.0 & \quart{2}{0}{2}{0} \\
+\hline  3 &         MMRE &    410.0  &  257.0 & \quart{2}{4}{4}{0} \\
+\hline  4 &          AL1 &    6482.0  &  828.0 & \quart{70}{9}{76}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_4\_90-1.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    34.0  &  4.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    237.0  &  17.0 & \quart{3}{0}{3}{0} \\
+\hline  3 &         MMRE &    294.0  &  186.0 & \quart{3}{3}{4}{0} \\
+\hline  4 &          AL1 &    4605.0  &  994.0 & \quart{63}{16}{74}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{MONRP\_50\_4\_5\_4\_90-2.p} & \textbf{} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    35.0  &  5.0 & \quart{0}{0}{0}{0} \\
+\hline  2 &         Rank &    238.0  &  33.0 & \quart{2}{0}{2}{0} \\
+\hline  3 &         MMRE &    447.0  &  773.0 & \quart{2}{9}{5}{0} \\
+\hline  4 &          AL1 &    6175.0  &  1381.0 & \quart{62}{17}{76}{0} \\
+\hline \end{tabular}}
