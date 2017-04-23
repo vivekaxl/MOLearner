@@ -110,12 +110,10 @@ def run(name):
             print ". ",
         print
 
-        import pdb
-        pdb.set_trace()
     pickle.dump(all_data, open(name + "_XOMO.p", "w"))
 
 
 
 
-for name in ["SPEA2", "NSGAII", "SWAY5"]:
+for name in [ "SWAY5"]:
     run(name)
