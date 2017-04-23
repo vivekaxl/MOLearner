@@ -1,0 +1,244 @@
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS1} & \textbf{SaC1\_2.p} & \textbf{} & \textbf{} & \\\hline
+  1 &           AL &    0.0  &  0.91 & \quart{0}{79}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.91 & \quart{0}{79}{0}{0} \\
+  1 &         Rank &    0.0  &  0.4 & \quart{0}{35}{0}{0} \\
+  1 &         MMRE &    0.17  &  0.67 & \quart{0}{58}{14}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS2} & \textbf{SaC\_11\_12.p} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    0.0  &  3602.9 & \quart{0}{79}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS3} & \textbf{SaC\_3\_4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS4} & \textbf{SaC\_5\_6.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS5} & \textbf{SaC\_7\_8.p} & \textbf{} & \textbf{} & \\\hline
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS6} & \textbf{SaC\_9\_10.p} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS7} & \textbf{TriMesh\_1\_2.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS8} & \textbf{TriMesh\_2\_3.p} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS9} & \textbf{llvm\_input.p} & \textbf{} & \textbf{} & \\\hline
+  1 &   epal\_0.01 &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &           AL &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &   epal\_0.30 &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &          AL2 &    0.01  &  0.0 & \quart{5}{0}{5}{0} \\
+  1 &         Rank &    0.02  &  0.13 & \quart{5}{74}{11}{0} \\
+  1 &         MMRE &    0.03  &  0.13 & \quart{5}{74}{17}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS10} & \textbf{noc\_CM\_log.p} & \textbf{} & \textbf{} & \\\hline
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS11} & \textbf{rs-6d-c3.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.03 & \quart{0}{79}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS12} & \textbf{sort\_256.p} & \textbf{} & \textbf{} & \\\hline
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.01 & \quart{0}{39}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.01 & \quart{0}{39}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.01  &  0.02 & \quart{0}{79}{39}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS13} & \textbf{wc+rs-3d-c4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.02 & \quart{0}{11}{0}{0} \\
+  1 &           AL &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &   epal\_0.30 &    0.01  &  0.01 & \quart{0}{5}{5}{0} \\
+  1 &          AL2 &    0.01  &  0.02 & \quart{5}{12}{5}{0} \\
+\hline  2 &         Rank &    0.02  &  0.13 & \quart{5}{74}{11}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS14} & \textbf{wc+sol-3d-c4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.01 & \quart{0}{3}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.01 & \quart{0}{3}{0}{0} \\
+  1 &           AL &    0.01  &  0.02 & \quart{0}{6}{3}{0} \\
+  1 &   epal\_0.30 &    0.01  &  0.02 & \quart{0}{6}{3}{0} \\
+\hline  2 &          AL2 &    0.02  &  0.02 & \quart{3}{7}{6}{0} \\
+\hline  3 &         Rank &    0.12  &  0.22 & \quart{3}{76}{41}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS15} & \textbf{wc+wc-3d-c4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.01 & \quart{0}{7}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.01  &  0.01 & \quart{0}{7}{7}{0} \\
+  1 &   epal\_0.30 &    0.01  &  0.01 & \quart{0}{7}{7}{0} \\
+  1 &          AL2 &    0.01  &  0.01 & \quart{7}{8}{7}{0} \\
+  1 &         Rank &    0.02  &  0.09 & \quart{7}{72}{15}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS16} & \textbf{wc-3d-c4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &   epal\_0.01 &    0.0  &  0.01 & \quart{0}{11}{0}{0} \\
+  1 &         MMRE &    0.01  &  0.01 & \quart{0}{11}{11}{0} \\
+  1 &           AL &    0.01  &  0.01 & \quart{0}{11}{11}{0} \\
+  1 &   epal\_0.30 &    0.01  &  0.01 & \quart{0}{11}{11}{0} \\
+\hline  2 &          AL2 &    0.02  &  0.02 & \quart{11}{23}{22}{0} \\
+\hline  3 &         Rank &    0.05  &  0.06 & \quart{11}{68}{57}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS17} & \textbf{wc-5d-c5.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         Rank &    0.0  &  0.08 & \quart{0}{58}{0}{0} \\
+  1 &   epal\_0.01 &    0.01  &  0.11 & \quart{0}{79}{7}{0} \\
+  1 &           AL &    0.03  &  0.1 & \quart{0}{72}{21}{0} \\
+  1 &   epal\_0.30 &    0.03  &  0.1 & \quart{0}{72}{21}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS18} & \textbf{wc-6d-c1.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.01  &  0.02 & \quart{0}{39}{19}{0} \\
+\hline  2 &         Rank &    0.03  &  0.03 & \quart{19}{60}{59}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS19} & \textbf{wc-c1-3d-c1.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &         Rank &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &           AL &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS20} & \textbf{wc-c3-3d-c1.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &         MMRE &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &          AL2 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &   epal\_0.01 &    0.0  &  0.0 & \quart{0}{0}{0}{0} \\
+  1 &           AL &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+  1 &   epal\_0.30 &    0.0  &  0.01 & \quart{0}{79}{0}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS21} & \textbf{x264-DB\_1\_2.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.0  &  0.01 & \quart{0}{15}{0}{0} \\
+  1 &           AL &    0.0  &  0.02 & \quart{0}{31}{0}{0} \\
+  1 &         Rank &    0.01  &  0.04 & \quart{15}{64}{15}{0} \\
+  1 &          AL2 &    0.03  &  0.03 & \quart{15}{48}{47}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS22} & \textbf{x264-DB\_2\_3.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.01  &  0.16 & \quart{0}{17}{1}{0} \\
+\hline  2 &         Rank &    0.09  &  0.32 & \quart{2}{35}{9}{0} \\
+  2 &           AL &    0.23  &  0.18 & \quart{15}{20}{25}{0} \\
+\hline  3 &          AL2 &    0.59  &  0.32 & \quart{44}{35}{64}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS23} & \textbf{x264-DB\_3\_4.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.02  &  0.17 & \quart{0}{19}{2}{0} \\
+  1 &         Rank &    0.04  &  0.12 & \quart{2}{14}{4}{0} \\
+\hline  2 &           AL &    0.27  &  0.18 & \quart{16}{21}{31}{0} \\
+\hline  3 &          AL2 &    0.49  &  0.27 & \quart{48}{31}{56}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS24} & \textbf{x264-DB\_4\_5.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         Rank &    0.12  &  0.61 & \quart{4}{67}{9}{0} \\
+  1 &         MMRE &    0.14  &  0.72 & \quart{0}{78}{12}{0} \\
+\hline  2 &           AL &    0.67  &  0.06 & \quart{66}{7}{70}{0} \\
+  2 &          AL2 &    0.72  &  0.07 & \quart{72}{7}{75}{0} \\
+\hline \end{tabular}}
+
+{\scriptsize \begin{tabular}{l@{~~~}l@{~~~}r@{~~~}r@{~~~}c}
+\rowcolor{lightgray}\arrayrulecolor{lightgray}
+\textbf{SS25} & \textbf{x264-DB\_5\_6.p} & \textbf{} & \textbf{} & \\\hline
+  1 &         MMRE &    0.07  &  0.13 & \quart{0}{57}{26}{0} \\
+  1 &         Rank &    0.12  &  0.17 & \quart{4}{75}{48}{0} \\
+\hline  2 &           AL &    0.13  &  0.02 & \quart{44}{9}{53}{0} \\
+  2 &          AL2 &    0.13  &  0.01 & \quart{48}{5}{53}{0} \\
+\hline \end{tabular}}
