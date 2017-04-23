@@ -169,7 +169,7 @@ def not_in_cache(list, listoflist):
     return True
 
 
-def run(data, initial_sample_size, objectives_dict, all_data, true_pf, repeat):
+def run(data, initial_sample_size, objectives_dict, all_data, true_pf, repeat, file):
     print "Working in Process #%d" % (os.getpid())
     print ". ",
     sys.stdout.flush()
@@ -210,8 +210,8 @@ def run(data, initial_sample_size, objectives_dict, all_data, true_pf, repeat):
 
         training_dep = [get_objective_score(r) for r in training_data]
 
-        training_sequence, return_nd_independent = get_training_sequence(file, training_data, training_dep,
-                                                                         testing_data)
+        training_sequence, return_nd_independent = get_training_sequence(file, training_data, training_dep,testing_data)
+        print "here"
 
         assert (len(training_sequence) == len(return_nd_independent)), "Soemthing is wrong"
 
@@ -346,12 +346,14 @@ def main_run():
 
         actual_dependent = [d.objectives for d in data]
 
-        true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
+        # true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
 
-        true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
+        # true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
+        true_pf = []
 
         pool = mp.Pool()
-        for rep in xrange(2):
+        for rep in xrange(20):
+            # run(data, initial_sample_size, objectives_dict, all_data, true_pf, rep, file)
             pool.apply_async(run, (data, initial_sample_size, objectives_dict, all_data, true_pf, rep))
         pool.close()
         pool.join()
