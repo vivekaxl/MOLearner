@@ -311,7 +311,7 @@ def run(data, initial_sample_size, objectives_dict, all_data, true_pf, repeat, f
 def main_run():
     from utility import read_file, split_data, build_model
 
-    files = ['./Data/SaC_7_8.csv']
+    files = ['./Data/al1-SaC_7_8.csv']
 
     all_data = {}
 
@@ -346,15 +346,14 @@ def main_run():
 
         actual_dependent = [d.objectives for d in data]
 
-        # true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
+        true_pf_indexes = non_dominated_sort_fast(actual_dependent, lessismore[file])
 
-        # true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
-        true_pf = []
+        true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
 
         pool = mp.Pool()
         for rep in xrange(20):
             # run(data, initial_sample_size, objectives_dict, all_data, true_pf, rep, file)
-            pool.apply_async(run, (data, initial_sample_size, objectives_dict, all_data, true_pf, rep))
+            pool.apply_async(run, (data, initial_sample_size, objectives_dict, all_data, true_pf, rep, file))
         pool.close()
         pool.join()
 
