@@ -351,7 +351,7 @@ def main_run():
         true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
 
         pool = mp.Pool()
-        for rep in xrange(2):
+        for rep in xrange(20):
             pool.apply_async(run, (data, initial_sample_size, objectives_dict, all_data, true_pf, rep))
         pool.close()
         pool.join()
