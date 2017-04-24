@@ -311,7 +311,7 @@ def run(data, initial_sample_size, objectives_dict, all_data, true_pf, repeat, f
 def main_run():
     from utility import read_file, split_data, build_model
 
-    files = ['./Data/al1-SaC_7_8.csv']
+    files = ['./Data/SaC_7_8.csv']
 
     all_data = {}
 
