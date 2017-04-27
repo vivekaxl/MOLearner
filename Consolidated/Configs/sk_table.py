@@ -50,7 +50,7 @@ any = random.choice
 seed = random.seed
 exp = lambda n: math.e ** n
 ln = lambda n: math.log(n, math.e)
-g = lambda n: round(n, 2)
+g = lambda n: round(n, 5)
 
 
 def median(lst, ordered=False):
@@ -159,7 +159,7 @@ class Num:
 
   def quartiles(i):
     def p(x):
-      return int(100 * g(xs[x]))
+      return int(100000 * g(xs[x]))
     i.median()
     xs = i.all
     n = int(len(xs) * 0.25)
@@ -549,7 +549,7 @@ Driver for the demos:
 """
 
 
-def rdivDemo(name, name2, raw_data, column_names, isLatex=False, globalMinMax=True, high=1, low=0):
+def rdivDemo(name, name2, raw_data, isLatex=False, globalMinMax=True, high=1, low=0):
 
     def z(x):
         return int(80 * (x - lo) / (hi - lo + 0.00001))
@@ -569,24 +569,8 @@ def rdivDemo(name, name2, raw_data, column_names, isLatex=False, globalMinMax=Tr
     # Each element in this dict is a list [rank, median]
     table_dict = {}
     for _, __, x in sorted(ranks):
-        table_dict[x.name.replace('\\_', '')] = [x.rank+1, int(x.quartiles()[1]/100)]
+      table_dict[x.name.replace('\\_', '')] = [x.rank + 1, round(x.quartiles()[1] / 100000, 5)]
 
-    return_string = "\multicolumn{1}{|l|}{\\textbf{" + name2 + "}} &"
-    # for column_name in column_names:
-    #     return_string += " \multicolumn{1}{|c|}{\\textbf{" + column_name + "}} & "
-    # return_string = return_string[:-2] + "\\\ \hline\n"
-
-    for column_name in column_names:
-        if column_name == "Name": continue
-        if column_name.replace('-', '') not in table_dict.keys():
-            return_string += "\multicolumn{1}{l|}{NA} & "
-        else:
-            if table_dict[column_name.replace('-', '')][0] == 1:
-                return_string += "\multicolumn{1}{l|}{" + "\cellcolor[HTML]{C0C0C0}"+ "} & "
-            else:
-                return_string += "\multicolumn{1}{l|}{} & "
-    return_string = return_string[:-2] + '\\\ \hline \n'
-    print return_string,
-
+    print table_dict
 
     return table_dict

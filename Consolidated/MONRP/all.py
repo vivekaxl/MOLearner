@@ -1,13 +1,13 @@
-
 from __future__ import division
 import pickle
 import os
-from sk_rank import rdivDemo
+from sk_table import rdivDemo
 
 
 def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
+        print problem
         al2 = pickle.load(open('al2_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
@@ -17,13 +17,13 @@ def get_gd_rank(problems):
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['evals'])
+            lists.append(['AL2'] + al2[problem]['gen_dist'])
         except:
             pass
-        try:
-            lists.append(['AL'] + al[problem]['evals'])
-        except:
-            pass
+        # try:
+        #     lists.append(['AL'] + al[problem]['gen_dist'])
+        # except:
+        #     pass
         # try:
         #     lists.append(['MMRE'] + mmre[problem]['evals'])
         # except:
@@ -33,15 +33,15 @@ def get_gd_rank(problems):
         # except:
         #     pass
         try:
-            lists.append(['NSGAII'] + nsgaii[problem]['evals'])
+            lists.append(['NSGAII'] + nsgaii[problem]['gen_dist'])
         except:
             pass
         try:
-            lists.append(['SPEA2'] + spea2[problem]['evals'])
+            lists.append(['SPEA2'] + spea2[problem]['gen_dist'])
         except:
             pass
         try:
-            lists.append(['SWAY'] + sway5[problem]['evals'])
+            lists.append(['SWAY'] + sway5[problem]['gen_dist'])
         except:
             pass
 
@@ -64,10 +64,10 @@ def get_igd_rank(problems):
             lists.append(['AL2'] + al2[problem]['igd'])
         except:
             pass
-        try:
-            lists.append(['AL'] + al[problem]['igd'])
-        except:
-            pass
+        # try:
+        #     lists.append(['AL'] + al[problem]['igd'])
+        # except:
+        #     pass
 
         try:
             lists.append(['NSGAII'] + nsgaii[problem]['igd'])
@@ -99,9 +99,9 @@ def get_eval_rank(problems):
         lists = list()
         try: lists.append(['AL2'] + al2[problem]['evals'])
         except: pass
-        try: lists.append(['AL'] + al[problem]['evals'])
-        except:
-            pass
+        # try: lists.append(['AL'] + al[problem]['evals'])
+        # except:
+        #     pass
         try:lists.append(['NSGAII'] + nsgaii[problem]['evals'])
         except: pass
         try: lists.append(['SPEA2'] + spea2[problem]['evals'])
@@ -125,26 +125,50 @@ def get_eval_rank(problems):
 # assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
 #
 # pickle.dump(dict, open('stat_result.p', 'w'))
-
+def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = ['AL', 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
+algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
 problems = ['MONRP_50_4_5_0_110_dataset1', 'MONRP_50_4_5_0_110_dataset2', 'MONRP_50_4_5_0_90_dataset1', 'MONRP_50_4_5_0_90_dataset2', 'MONRP_50_4_5_4_110_dataset1', 'MONRP_50_4_5_4_110_dataset2', 'MONRP_50_4_5_4_90_dataset1', 'MONRP_50_4_5_4_90_dataset2']
-header = "\multirow{3}{*}{Name} & \multicolumn{6}{l|}{Greedy} & \multicolumn{9}{l|}{EA}                                                                     \\ \cline{2-11}\n"
-header += "& \multicolumn{3}{l|}{AL1}          & \multicolumn{3}{l|}{AL2} & \multicolumn{3}{l|}{NSGAII} & \multicolumn{3}{l|}{SPEA2} & \multicolumn{3}{l|}{SWAY} \\\ \hline \n"
-header += " \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals}gi"
+header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
+header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
+header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
 print header
 for problem in problems:
-    print problem.replace('_', '\_'), '&',
+    print problem.replace('_', '\_'), '&', '50 &'
     for i, algorithm in enumerate(algorithms):
-        if dict['gd'][problem][algorithm] == 1: print '\cellcolor[HTML]{67FD9A} &',
-        else: print '\cellcolor[HTML]{FFFE65} &',
+        if dict['gd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['gd'][problem][algorithm][1]) ,'&',
+        else: print r(dict['gd'][problem][algorithm][1]), ' &',
 
-        if dict['igd'][problem][algorithm] == 1: print '\cellcolor[HTML]{67FD9A} &',
-        else: print '\cellcolor[HTML]{FFFE65} &',
-        if dict['evals'][problem][algorithm] == 1: print '\cellcolor[HTML]{67FD9A}',
-        else: print "\cellcolor[HTML]{FFFE65}",
+        if dict['igd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['igd'][problem][algorithm][1]),'&',
+        else: print r(dict['igd'][problem][algorithm][1]), '&',
+        if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1]),
+        else: print int(dict['evals'][problem][algorithm][1]),
         if i + 1 != len(algorithms): print '&',
     print '\\\ \hline'
+print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}} &",
 
-# import pdb
-# pdb.set_trace(&
+
+for i,algorithm in enumerate(algorithms):
+    gd_wins = 0
+    gd_losses = 0
+    igd_wins = 0
+    igd_losses = 0
+    eval_losses = 0
+    eval_wins = 0
+    for problem in problems:
+        if dict['gd'][problem][algorithm][0] == 1: gd_wins+=1
+        else: gd_losses+=1
+
+
+        if dict['igd'][problem][algorithm][0] == 1: igd_wins += 1
+        else: igd_losses += 1
+
+
+        if dict['evals'][problem][algorithm][0] == 1: eval_wins += 1
+        else: eval_losses += 1
+
+    print int((gd_wins * 100)/(gd_wins + gd_losses)), "&",
+    print int((igd_wins * 100) / (igd_wins + igd_losses)), "&",
+    print int((eval_wins * 100) / (eval_wins + eval_losses)),
+    if i + 1 != len(algorithms): print '&',
+print '\\\ \hline'
