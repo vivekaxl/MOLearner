@@ -14,7 +14,7 @@ compliant_data_dep = c['complaint_data']
 current_pf = c['current_pf']
 actual_pf = c['actual_pf']
 
-l1 = ax1.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
+l1 = ax1.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.', s=2)
 l2 = ax1.fill(convex_hull_x, convex_hull_y, 'k', alpha=0.3)
 l3 = ax1.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='#D7EA00', marker='+',
                label="Explain-PF")
@@ -34,7 +34,7 @@ compliant_data_dep = c['complaint_data']
 current_pf = c['current_pf']
 actual_pf = c['actual_pf']
 
-ax2.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
+ax2.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.', s=2)
 ax2.fill(convex_hull_x, convex_hull_y, 'k', alpha=0.3)
 ax2.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='#D7EA00', marker='+',
                label="Explain-PF")
@@ -73,7 +73,7 @@ compliant_data_dep = c['complaint_data']
 current_pf = c['current_pf']
 actual_pf = c['actual_pf']
 
-ax5.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
+ax5.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.', s=2)
 ax5.fill(convex_hull_x, convex_hull_y, 'k', alpha=0.3)
 ax5.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='#D7EA00', marker='+',
                label="Explain-PF")
@@ -113,7 +113,7 @@ compliant_data_dep = c['complaint_data']
 current_pf = c['current_pf']
 actual_pf = c['actual_pf']
 
-ax7.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.', label='all-points')
+ax7.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.', label='all-points', s=2)
 ax7.fill(convex_hull_x, convex_hull_y, 'k', alpha=0.3)
 ax7.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='#D7EA00', marker='+',
                label="Explain-PF")
@@ -131,6 +131,6 @@ for ax in [ax1, ax2, ax5, ax7]:
     ax.tick_params(labelsize=6)
 
 
-plt.figlegend([ax1.lines[0], ax1.lines[1], l3], [ "Predicted-PF", "Actual-PF", "Points of Interest"], frameon=False, loc='lower center', bbox_to_anchor=(0.48, -0.015), fancybox=True, ncol=3, fontsize=10)
+plt.figlegend([ax1.lines[0], ax1.lines[1], l3, l1], [ "Predicted-PF", "Actual-PF", "Points of Interest", "Feasible Solutions"], frameon=False, loc='lower center', bbox_to_anchor=(0.48, -0.015), fancybox=True, ncol=4, fontsize=10)
 f.tight_layout()
 plt.savefig('temp_explain_aoi.png', bbox_inches='tight')

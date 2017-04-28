@@ -31,7 +31,6 @@ def normalize(x, min, max):
     elif tmp < 0: return 0
     else: return tmp
 
-
 def loss(x1, x2, mins=None, maxs=None):
     # normalize if mins and maxs are given
     if mins and maxs:
@@ -42,14 +41,6 @@ def loss(x1, x2, mins=None, maxs=None):
     # print x1, x2
     return sum([-1*math.exp((x2i - x1i) / o) for x1i, x2i in zip(x1, x2)]) / o
 
-
-def loss_AdditiveEpsilonIndicator(x1, x2, mins=None, maxs=None):
-    # normalize if mins and maxs are given
-    if mins and maxs:
-        x1 = [normalize(x, mins[i], maxs[i]) for i, x in enumerate(x1)]
-        x2 = [normalize(x, mins[i], maxs[i]) for i, x in enumerate(x2)]
-
-    return min([(xx1-xx2) for xx1, xx2 in zip(x1, x2)])
 
 def get_cdom_values(objectives, lessismore):
     dependents = []
@@ -75,7 +66,7 @@ def get_cdom_values(objectives, lessismore):
         for j, oj in enumerate(dependents):
             if i!=j:
                 # print oi, oj, loss(oi, oj, mins, maxs), loss(oj, oi, mins, maxs)
-                if loss_AdditiveEpsilonIndicator(oi, oj, mins, maxs) < loss_AdditiveEpsilonIndicator(oj, oi, mins, maxs):
+                if loss(oi, oj, mins, maxs) < loss(oj, oi, mins, maxs):
                     sum_store += 1
         cdom_scores.append(sum_store)
     return cdom_scores
@@ -318,7 +309,7 @@ def explain_me_nds(ex_train_indep, ex_train_dep, lessismore_status, all_data_ind
     store_data['current_pf'] = current_pf
 
     import pickle
-    pickle.dump(store_data, open('ExplainFiguresPickleLocker/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".p", 'w'))
+    pickle.dump(store_data, open('ExplainFiguresPickleLocker2/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".p", 'w'))
 
     import matplotlib.pyplot as plt
     plt.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
@@ -331,7 +322,7 @@ def explain_me_nds(ex_train_indep, ex_train_dep, lessismore_status, all_data_ind
     plt.xlabel('log(f1)')
     plt.ylabel('log(f2)')
     plt.legend(loc=2)
-    plt.savefig('./ExplainFiguresGen/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".png")
+    plt.savefig('./ExplainFiguresGen2/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".png")
     plt.cla()
 
 
@@ -455,9 +446,9 @@ if __name__ == "__main__":
                 actual_dependent = [get_objective_score(d) for d in testing_data]
                 true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
                 true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
-                # explain_me_cdom(training_data, [get_objective_score(indep) for indep in training_data],
-                #                 lessismore[file], testing_data, [get_objective_score(d) for d in testing_data],
-                #                 t_current_pf, true_pf, file, gen)
+                explain_me_nds(training_data, [get_objective_score(indep) for indep in training_data],
+                                lessismore[file], testing_data, [get_objective_score(d) for d in testing_data],
+                                t_current_pf, true_pf, return_nd_independent, file, gen)
 
                 if lives == 0: break
 
@@ -476,9 +467,6 @@ if __name__ == "__main__":
             # draw_pareto_front(actual_dependent, true_pf, current_pf)
             all_data[file]['gen_dist'].append(generational_distance(true_pf, current_pf, ranges[file]))
             all_data[file]['igd'].append(inverted_generational_distance(true_pf, current_pf, ranges[file]))
-
-            explain_me_cdom(training_data, [get_objective_score(indep) for indep in training_data], lessismore[file], testing_data, [get_objective_score(d) for d in testing_data], current_pf, true_pf, file)
-
 
             print " GD: ",  all_data[file]['gen_dist'][-1],
             print " IGD: ",  all_data[file]['igd'][-1]
