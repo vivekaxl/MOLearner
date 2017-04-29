@@ -261,7 +261,7 @@ if __name__ == "__main__":
         # Main control loop
         pool = mp.Pool()
         for file in files:
-            for rep in xrange(20):
+            for rep in xrange(1):
                 print file, rep
                 pool.apply_async(run_main, ([file], rep))
                 # run_main([file], rep)
