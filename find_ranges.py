@@ -1,25 +1,33 @@
 from __future__ import division
 import pandas as pd
 
-files = ['./Data/llvm_input.csv', './Data/noc_CM_log.csv',
-             './Data/rs-6d-c3.csv', './Data/sort_256.csv',
-             './Data/wc+rs-3d-c4.csv', './Data/wc+sol-3d-c4.csv', './Data/wc+wc-3d-c4.csv',
-             './Data/wc-3d-c4.csv', './Data/wc-5d-c5.csv', './Data/wc-6d-c1.csv', './Data/wc-c1-3d-c1.csv',
-             './Data/wc-c3-3d-c1.csv']
+files = [
+        './Data/POM3A.csv',
+        './Data/POM3B.csv',
+        './Data/POM3C.csv',
+        './Data/POM3D.csv', './Data/xomo_all.csv',
+        './Data/xomo_flight.csv',
+        './Data/xomo_ground.csv',
+        './Data/xomo_osp.csv',
+        './Data/xomoo2.csv','./Data/xomo_all.csv',
+        './Data/MONRP_50_4_5_0_110.csv',
+        './Data/MONRP_50_4_5_0_90.csv',
+        './Data/MONRP_50_4_5_4_110.csv',
+        './Data/MONRP_50_4_5_4_90.csv',
+
+    ]
 ranges = {}
 for file in files:
     content = open(file).readlines()
     objectives = []
-    for i, c in enumerate(content):
-        if i == 0: continue
-        values = map(float, c.strip().split(','))
-        objectives.append(values[-2:])
-    obj1 = [x[0] for x in objectives]
-    obj2 = [x[1] for x in objectives]
-
-    range1 = max(obj1) - min(obj1)
-    range2 = max(obj2) - min(obj2)
-    ranges[file] = [[min(obj1), max(obj1)], [min(obj2), max(obj2)]]
+    content = pd.read_csv(file)
+    columns = [c for c in content.columns if '<$' in c]
+    objectives = content[columns].values.tolist()
+    temp_ranges = []
+    for i in xrange(len(columns)):
+        temp_obj = [obj[i] for obj in objectives]
+        temp_ranges.append([min(temp_obj), max(temp_obj)])
+    ranges[file] = temp_ranges
 
 for key in ranges:
     print "ranges[\"" + key + "\"] = ", ranges[key]

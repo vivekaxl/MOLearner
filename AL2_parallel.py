@@ -66,9 +66,9 @@ def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
 
     # Merge the objectives
     merged_predicted_objectves = []
-    for i, j in zip(predicted_objectives[0], predicted_objectives[1]):
-        merged_predicted_objectves.append([i, j])
-    assert(len(merged_predicted_objectves) == len(predicted_objectives[0])), "Something is wrong"
+    for i in xrange(len(predicted_objectives[0])):
+        merged_predicted_objectves.append([predicted_objectives[obj_no][i] for obj_no in xrange(no_of_objectives)])
+    assert(len(merged_predicted_objectves) == len(testing_indep)), "Something is wrong"
 
     # Find Non-Dominated Solutions
     pf_indexes = non_dominated_sort(merged_predicted_objectves, lessismore[filename])
@@ -148,7 +148,7 @@ def run_main(files, repeat_no):
 
             while True:
                 # Creating Count Dict -- To make sure that if a point is evaluated twice, it is counted as once
-                print len(training_data)
+                print os.getpid(), len(training_data)
 
                 def get_evals():
                     return sum(1 if counting_dict[key]>0 else 0 for key in counting_dict.keys())
@@ -208,6 +208,9 @@ def run_main(files, repeat_no):
                     lives -= 1
 
                 training_data = training_data + [next_point]
+                import itertools
+                training_data.sort()
+                training_data = [k for k, _ in itertools.groupby(training_data)]
 
                 if lives == 0: break
 
@@ -261,7 +264,7 @@ if __name__ == "__main__":
         # Main control loop
         pool = mp.Pool()
         for file in files:
-            for rep in xrange(1):
+            for rep in xrange(20):
                 print file, rep
                 pool.apply_async(run_main, ([file], rep))
                 # run_main([file], rep)
