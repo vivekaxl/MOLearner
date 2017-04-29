@@ -242,20 +242,26 @@ def run_main(files, repeat_no):
 if __name__ == "__main__":
     files = [
         './Data/POM3A.csv',
-     './Data/POM3B.csv',
-     './Data/POM3C.csv',
-     './Data/POM3D.csv', './Data/xomo_all.csv',
-     './Data/xomo_flight.csv',
-     './Data/xomo_ground.csv',
-     './Data/xomo_osp.csv',
-     './Data/xomoo2.csv']
+        './Data/POM3B.csv',
+        './Data/POM3C.csv',
+        './Data/POM3D.csv', './Data/xomo_all.csv',
+        './Data/xomo_flight.csv',
+        './Data/xomo_ground.csv',
+        './Data/xomo_osp.csv',
+        './Data/xomoo2.csv','./Data/xomo_all.csv',
+        './Data/MONRP_50_4_5_0_110.csv',
+        './Data/MONRP_50_4_5_0_90.csv',
+        './Data/MONRP_50_4_5_4_110.csv',
+        './Data/MONRP_50_4_5_4_90.csv',
+
+    ]
 
     import multiprocessing as mp
     for file in files:
         # Main control loop
         pool = mp.Pool()
         for file in files:
-            for rep in xrange(2):
+            for rep in xrange(20):
                 print file, rep
                 pool.apply_async(run_main, ([file], rep))
                 # run_main([file], rep)
