@@ -58,7 +58,7 @@ def run_flash3(files, repeat_no):
             iteration_count = 0
             while True:
                 # Creating Count Dict -- To make sure that if a point is evaluated twice, it is counted as once
-                print ". ",
+                print ". ", get_evals(), n0 + iteration_count * n1, n0 + (iteration_count + 1) * n1
                 def get_objective_score(independent):
                     key = ",".join(map(str, independent))
                     # print "@@ ", counting_dict[key]
@@ -93,18 +93,17 @@ def run_flash3(files, repeat_no):
                 merged_indexes = non_dominated_sort(merged_predictions, lessismore[file])
                 predicted_few = [merged_predictions[i] for i in merged_indexes]
 
-                selected_n1 = []
-                for predicted_f in predicted_few:
+                selected_n1_indexes = []
+                for i, predicted_f in enumerate(predicted_few):
                     for train_dep in training_dep:
                         if binary_domination(train_dep, predicted_f) is False:
-                            selected_n1.append(n1_select[i])
+                            selected_n1_indexes.append(merged_indexes[i])
 
                 # removing duplicate entries
-                import itertools
-                selected_n1.sort()
-                selected_n1 = list(k for k, _ in itertools.groupby(selected_n1))
+                selected_n1_indexes = set(selected_n1_indexes)
+                selected_n1 = [n1_select[i] for i in selected_n1_indexes]
 
-                print "Length of selected_n1: ", len(selected_n1), get_evals()
+                print "Length of selected_n1: ", len(selected_n1), get_evals(), iteration_count
                 assert(len(selected_n1) < n1), "Somethign is wrong"
                 if len(selected_n1) == 0:
                     lives -= 1
@@ -135,31 +134,31 @@ def run_flash3(files, repeat_no):
 
 def run_main():
     files = [
-                './Data/llvm_input.csv',
-                './Data/noc_CM_log.csv',
-                './Data/sort_256.csv',
-                './Data/wc+rs-3d-c4.csv',
-                './Data/wc+sol-3d-c4.csv',
-                './Data/wc+wc-3d-c4.csv',
-                './Data/wc-3d-c4.csv',
-                './Data/wc-5d-c5.csv',
-                './Data/wc-6d-c1.csv',
-                './Data/wc-c1-3d-c1.csv',
-                './Data/wc-c3-3d-c1.csv',
-                './Data/rs-6d-c3.csv',
-                './Data/MONRP_50_4_5_0_110.csv',
-                './Data/MONRP_50_4_5_0_90.csv',
-                './Data/MONRP_50_4_5_4_110.csv',
-                './Data/MONRP_50_4_5_4_90.csv',
+                # './Data/llvm_input.csv',
+                # './Data/noc_CM_log.csv',
+                # './Data/sort_256.csv',
+                # './Data/wc+rs-3d-c4.csv',
+                # './Data/wc+sol-3d-c4.csv',
+                # './Data/wc+wc-3d-c4.csv',
+                # './Data/wc-3d-c4.csv',
+                # './Data/wc-5d-c5.csv',
+                # './Data/wc-6d-c1.csv',
+                # './Data/wc-c1-3d-c1.csv',
+                # './Data/wc-c3-3d-c1.csv',
+                # './Data/rs-6d-c3.csv',
+                # './Data/MONRP_50_4_5_0_110.csv',
+                # './Data/MONRP_50_4_5_0_90.csv',
+                # './Data/MONRP_50_4_5_4_110.csv',
+                # './Data/MONRP_50_4_5_4_90.csv',
                 './Data/POM3A.csv',
-                './Data/POM3B.csv',
-                './Data/POM3C.csv',
-                './Data/POM3D.csv',
-                './Data/xomo_all.csv',
-                './Data/xomo_flight.csv',
-                './Data/xomo_ground.csv',
-                './Data/xomo_osp.csv',
-                './Data/xomoo2.csv'
+                # './Data/POM3B.csv',
+                # './Data/POM3C.csv',
+                # './Data/POM3D.csv',
+                # './Data/xomo_all.csv',
+                # './Data/xomo_flight.csv',
+                # './Data/xomo_ground.csv',
+                # './Data/xomo_osp.csv',
+                # './Data/xomoo2.csv'
              ]
 
     import multiprocessing as mp
@@ -167,10 +166,10 @@ def run_main():
     # Main control loop
     pool = mp.Pool()
     for file in files:
-        for rep in xrange(20):
+        for rep in xrange(1):
             # print file, rep
-            pool.apply_async(run_flash3, ([file], rep))
-            # run_flash3([file], rep)
+            # pool.apply_async(run_flash3, ([file], rep))
+            run_flash3([file], rep)
 
     pool.close()
     pool.join()
