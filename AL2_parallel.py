@@ -111,7 +111,7 @@ def run_main(files, repeat_no):
     import os
     print "Working in Process #%d" % (os.getpid())
     all_data = {}
-    initial_sample_size = 30
+    initial_sample_size = 20
     for file in files:
         all_data[file] = {}
         all_data[file]['evals'] = []

@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03b692a7-21c8-4fa0-bac6-0c8815466396" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Consolidated/MONRP/al2_20_monrp.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Consolidated/POM/al2_20_POM.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Consolidated/XOMO/al2_20_XOMO.p" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PickleLocker_20/consolidate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AL2_parallel.py" afterPath="$PROJECT_DIR$/AL2_parallel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/MONRP/all.py" afterPath="$PROJECT_DIR$/Consolidated/MONRP/all.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/MONRP/stat_result.p" afterPath="$PROJECT_DIR$/Consolidated/MONRP/stat_result.p" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/POM/all.py" afterPath="$PROJECT_DIR$/Consolidated/POM/all.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/POM/stat_result.p" afterPath="$PROJECT_DIR$/Consolidated/POM/stat_result.p" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/XOMO/all.py" afterPath="$PROJECT_DIR$/Consolidated/XOMO/all.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Consolidated/XOMO/stat_result.p" afterPath="$PROJECT_DIR$/Consolidated/XOMO/stat_result.p" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/non_dominated_sort.py" afterPath="$PROJECT_DIR$/non_dominated_sort.py" />
     </list>
     <ignored path="MOLearner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,56 +198,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Consolidated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XOMO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Consolidated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MOLearner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Consolidated" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
