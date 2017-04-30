@@ -17,7 +17,7 @@ def get_gd_rank(problems):
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['gen_dist'])
+            lists.append(['AL2'] + al2[problem+".p"]['gen_dist'])
         except:
             pass
         # try:
@@ -36,6 +36,8 @@ def get_gd_rank(problems):
             lists.append(['NSGAII'] + nsgaii[problem]['gen_dist'])
         except:
             pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['gen_dist'])
         try:
             lists.append(['SPEA2'] + spea2[problem]['gen_dist'])
         except:
@@ -61,14 +63,15 @@ def get_igd_rank(problems):
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['igd'])
+            lists.append(['AL2'] + al2[problem+".p"]['igd'])
         except:
             pass
         # try:
         #     lists.append(['AL'] + al[problem]['igd'])
         # except:
         #     pass
-
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['igd'])
         try:
             lists.append(['NSGAII'] + nsgaii[problem]['igd'])
         except:
@@ -97,8 +100,10 @@ def get_eval_rank(problems):
         sway = pickle.load(open('SWAY5_XOMO.p'))
 
         lists = list()
-        try: lists.append(['AL2'] + al2[problem]['evals'])
+        try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
         except: pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['evals'])
         # try: lists.append(['AL'] + al[problem]['evals'])
         # except:
         #     pass
@@ -114,26 +119,22 @@ def get_eval_rank(problems):
     return return_dict
 
 dict = {}
-problems = ['xomo_all_dataset1', 'xomo_all_dataset2', 'xomo_all_dataset3', 'xomo_flight_dataset1', 'xomo_flight_dataset2',
-            'xomo_flight_dataset3', 'xomo_ground_dataset1', 'xomo_ground_dataset2', 'xomo_ground_dataset3', 'xomo_osp_dataset1',
-            'xomo_osp_dataset2', 'xomo_osp_dataset3', 'xomoo2_dataset1', 'xomoo2_dataset2', 'xomoo2_dataset3']
+problems = ['xomo_ground', 'xomo_osp', 'xomoo2', 'xomo_all', 'xomo_flight']
 
-#
-# dict['gd'] = get_gd_rank(problems)
-# dict['igd'] = get_igd_rank(problems)
-# dict['evals'] = get_eval_rank(problems)
-#
-# assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
-# assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
-#
-# pickle.dump(dict, open('stat_result.p', 'w'))
+dict['gd'] = get_gd_rank(problems)
+dict['igd'] = get_igd_rank(problems)
+dict['evals'] = get_eval_rank(problems)
+
+assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
+assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
+
+pickle.dump(dict, open('stat_result.p', 'w'))
 
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = ['AL2', 'NSGAII', 'SPEA2', 'SWAY']
-problems = ['xomo_all_dataset1', 'xomo_all_dataset2', 'xomo_all_dataset3', 'xomo_flight_dataset1', 'xomo_flight_dataset2',
-            'xomo_flight_dataset3', 'xomo_ground_dataset1', 'xomo_ground_dataset2', 'xomo_ground_dataset3', 'xomo_osp_dataset1',
-            'xomo_osp_dataset2', 'xomo_osp_dataset3', 'xomoo2_dataset1', 'xomoo2_dataset2', 'xomoo2_dataset3']
+algorithms = ['AL2', "Flash3", 'NSGAII', 'SPEA2', 'SWAY']
+problems = ['xomo_ground', 'xomo_osp', 'xomoo2', 'xomo_all', 'xomo_flight']
+
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
 header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
 header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"

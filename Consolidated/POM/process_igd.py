@@ -9,7 +9,7 @@ problems = content.keys()
 
 prob = {}
 for problem in problems:
-    al2 = pickle.load(open('al2_POM.p'))
+    al2 = pickle.load(open('al2_XOMO.p'))
     al = pickle.load(open('al_POM.p'))
     mmre = pickle.load(open('mmre_POM.p'))
     nsgaii = pickle.load(open('nsgaii_POM.p'))

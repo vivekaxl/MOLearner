@@ -8,7 +8,7 @@ from sk_table import rdivDemo
 def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_POM.p'))
+        al2 = pickle.load(open('al2_XOMO.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -17,9 +17,13 @@ def get_gd_rank(problems):
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['gen_dist'])
+            lists.append(['AL2'] + al2[problem+".p"]['gen_dist'])
         except:
+            import pdb
+            pdb.set_trace()
             pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['gen_dist'])
         # try:
         #     lists.append(['AL'] + al[problem]['gen_dist'])
         # except:
@@ -52,7 +56,7 @@ def get_gd_rank(problems):
 def get_igd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_POM.p'))
+        al2 = pickle.load(open('al2_XOMO.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -61,14 +65,15 @@ def get_igd_rank(problems):
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['igd'])
+            lists.append(['AL2'] + al2[problem+".p"]['igd'])
         except:
             pass
         # try:
         #     lists.append(['AL'] + al[problem]['igd'])
         # except:
         #     pass
-
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['igd'])
         try:
             lists.append(['NSGAII'] + nsgaii[problem]['igd'])
         except:
@@ -89,7 +94,7 @@ def get_igd_rank(problems):
 def get_eval_rank(problems):
     return_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_POM.p'))
+        al2 = pickle.load(open('al2_XOMO.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -97,8 +102,10 @@ def get_eval_rank(problems):
         sway = pickle.load(open('SWAY5_POM.p'))
 
         lists = list()
-        try: lists.append(['AL2'] + al2[problem]['evals'])
+        try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
         except: pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem + ".p"]['evals'])
         # try: lists.append(['AL'] + al[problem]['evals'])
         # except:
         #     pass
@@ -114,7 +121,7 @@ def get_eval_rank(problems):
     return return_dict
 
 # dict = {}
-# problems = ['POM3C_dataset2', 'POM3B_dataset2', 'POM3D_dataset2', 'POM3A_dataset1', 'POM3C_dataset1', 'POM3A_dataset2', 'POM3D_dataset1', 'POM3B_dataset1']
+# problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
 #
 # dict['gd'] = get_gd_rank(problems)
 # dict['igd'] = get_igd_rank(problems)
@@ -126,8 +133,8 @@ def get_eval_rank(problems):
 # pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
-problems = ['POM3A_dataset1', 'POM3A_dataset2', 'POM3B_dataset1', 'POM3B_dataset2', 'POM3C_dataset1', 'POM3C_dataset2', 'POM3D_dataset1', 'POM3D_dataset2']
+algorithms = [ 'AL2', "Flash3", 'NSGAII', 'SPEA2', 'SWAY']
+problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
 header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
 header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"

@@ -11,15 +11,20 @@ def get_gd_rank(problems):
         al2 = pickle.load(open('al2_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
-        nsgaii = pickle.load(open('nsgaii_monrp.p'))
-        spea2 = pickle.load(open('spea2_monrp.p'))
+        nsgaii = pickle.load(open('NSGAII_monrp.p'))
+        spea2 = pickle.load(open('SPEA2_monrp.p'))
         sway5 = pickle.load(open('SWAY5_monrp.p'))
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['gen_dist'])
+            lists.append(['AL2'] + al2[problem+".p"]['gen_dist'])
         except:
+            import pdb
+            pdb.set_trace()
+            print "missed"
             pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem+".p"]['gen_dist'])
         # try:
         #     lists.append(['AL'] + al[problem]['gen_dist'])
         # except:
@@ -55,20 +60,21 @@ def get_igd_rank(problems):
         al2 = pickle.load(open('al2_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
-        nsgaii = pickle.load(open('nsgaii_monrp.p'))
-        spea2 = pickle.load(open('spea2_monrp.p'))
+        nsgaii = pickle.load(open('NSGAII_monrp.p'))
+        spea2 = pickle.load(open('SPEA2_monrp.p'))
         sway5 = pickle.load(open('SWAY5_monrp.p'))
 
         lists = list()
         try:
-            lists.append(['AL2'] + al2[problem]['igd'])
+            lists.append(['AL2'] + al2[problem+".p"]['igd'])
         except:
             pass
         # try:
         #     lists.append(['AL'] + al[problem]['igd'])
         # except:
         #     pass
-
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem+".p"]['igd'])
         try:
             lists.append(['NSGAII'] + nsgaii[problem]['igd'])
         except:
@@ -92,12 +98,14 @@ def get_eval_rank(problems):
         al2 = pickle.load(open('al2_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
-        nsgaii = pickle.load(open('nsgaii_monrp.p'))
-        spea2 = pickle.load(open('spea2_monrp.p'))
+        nsgaii = pickle.load(open('NSGAII_monrp.p'))
+        spea2 = pickle.load(open('SPEA2_monrp.p'))
         sway = pickle.load(open('SWAY5_monrp.p'))
 
         lists = list()
-        try: lists.append(['AL2'] + al2[problem]['evals'])
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem+".p"]['evals'])
+        try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
         except: pass
         # try: lists.append(['AL'] + al[problem]['evals'])
         # except:
@@ -113,22 +121,21 @@ def get_eval_rank(problems):
 
     return return_dict
 
-# dict = {}
-# problems = ['MONRP_50_4_5_0_110_dataset1', 'MONRP_50_4_5_0_90_dataset2', 'MONRP_50_4_5_0_90_dataset1',
-#             'MONRP_50_4_5_0_110_dataset2', 'MONRP_50_4_5_4_110_dataset1', 'MONRP_50_4_5_4_110_dataset2',
-#             'MONRP_50_4_5_4_90_dataset1', 'MONRP_50_4_5_4_90_dataset2']
-# dict['gd'] = get_gd_rank(problems)
-# dict['igd'] = get_igd_rank(problems)
-# dict['evals'] = get_eval_rank(problems)
-#
-# assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
-# assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
-#
-# pickle.dump(dict, open('stat_result.p', 'w'))
+dict = {}
+problems = ['MONRP_50_4_5_0_110', 'MONRP_50_4_5_0_90', 'MONRP_50_4_5_4_90', 'MONRP_50_4_5_4_110']
+
+dict['gd'] = get_gd_rank(problems)
+dict['igd'] = get_igd_rank(problems)
+dict['evals'] = get_eval_rank(problems)
+
+assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
+assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
+
+pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
-problems = ['MONRP_50_4_5_0_110_dataset1', 'MONRP_50_4_5_0_110_dataset2', 'MONRP_50_4_5_0_90_dataset1', 'MONRP_50_4_5_0_90_dataset2', 'MONRP_50_4_5_4_110_dataset1', 'MONRP_50_4_5_4_110_dataset2', 'MONRP_50_4_5_4_90_dataset1', 'MONRP_50_4_5_4_90_dataset2']
+algorithms = [ 'AL2', 'Flash3', 'NSGAII', 'SPEA2', 'SWAY']
+problems = ['MONRP_50_4_5_0_110', 'MONRP_50_4_5_0_90', 'MONRP_50_4_5_4_90', 'MONRP_50_4_5_4_110']
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
 header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
 header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
