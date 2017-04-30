@@ -228,16 +228,16 @@ def r(data): return round(data, 2)
 
 dict = pickle.load(open('stat_result.p'))
 
-columns_dict = {'sort_256': 3, 'wc-c3-3d-c1': 3, 'reduced_TriMesh_2_3': 9, 'SaC_11_12': 59, 'x264-DB_4_5': 17,
-                'noc_CM_log': 4, 'x264-DB_5_6': 17, 'x264-DB_2_3': 17, 'x264-DB_3_4': 17, 'x264-DB': 17,
-                'reduced_TriMesh_1_2': 9, 'wc-6d-c1': 6, 'TriMesh': 13, 'SaC1_2': 59, 'wc-c1-3d-c1': 3,
-                'wc-5d-c5': 5, 'x264-DB_1_2': 17, 'SaC': 59, 'sol-6d-c2': 6, 'wc+wc-3d-c4': 3, 'SaC_7_8': 59,
-                'TriMesh_1_2': 13, 'wc-3d-c4': 3, 'SaC_9_10': 59, 'wc+rs-3d-c4': 3, 'SaC_5_6': 59, 'rs-6d-c3': 6,
-                'llvm_input': 11, 'wc+sol-3d-c4': 3, 'TriMesh_2_3': 13, 'SaC_3_4': 59}
-
+columns_dict = {'sort_256': 3, 'wc-c3-3d-c1': 3,
+                'noc_CM_log': 4,
+                 'wc-6d-c1': 6,  'wc-c1-3d-c1': 3,
+                'wc-5d-c5': 5,  'wc+wc-3d-c4': 3,
+                 'wc-3d-c4': 3,  'wc+rs-3d-c4': 3, 'rs-6d-c3': 6,
+                'llvm_input': 11, 'wc+sol-3d-c4': 3, }
 
 algorithms = ['AL2',  'Flash3', 'epal0.01',  'epal0.04',  'epal0.12',  'epal0.20', 'epal0.30',]
-problems = ['llvm_input.p', 'noc_CM_log.p', 'rs-6d-c3.p', 'sort_256.p', 'wc+rs-3d-c4.p', 'wc+sol-3d-c4.p', 'wc+wc-3d-c4.p', 'wc-3d-c4.p', 'wc-5d-c5.p', 'wc-6d-c1.p', 'wc-c1-3d-c1.p', 'wc-c3-3d-c1.p']
+problems = ['wc-c1-3d-c1.p', 'sort_256.p', 'wc-c3-3d-c1.p', 'wc+wc-3d-c4.p', 'wc-3d-c4.p', 'wc+rs-3d-c4.p', 'wc+sol-3d-c4.p', 'noc_CM_log.p', 'wc-5d-c5.p', 'rs-6d-c3.p', 'wc-6d-c1.p', 'llvm_input.p']
+
 header = "\multirow{3}{*}{\\textbf{Name}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}}& \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH3}}} & \multicolumn{15}{c|}{\\textbf{ePAL}}                                                                     \\\ \cline{6-20}\n"
 header += "& & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{\\textbf{ePal-0.01}} & \multicolumn{3}{c|}{\\textbf{ePal-0.04}} &  \multicolumn{3}{c|}{\\textbf{ePal-0.12}}  & \multicolumn{3}{c|}{\\textbf{ePal-0.20}} & \multicolumn{3}{c|}{\\textbf{ePal-0.30}} \\\ \cline{3-20} \n"
 header += " & & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} &\\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
