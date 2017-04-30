@@ -5,7 +5,7 @@ p1
 S'evals'
 p3
 (lp4
-I59
+I1363
 asS'igd'
 p5
 (lp6
@@ -28,7 +28,7 @@ NNNI-1
 I-1
 I0
 tp13
-bS'X\xb2F[\x8b\x01s?'
+bS'\x19\xd3\x11~d\xca`?'
 p14
 tp15
 Rp16
@@ -37,7 +37,7 @@ p17
 (lp18
 g7
 (g11
-S'^\xb0\xa2\xb8j\xf4\x8b?'
+S'\xe0\x05\xd7\x07\xda\x0b\x85?'
 p19
 tp20
 Rp21

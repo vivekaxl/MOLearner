@@ -146,19 +146,19 @@ def run_main():
                 # './Data/wc-c1-3d-c1.csv',
                 # './Data/wc-c3-3d-c1.csv',
                 # './Data/rs-6d-c3.csv',
-                # './Data/MONRP_50_4_5_0_110.csv',
-                # './Data/MONRP_50_4_5_0_90.csv',
-                # './Data/MONRP_50_4_5_4_110.csv',
-                # './Data/MONRP_50_4_5_4_90.csv',
+                './Data/MONRP_50_4_5_0_110.csv',
+                './Data/MONRP_50_4_5_0_90.csv',
+                './Data/MONRP_50_4_5_4_110.csv',
+                './Data/MONRP_50_4_5_4_90.csv',
                 './Data/POM3A.csv',
-                # './Data/POM3B.csv',
-                # './Data/POM3C.csv',
-                # './Data/POM3D.csv',
-                # './Data/xomo_all.csv',
-                # './Data/xomo_flight.csv',
-                # './Data/xomo_ground.csv',
-                # './Data/xomo_osp.csv',
-                # './Data/xomoo2.csv'
+                './Data/POM3B.csv',
+                './Data/POM3C.csv',
+                './Data/POM3D.csv',
+                './Data/xomo_all.csv',
+                './Data/xomo_flight.csv',
+                './Data/xomo_ground.csv',
+                './Data/xomo_osp.csv',
+                './Data/xomoo2.csv'
              ]
 
     import multiprocessing as mp
@@ -166,10 +166,10 @@ def run_main():
     # Main control loop
     pool = mp.Pool()
     for file in files:
-        for rep in xrange(1):
+        for rep in xrange(20):
             # print file, rep
-            # pool.apply_async(run_flash3, ([file], rep))
-            run_flash3([file], rep)
+            pool.apply_async(run_flash3, ([file], rep))
+            # run_flash3([file], rep)
 
     pool.close()
     pool.join()
