@@ -15,7 +15,7 @@ for i, file in enumerate(files):
     print file
     content = pickle.load(open(file, 'r'))
     for key in sorted(content.keys()):
-        consolidated_dict[key] = content[key]
+        consolidated_dict[key[4:]] = content[key]
         print key, len(consolidated_dict.keys())
 all_files = [f for f in os.listdir(".") if ".py" not in f and "consolidated" not in f and ".md" not in f]
 for i, f in enumerate(all_files):

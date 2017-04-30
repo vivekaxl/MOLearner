@@ -7,21 +7,18 @@ from utility import generational_distance, inverted_generational_distance
 import pickle
 
 ranges = {}
-ranges['./Data/xomo_all-p10000-d27-o4-dataset1.csv'] = [[3.707966726,26666.23383],[4.568049924,106.5319281]]
-ranges['./Data/xomo_all-p10000-d27-o4-dataset2.csv'] = [[4.568049924,106.5319281],[6.685393736,418716.0161]]
-ranges['./Data/xomo_all-p10000-d27-o4-dataset3.csv'] = [[6.685393736,418716.0161],[0.0,14.74530831]]
-ranges['./Data/xomo_flight-p10000-d27-o4-dataset1.csv'] = [[6.047222022,28742.58749],[5.348895805,100.3527152]]
-ranges['./Data/xomo_flight-p10000-d27-o4-dataset2.csv'] = [[5.348895805,100.3527152],[11.4472631,540128.325]]
-ranges['./Data/xomo_flight-p10000-d27-o4-dataset3.csv'] = [[11.4472631,540128.325],[0.0,13.94101877]]
-ranges['./Data/xomo_ground-p10000-d27-o4-dataset1.csv'] = [[5.047456138,25727.32014],[4.199017713,110.4968852]]
-ranges['./Data/xomo_ground-p10000-d27-o4-dataset2.csv'] = [[4.199017713,110.4968852],[10.69176728,345890.7844]]
-ranges['./Data/xomo_ground-p10000-d27-o4-dataset3.csv'] = [[10.69176728,345890.7844],[0.0,14.4772118]]
-ranges['./Data/xomo_osp-p10000-d27-o4-dataset1.csv'] = [[7.334722936,38227.17263],[5.045540178,103.3070284]]
-ranges['./Data/xomo_osp-p10000-d27-o4-dataset2.csv'] = [[5.045540178,103.3070284],[11.22363568,605891.2366]]
-ranges['./Data/xomo_osp-p10000-d27-o4-dataset3.csv'] = [[11.22363568,605891.2366],[0.0,15.28150134]]
-ranges['./Data/xomoo2-p10000-d27-o4-dataset1.csv'] = [[3.402253099,31456.09489],[4.440279507,99.7843957]]
-ranges['./Data/xomoo2-p10000-d27-o4-dataset2.csv'] = [[4.440279507,99.7843957],[5.540869257,418688.4863]]
-ranges['./Data/xomoo2-p10000-d27-o4-dataset3.csv'] = [[5.540869257,418688.4863],[0.0,15.28150134]]
+ranges["./Data/MONRP_50_4_5_4_110.csv"] =  [[92403.0, 95344.0], [428.0, 696.0], [99370.0, 99627.0]]
+ranges["./Data/POM3B.csv"] =  [[0.0, 34227.640271599994], [0.0, 1.0], [0.0, 0.827586206897]]
+ranges["./Data/xomo_all.csv"] =  [[5.8900921014900005, 28583.461233399998], [5.70862368202, 98.79220126530001], [14.9038336217, 791879.990629], [0.0, 14.745308310999999]]
+ranges["./Data/xomo_flight.csv"] =  [[5.07704875571, 23004.2641148], [5.79962055412, 98.2239438536], [10.6753616341, 428117.623585], [0.0, 13.941018766800001]]
+ranges["./Data/POM3A.csv"] =  [[50.41390895399999, 2884.36190927], [-2.22044604925e-16, 0.841889480617], [0.0, 0.7539882451719999]]
+ranges["./Data/POM3D.csv"] =  [[0.0, 1459.07484037], [-2.22044604925e-16, 1.0], [0.0, 0.7272727272730001]]
+ranges["./Data/POM3C.csv"] =  [[202.22098459400002, 2776.06783571], [0.36918150500299995, 0.7269238731450001], [0.0, 0.699346405229]]
+ranges["./Data/xomo_ground.csv"] =  [[4.784674809519999, 27522.1840857], [4.2245581331699995, 102.89673937799999], [19.1702767897, 372508.726334], [0.0, 13.941018766800001]]
+ranges["./Data/xomo_osp.csv"] =  [[4.36140164564, 28090.846327799998], [5.13691252687, 114.196144121], [5.541133544419999, 401407.569903], [0.0, 13.1367292225]]
+ranges["./Data/MONRP_50_4_5_0_110.csv"] =  [[94994.0, 97219.0], [452.0, 727.0], [99466.0, 99660.0]]
+ranges["./Data/xomoo2.csv"] =  [[4.48249903236, 22162.0418187], [5.76103797422, 103.62850582200001], [8.09558500714, 312806.337078], [0.0, 14.745308310999999]]
+ranges["./Data/MONRP_50_4_5_0_90.csv"] =  [[95394.0, 96983.0], [400.0, 605.0], [99341.0, 99574.0]]
 
 
 actual_pf_p = "./ActualPF/consolidated_dict.p"
@@ -35,7 +32,7 @@ evals["NSGAII"] = 2100
 evals["SPEA2"] = 2100
 evals["SWAY5"] = 70
 
-
+no_objectives = 4
 
 def run(name):
     for subfolder in subfolders:
@@ -45,32 +42,15 @@ def run(name):
 
         if "NSGAII" in subfolder or "SPEA2" in subfolder:
             # Find appropriate file
-            problem_name_1 = "_".join(subfolder.split('/')[-2].split('_')[1:3])
-            problem_name_1 = problem_name_1 if problem_name_1 != "xomo_o2" else 'xomoo2'
-            problem_name_2 = "_".join(subfolder.split('/')[-2].split('_')[3:-1])
-            if problem_name_2 == "1_2":
-                problem_name_2 = "dataset1"
-            if problem_name_2 == "2_3":
-                problem_name_2 = "dataset2"
-            if problem_name_2 == "3_4":
-                problem_name_2 = "dataset3"
+            problem_name = "_".join(subfolder.split('/')[-2].split('_')[1:-1])
 
         elif "SWAY5" in subfolder:
-            # Find appropriate file
-            problem_name_1 = "_".join(subfolder.split('/')[-2].split('_')[1:3])
-            problem_name_1 = problem_name_1 if problem_name_1 != "xomo_o2" else 'xomoo2'
-            problem_name_2 = "_".join(subfolder.split('/')[-2].split('_')[3:-1])
-            if problem_name_2 == "1_2":
-                problem_name_2 = "dataset1"
-            if problem_name_2 == "2_3":
-                problem_name_2 = "dataset2"
-            if problem_name_2 == "3_4":
-                problem_name_2 = "dataset3"
 
+            # Find appropriate file
+            problem_name = "_".join(subfolder.split('/')[-2].split('_')[1:-1])
 
         true_pf_dict = pickle.load(open(actual_pf_p, 'r'))
 
-        problem_name = problem_name_1 + "_" + problem_name_2
         print problem_name
         all_data[problem_name] = {}
         all_data[problem_name]['evals'] = []
@@ -88,10 +68,10 @@ def run(name):
             predicted_pf = []
             content = open(file, "r").readlines()
             for c in content:
-                predicted_pf.append(map(float, ([cc.strip() for cc in c.split(',')[-2:]])))
-                assert (len(predicted_pf[-1]) == 2), "Something is wrong"
+                predicted_pf.append(map(float, ([cc.strip() for cc in c.split(',')[-1 * no_objectives:]])))
+                assert (len(predicted_pf[-1]) == no_objectives), "Something is wrong"
 
-            correct_key = [key for key in true_pf_dict.keys() if problem_name_1 in key and problem_name_2 in key]
+            correct_key = [key for key in true_pf_dict.keys() if problem_name in key]
             # print ">>", correct_key
             try:
                 assert(len(correct_key) == 1), "Somethign is wrong"
