@@ -11,6 +11,7 @@ def binary_domination(one, two):
     :param two: Second solution
     :return: True if one dominates two; False otherwise
     """
+    assert(len(one) == len(two)), "Something is wrong"
     not_equal = False
     for o, t in zip(one, two):
         if o < t:

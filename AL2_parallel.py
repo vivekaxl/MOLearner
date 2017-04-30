@@ -111,7 +111,7 @@ def run_main(files, repeat_no):
     import os
     print "Working in Process #%d" % (os.getpid())
     all_data = {}
-    initial_sample_size = 20
+    initial_sample_size = 30
     for file in files:
         all_data[file] = {}
         all_data[file]['evals'] = []
@@ -135,7 +135,7 @@ def run_main(files, repeat_no):
             sys.stdout.flush()
             shuffle(data)
 
-            lives = 10
+            lives = 20
             training_data = [d.decisions for d in data[:initial_sample_size]]
             testing_data = [d.decisions for d in data]
             evaluation_count = 0
@@ -240,7 +240,7 @@ def run_main(files, repeat_no):
 
 
         import pickle
-        pickle.dump(all_data, open('PickleLocker/AL2_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
+        pickle.dump(all_data, open('PickleLocker_20/AL2_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
 
 if __name__ == "__main__":
     files = [

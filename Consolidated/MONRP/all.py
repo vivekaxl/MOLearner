@@ -8,7 +8,7 @@ def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
         print problem
-        al2 = pickle.load(open('al2_monrp.p'))
+        al2 = pickle.load(open('al2_20_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
         nsgaii = pickle.load(open('NSGAII_monrp.p'))
@@ -57,7 +57,7 @@ def get_gd_rank(problems):
 def get_igd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_monrp.p'))
+        al2 = pickle.load(open('al2_20_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
         nsgaii = pickle.load(open('NSGAII_monrp.p'))
@@ -95,7 +95,7 @@ def get_igd_rank(problems):
 def get_eval_rank(problems):
     return_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_monrp.p'))
+        al2 = pickle.load(open('al2_20_monrp.p'))
         al = pickle.load(open('al_monrp.p'))
 
         nsgaii = pickle.load(open('NSGAII_monrp.p'))

@@ -8,7 +8,7 @@ from sk_table import rdivDemo
 def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_XOMO.p'))
         al = pickle.load(open('al_XOMO.p'))
 
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))
@@ -54,7 +54,7 @@ def get_gd_rank(problems):
 def get_igd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_XOMO.p'))
         al = pickle.load(open('al_XOMO.p'))
 
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))
@@ -92,7 +92,7 @@ def get_igd_rank(problems):
 def get_eval_rank(problems):
     return_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_XOMO.p'))
         al = pickle.load(open('al_XOMO.p'))
 
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))

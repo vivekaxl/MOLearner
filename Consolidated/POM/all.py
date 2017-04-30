@@ -8,7 +8,7 @@ from sk_table import rdivDemo
 def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_POM.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -56,7 +56,7 @@ def get_gd_rank(problems):
 def get_igd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_POM.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -94,7 +94,7 @@ def get_igd_rank(problems):
 def get_eval_rank(problems):
     return_dict = {}
     for i, problem in enumerate(sorted(problems)):
-        al2 = pickle.load(open('al2_XOMO.p'))
+        al2 = pickle.load(open('al2_20_POM.p'))
         al = pickle.load(open('al_POM.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
@@ -120,17 +120,17 @@ def get_eval_rank(problems):
 
     return return_dict
 
-# dict = {}
-# problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
-#
-# dict['gd'] = get_gd_rank(problems)
-# dict['igd'] = get_igd_rank(problems)
-# dict['evals'] = get_eval_rank(problems)
-#
-# assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
-# assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
-#
-# pickle.dump(dict, open('stat_result.p', 'w'))
+dict = {}
+problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
+
+dict['gd'] = get_gd_rank(problems)
+dict['igd'] = get_igd_rank(problems)
+dict['evals'] = get_eval_rank(problems)
+
+assert(len(dict['gd'].keys()) == len(dict['igd'].keys())), "Something is wrong"
+assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong"
+
+pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
 algorithms = [ 'AL2', "Flash3", 'NSGAII', 'SPEA2', 'SWAY']
