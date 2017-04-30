@@ -23,15 +23,21 @@ def get_gd_rank(problems):
         mmre = pickle.load(open('mmre-based_Config.p'))
         rank = pickle.load(open('rank-based_Config.p'))
 
+
+
         lists = list()
         try:
             lists.append(['AL2'] + al2[problem]['gen_dist'])
         except:
             pass
-        try:
-            lists.append(['AL'] + al[problem]['gen_dist'])
-        except:
-            pass
+        # try:
+        #     lists.append(['AL'] + al[problem]['gen_dist'])
+        # except:
+        #     pass
+
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem]['gen_dist'])
+
         # try:
         #     lists.append(['MMRE'] + mmre[problem]['evals'])
         # except:
@@ -100,10 +106,12 @@ def get_igd_rank(problems):
             lists.append(['AL2'] + al2[problem]['igd'])
         except:
             pass
-        try:
-            lists.append(['AL'] + al[problem]['igd'])
-        except:
-            pass
+        # try:
+        #     lists.append(['AL'] + al[problem]['igd'])
+        # except:
+        #     pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem]['igd'])
         # try:
         #     lists.append(['MMRE'] + mmre[problem]['igd'])
         # except:
@@ -167,12 +175,16 @@ def get_eval_rank(problems):
         mmre = pickle.load(open('mmre-based_Config.p'))
         rank = pickle.load(open('rank-based_Config.p'))
 
+
         lists = list()
         try: lists.append(['AL2'] + al2[problem]['evals'])
         except: pass
-        try: lists.append(['AL'] + al[problem]['evals'])
-        except:
-            pass
+        # try: lists.append(['AL'] + al[problem]['evals'])
+        # except:
+        #     pass
+        flash3 = pickle.load(open('Flash3.p'))
+        lists.append(['Flash3'] + flash3[problem]['evals'])
+
         # try: lists.append(['MMRE'] + mmre[problem]['evals'])
         # except:
         #     pass
@@ -224,11 +236,11 @@ columns_dict = {'sort_256': 3, 'wc-c3-3d-c1': 3, 'reduced_TriMesh_2_3': 9, 'SaC_
                 'llvm_input': 11, 'wc+sol-3d-c4': 3, 'TriMesh_2_3': 13, 'SaC_3_4': 59}
 
 
-algorithms = ['AL2', 'epal0.01',  'epal0.04',  'epal0.12',  'epal0.20', 'epal0.30']
+algorithms = ['AL2',  'Flash3', 'epal0.01',  'epal0.04',  'epal0.12',  'epal0.20', 'epal0.30',]
 problems = ['llvm_input.p', 'noc_CM_log.p', 'rs-6d-c3.p', 'sort_256.p', 'wc+rs-3d-c4.p', 'wc+sol-3d-c4.p', 'wc+wc-3d-c4.p', 'wc-3d-c4.p', 'wc-5d-c5.p', 'wc-6d-c1.p', 'wc-c1-3d-c1.p', 'wc-c3-3d-c1.p']
-header = "\multirow{3}{*}{\\textbf{Name}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}}& \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{15}{c|}{\\textbf{ePAL}}                                                                     \\\ \cline{6-20}\n"
-header += "& & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{\\textbf{ePal-0.01}} & \multicolumn{3}{c|}{\\textbf{ePal-0.04}} &  \multicolumn{3}{c|}{\\textbf{ePal-0.12}}  & \multicolumn{3}{c|}{\\textbf{ePal-0.20}} & \multicolumn{3}{c|}{\\textbf{ePal-0.30}} \\\ \cline{3-20} \n"
-header += " & & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} &\\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
+header = "\multirow{3}{*}{\\textbf{Name}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}}& \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH3}}} & \multicolumn{15}{c|}{\\textbf{ePAL}}                                                                     \\\ \cline{6-20}\n"
+header += "& & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{\\textbf{ePal-0.01}} & \multicolumn{3}{c|}{\\textbf{ePal-0.04}} &  \multicolumn{3}{c|}{\\textbf{ePal-0.12}}  & \multicolumn{3}{c|}{\\textbf{ePal-0.20}} & \multicolumn{3}{c|}{\\textbf{ePal-0.30}} \\\ \cline{3-20} \n"
+header += " & & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} &\\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
 print header
 for problem in problems:
     print problem.replace('_', '\_'), '&', columns_dict[problem[:-2]], '&',
@@ -242,7 +254,7 @@ for problem in problems:
         else: print int(dict['evals'][problem][algorithm][1]),
         if i + 1 != len(algorithms): print '&',
     print '\\\ \hline'
-print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}}",
+print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}}&",
 
 
 for i,algorithm in enumerate(algorithms):
