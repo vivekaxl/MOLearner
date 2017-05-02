@@ -4,7 +4,7 @@ import os
 import sys
 from random import shuffle
 from utility import lessismore, generational_distance, ranges, inverted_generational_distance
-from non_dominated_sort import non_dominated_sort
+from non_dominated_sort import non_dominated_sort, binary_domination, continious_domination
 import math
 
 def normalize(x, min, max):
@@ -54,7 +54,7 @@ def get_cdom_values(objectives, lessismore):
     return cdom_scores
 
 
-def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
+def get_nd_solutions(filename, train_indep, training_dep, testing_indep, mins, maxs):
     no_of_objectives = len(training_dep[0])
     predicted_objectives = []
     for objective_no in xrange(no_of_objectives):
@@ -71,7 +71,7 @@ def get_nd_solutions(filename, train_indep, training_dep, testing_indep):
     assert(len(merged_predicted_objectves) == len(testing_indep)), "Something is wrong"
 
     # Find Non-Dominated Solutions
-    pf_indexes = non_dominated_sort(merged_predicted_objectves, lessismore[filename])
+    pf_indexes = non_dominated_sort(merged_predicted_objectves, lessismore[filename], mins, maxs, domination=continious_domination)
     # print "Number of ND Solutions: ", len(pf_indexes)
 
     return [testing_indep[i] for i in pf_indexes], [merged_predicted_objectves[i] for i in pf_indexes]
@@ -84,9 +84,9 @@ def same_list(list1, list2):
     return True
 
 
-def get_training_sequence(file, training_indep, training_dep, testing_data, index=0):
+def get_training_sequence(file, training_indep, training_dep, testing_data, mins, maxs):
     # build a model and get the predicted non dominated solutions
-    return_nd_independent, predicted_objectives = get_nd_solutions(file, training_indep, training_dep, testing_data)
+    return_nd_independent, predicted_objectives = get_nd_solutions(file, training_indep, training_dep, testing_data, mins, maxs)
     # For ordering purposes: Add summation of continious domination
     cdom_scores = get_cdom_values(predicted_objectives, lessismore[file])
     assert(len(cdom_scores) == len(predicted_objectives)), "Something is wrong"
@@ -117,6 +117,8 @@ def run_main(files, repeat_no):
         all_data[file]['evals'] = []
         all_data[file]['gen_dist'] = []
         all_data[file]['igd'] = []
+        mins = [r[0] for r in ranges[file]]
+        maxs = [r[1] for r in ranges[file]]
 
         print file
         data = read_file(file)
@@ -128,8 +130,6 @@ def run_main(files, repeat_no):
             key = ",".join(map(str, d.decisions))
             objectives_dict[key] = d.objectives
 
-        evals = []
-        pfs = []
         for rep in xrange(1):
             print ". ",
             sys.stdout.flush()
@@ -138,8 +138,6 @@ def run_main(files, repeat_no):
             lives = 20
             training_data = [d.decisions for d in data[:initial_sample_size]]
             testing_data = [d.decisions for d in data]
-            evaluation_count = 0
-            previous_pf = []
 
             counting_dict = {}
             for d in data:
@@ -163,7 +161,7 @@ def run_main(files, repeat_no):
 
                 training_dep = [get_objective_score(r) for r in training_data]
 
-                training_sequence, return_nd_independent = get_training_sequence(file, training_data, training_dep, testing_data)
+                training_sequence, return_nd_independent = get_training_sequence(file, training_data, training_dep, testing_data, mins, maxs)
                 assert(len(training_sequence) == len(return_nd_independent)), "Soemthing is wrong"
                 next_point = testing_data[training_sequence[0]]
                 count = 1
@@ -178,12 +176,12 @@ def run_main(files, repeat_no):
 
 
                 # Add it to training set and see if it is a dominating point
-                before_pf_indexes = non_dominated_sort(training_dep, lessismore[file])
+                before_pf_indexes = non_dominated_sort(training_dep, lessismore[file], mins, maxs, domination=continious_domination)
                 before_pf = [training_dep[i] for i in before_pf_indexes]
 
                 training_data = training_data + [next_point]
 
-                after_pf_indexes = non_dominated_sort(training_dep + [next_point_dependent], lessismore[file])
+                after_pf_indexes = non_dominated_sort(training_dep + [next_point_dependent], lessismore[file], mins, maxs, domination=continious_domination)
                 after_pf = [(training_dep + [next_point_dependent])[i] for i in after_pf_indexes]
 
                 import itertools
@@ -217,12 +215,12 @@ def run_main(files, repeat_no):
             print "Size of the frontier = ", len(training_data), " Evals: ", get_evals(),
             # Calculate the True ND
             training_dependent = [get_objective_score(r) for r in training_data]
-            pf_indexes = non_dominated_sort(training_dependent, lessismore[file])
+            pf_indexes = non_dominated_sort(training_dependent, lessismore[file], mins, maxs, domination=continious_domination)
             current_pf = [training_dependent[i] for i in pf_indexes]
             all_data[file]['evals'].append(get_evals())
 
             actual_dependent = [get_objective_score(d) for d in testing_data]
-            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file])
+            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file], mins, maxs, domination=continious_domination)
             true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x:x[0])
             current_pf = sorted(current_pf, key=lambda x:x[0])
             from utility import draw_pareto_front
@@ -240,7 +238,7 @@ def run_main(files, repeat_no):
 
 
         import pickle
-        pickle.dump(all_data, open('PickleLocker_30/AL2_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
+        pickle.dump(all_data, open('PickleLocker_cdom/AL2_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
 
 if __name__ == "__main__":
     files = [
