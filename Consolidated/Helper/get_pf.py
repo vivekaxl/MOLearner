@@ -8,6 +8,7 @@ from utility import draw_pareto_front, generational_distance, ranges,inverted_ge
 import pickle
 
 if __name__ == "__main__":
+
     from utility import read_file, split_data, build_model
     from non_dominated_sort import non_dominated_sort
 

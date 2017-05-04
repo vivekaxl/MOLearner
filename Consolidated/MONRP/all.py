@@ -134,7 +134,7 @@ assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong
 pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = [ 'AL2', 'Flash4', 'NSGAII', 'SPEA2', 'SWAY']
+algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
 problems = ['MONRP_50_4_5_0_110', 'MONRP_50_4_5_0_90', 'MONRP_50_4_5_4_90', 'MONRP_50_4_5_4_110']
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
 header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
@@ -143,13 +143,13 @@ print header
 for problem in problems:
     print problem.replace('_', '\_'), '&', '50 &'
     for i, algorithm in enumerate(algorithms):
-        if dict['gd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['gd'][problem][algorithm][1]) ,'&',
-        else: print r(dict['gd'][problem][algorithm][1]), ' &',
+        if dict['gd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['NSGAII'][1]) * 100) ,'&',
+        else: print int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['NSGAII'][1]) * 100), ' &',
 
-        if dict['igd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['igd'][problem][algorithm][1]),'&',
-        else: print r(dict['igd'][problem][algorithm][1]), '&',
-        if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1]),
-        else: print int(dict['evals'][problem][algorithm][1]),
+        if dict['igd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1]) * 100),
+        else: print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1]) * 100),
+        # if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1])/int(int(dict['evals'][problem]['NSGAII'][1])),
+        # else: print int(dict['evals'][problem][algorithm][1])/int(int(dict['evals'][problem]['NSGAII'][1])),
         if i + 1 != len(algorithms): print '&',
     print '\\\ \hline'
 print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}} &",
@@ -175,7 +175,7 @@ for i,algorithm in enumerate(algorithms):
         else: eval_losses += 1
 
     print int((gd_wins * 100)/(gd_wins + gd_losses)), "&",
-    print int((igd_wins * 100) / (igd_wins + igd_losses)), "&",
-    print int((eval_wins * 100) / (eval_wins + eval_losses)),
+    print int((igd_wins * 100) / (igd_wins + igd_losses)),
+    # print int((eval_wins * 100) / (eval_wins + eval_losses)),
     if i + 1 != len(algorithms): print '&',
 print '\\\ \hline'

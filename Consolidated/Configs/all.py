@@ -35,8 +35,8 @@ def get_gd_rank(problems):
         # except:
         #     pass
 
-        flash3 = pickle.load(open('Flash3.p'))
-        lists.append(['Flash3'] + flash3[problem]['gen_dist'])
+        # flash3 = pickle.load(open('Flash3.p'))
+        # lists.append(['Flash3'] + flash3[problem]['gen_dist'])
 
         # try:
         #     lists.append(['MMRE'] + mmre[problem]['evals'])
@@ -54,26 +54,26 @@ def get_gd_rank(problems):
         #     lists.append(['epal\_0.02'] + epal_002[problem]['gen_dist'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.04'] + epal_004[problem]['gen_dist'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.04'] + epal_004[problem]['gen_dist'])
+        # except:
+        #     pass
         # try:
         #     lists.append(['epal\_0.08'] + epal_008[problem]['gen_dist'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.12'] + epal_012[problem]['gen_dist'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.12'] + epal_012[problem]['gen_dist'])
+        # except:
+        #     pass
         # try:
         #     lists.append(['epal\_0.16'] + epal_016[problem]['gen_dist'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.20'] + epal_020[problem]['gen_dist'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.20'] + epal_020[problem]['gen_dist'])
+        # except:
+        #     pass
         try:
             lists.append(['epal\_0.30'] + epal_030[problem]['gen_dist'])
         except:
@@ -110,8 +110,8 @@ def get_igd_rank(problems):
         #     lists.append(['AL'] + al[problem]['igd'])
         # except:
         #     pass
-        flash3 = pickle.load(open('Flash3.p'))
-        lists.append(['Flash3'] + flash3[problem]['igd'])
+        # flash3 = pickle.load(open('Flash3.p'))
+        # lists.append(['Flash3'] + flash3[problem]['igd'])
         # try:
         #     lists.append(['MMRE'] + mmre[problem]['igd'])
         # except:
@@ -128,26 +128,26 @@ def get_igd_rank(problems):
         #     lists.append(['epal\_0.02'] + epal_002[problem]['igd'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.04'] + epal_004[problem]['igd'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.04'] + epal_004[problem]['igd'])
+        # except:
+        #     pass
         # try:
         #     lists.append(['epal\_0.08'] + epal_008[problem]['igd'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.12'] + epal_012[problem]['igd'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.12'] + epal_012[problem]['igd'])
+        # except:
+        #     pass
         # try:
         #     lists.append(['epal\_0.16'] + epal_016[problem]['igd'])
         # except:
         #     pass
-        try:
-            lists.append(['epal\_0.20'] + epal_020[problem]['igd'])
-        except:
-            pass
+        # try:
+        #     lists.append(['epal\_0.20'] + epal_020[problem]['igd'])
+        # except:
+        #     pass
         try:
             lists.append(['epal\_0.30'] + epal_030[problem]['igd'])
         except:
@@ -182,8 +182,8 @@ def get_eval_rank(problems):
         # try: lists.append(['AL'] + al[problem]['evals'])
         # except:
         #     pass
-        flash3 = pickle.load(open('Flash3.p'))
-        lists.append(['Flash3'] + flash3[problem]['evals'])
+        # flash3 = pickle.load(open('Flash3.p'))
+        # lists.append(['Flash3'] + flash3[problem]['evals'])
 
         # try: lists.append(['MMRE'] + mmre[problem]['evals'])
         # except:
@@ -195,16 +195,16 @@ def get_eval_rank(problems):
         except: pass
         # try: lists.append(['epal\_0.02'] + epal_002[problem]['evals'])
         # except: pass
-        try: lists.append(['epal\_0.04'] + epal_004[problem]['evals'])
-        except: pass
+        # try: lists.append(['epal\_0.04'] + epal_004[problem]['evals'])
+        # except: pass
         # try: lists.append(['epal\_0.08'] + epal_008[problem]['evals'])
         # except: pass
-        try: lists.append(['epal\_0.12'] + epal_012[problem]['evals'])
-        except: pass
+        # try: lists.append(['epal\_0.12'] + epal_012[problem]['evals'])
+        # except: pass
         # try: lists.append(['epal\_0.16'] + epal_016[problem]['evals'])
         # except: pass
-        try: lists.append(['epal\_0.20'] + epal_020[problem]['evals'])
-        except: pass
+        # try: lists.append(['epal\_0.20'] + epal_020[problem]['evals'])
+        # except: pass
         try: lists.append(['epal\_0.30'] + epal_030[problem]['evals'])
         except: pass
 
@@ -235,23 +235,43 @@ columns_dict = {'sort_256': 3, 'wc-c3-3d-c1': 3,
                  'wc-3d-c4': 3,  'wc+rs-3d-c4': 3, 'rs-6d-c3': 6,
                 'llvm_input': 11, 'wc+sol-3d-c4': 3, }
 
-algorithms = ['AL2',  'Flash3', 'epal0.01',  'epal0.04',  'epal0.12',  'epal0.20', 'epal0.30',]
+algorithms = ['AL2', 'epal0.01', 'epal0.30',]
 problems = ['wc-c1-3d-c1.p', 'sort_256.p', 'wc-c3-3d-c1.p', 'wc+wc-3d-c4.p', 'wc-3d-c4.p', 'wc+rs-3d-c4.p', 'wc+sol-3d-c4.p', 'noc_CM_log.p', 'wc-5d-c5.p', 'rs-6d-c3.p', 'wc-6d-c1.p', 'llvm_input.p']
 
-header = "\multirow{3}{*}{\\textbf{Name}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}}& \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH3}}} & \multicolumn{15}{c|}{\\textbf{ePAL}}                                                                     \\\ \cline{6-20}\n"
-header += "& & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{\\textbf{ePal-0.01}} & \multicolumn{3}{c|}{\\textbf{ePal-0.04}} &  \multicolumn{3}{c|}{\\textbf{ePal-0.12}}  & \multicolumn{3}{c|}{\\textbf{ePal-0.20}} & \multicolumn{3}{c|}{\\textbf{ePal-0.30}} \\\ \cline{3-20} \n"
-header += " & & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} &\\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
+header = "\multirow{3}{*}{\\textbf{Name}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}}& \multicolumn{2}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{4}{c|}{\\textbf{ePAL}}  \\\ \cline{5-8}\n"
+header += "& & \multicolumn{2}{c|}{} &  \multicolumn{2}{c|}{\\textbf{ePal-0.01}} & \multicolumn{2}{c|}{\\textbf{ePal-0.30}} \\\ \cline{3-8} \n"
+header += " & & \\rot{GD} & \\rot{IGD} &  \\rot{GD} & \\rot{IGD}  &\\rot{GD} & \\rot{IGD}  \\\ \hline"
 print header
 for problem in problems:
     print problem.replace('_', '\_'), '&', columns_dict[problem[:-2]], '&',
     for i, algorithm in enumerate(algorithms):
-        if dict['gd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['gd'][problem][algorithm][1]) ,'&',
-        else: print r(dict['gd'][problem][algorithm][1]), ' &',
+        if dict['gd'][problem][algorithm][0] == 1:
+            print '\cellcolor[HTML]{D1D5DE}',
+            try:
+                print int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['epal0.01'][1])*100) ,'&',
+            except:
+                print 100, '&',
 
-        if dict['igd'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', r(dict['igd'][problem][algorithm][1]),'&',
-        else: print r(dict['igd'][problem][algorithm][1]), '&',
-        if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1]),
-        else: print int(dict['evals'][problem][algorithm][1]),
+        else:
+            print int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['epal0.01'][1])*100) , ' &',
+
+        if dict['igd'][problem][algorithm][0] == 1:
+            print '\cellcolor[HTML]{D1D5DE}',
+            try:
+                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['epal0.01'][1])*100),
+            except:
+                print 100,
+        else:
+            try:
+                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['epal0.01'][1])*100),
+            except:
+                print 100,
+
+        # if dict['evals'][problem][algorithm][0] == 1:
+        #     print '\cellcolor[HTML]{D1D5DE}', r(int(dict['evals'][problem][algorithm][1])/int(dict['evals'][problem]['epal0.01'][1]) * 100),
+        # else:
+        #     print r(int(dict['evals'][problem][algorithm][1])/int(dict['evals'][problem]['epal0.01'][1]) * 100),
+
         if i + 1 != len(algorithms): print '&',
     print '\\\ \hline'
 print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}}&",
@@ -277,8 +297,8 @@ for i,algorithm in enumerate(algorithms):
         else: eval_losses += 1
 
     print int((gd_wins * 100)/(gd_wins + gd_losses)), "&",
-    print int((igd_wins * 100) / (igd_wins + igd_losses)), "&",
-    print int((eval_wins * 100) / (eval_wins + eval_losses)),
+    print int((igd_wins * 100) / (igd_wins + igd_losses)),
+    # print int((eval_wins * 100) / (eval_wins + eval_losses)),
     if i + 1 != len(algorithms): print '&',
 print '\\\ \hline'
 
