@@ -228,11 +228,13 @@ def explain_me_cdom(ex_train_indep, ex_train_dep, lessismore_status, all_data_in
     assert(len(ex_train_indep) == len(ex_train_dep)), "Something is wrong"
     transformed_training_dep = get_cdom_values(ex_train_dep, lessismore_status)
 
+
     from sklearn.tree import DecisionTreeRegressor, export_graphviz
     # Build two trees
     model = DecisionTreeRegressor(min_samples_leaf=2)
 
     model.fit(ex_train_indep, transformed_training_dep)
+    export_graphviz(model, out_file=filename.split('/')[-1][:-4]+'.dot')
 
     # os.system("dot -Tpng o1.dot -o o1.png")
     # os.system("dot -Tpng o2.dot -o o2.png")
@@ -267,18 +269,21 @@ def explain_me_cdom(ex_train_indep, ex_train_dep, lessismore_status, all_data_in
     pickle.dump(store_data, open('ExplainFiguresPickleLocker/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".p", 'w'))
 
     import matplotlib.pyplot as plt
-    plt.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
-    plt.fill([np.log(compliant_data_dep[i][0]) for i in ch.vertices], [np.log(compliant_data_dep[i][1]) for i in ch.vertices], 'k', alpha=0.3)
-    plt.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='yellow', marker='+',
-                   label="Explain-PF")
-    l2, = plt.plot([np.log(p[0]) for p in current_pf], [np.log(p[1]) for p in current_pf], color='green', marker='o',
-                   label="Predicted-PF")
-    l3, = plt.plot([np.log(p[0]) for p in actual_pf], [np.log(p[1]) for p in actual_pf], color='blue', marker='v', label="Actual-PF")
-    plt.xlabel('log(f1)')
-    plt.ylabel('log(f2)')
-    plt.legend(loc=2)
+    fig, ax = plt.subplots()
+    ax.scatter([np.log(d[0]) for d in all_data_dep], [np.log(d[1]) for d in all_data_dep], color='r', marker='.')
+    ax.fill([np.log(compliant_data_dep[i][0]) for i in ch.vertices], [np.log(compliant_data_dep[i][1]) for i in ch.vertices], 'k', alpha=0.3)
+    ax.scatter([np.log(p[0]) for p in compliant_data_dep], [np.log(p[1]) for p in compliant_data_dep], color='black', marker='+',
+                   label="Selected-Points")
+    # l2, = plt.plot([np.log(p[0]) for p in current_pf], [np.log(p[1]) for p in current_pf], color='green', marker='o',
+    #                label="Predicted-PF")
+    ax.plot([np.log(p[0]) for p in actual_pf], [np.log(p[1]) for p in actual_pf], color='blue', marker='v', label="Actual-PF")
+    plt.xlabel('log(objective-1)')
+    plt.ylabel('log(objective-2)')
+    # plt.legend(loc=2)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=2, fancybox=True, frameon=False)
     # plt.savefig('./ExplainFiguresGen/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".png")
     plt.savefig('./ExplainFiguresGen/' + filename.split('/')[-1][:-4] + ".png")
+    print './ExplainFiguresGen/' + filename.split('/')[-1][:-4] + ".png"
     plt.cla()
 
 
@@ -328,8 +333,8 @@ def explain_me_nds(ex_train_indep, ex_train_dep, lessismore_status, all_data_ind
     l2, = plt.plot([np.log(p[0]) for p in current_pf], [np.log(p[1]) for p in current_pf], color='green', marker='o',
                    label="Predicted-PF")
     l3, = plt.plot([np.log(p[0]) for p in actual_pf], [np.log(p[1]) for p in actual_pf], color='blue', marker='v', label="Actual-PF")
-    plt.xlabel('log(f1)')
-    plt.ylabel('log(f2)')
+    plt.xlabel('log(objective-1)')
+    plt.ylabel('log(objective-2)')
     plt.legend(loc=2)
     plt.savefig('./ExplainFiguresGen/' + filename.split('/')[-1][:-4] + "_" + str(gen) + ".png")
     plt.cla()
@@ -478,7 +483,7 @@ if __name__ == "__main__":
             all_data[file]['igd'].append(inverted_generational_distance(true_pf, current_pf, ranges[file]))
 
             explain_me_cdom(training_data, [get_objective_score(indep) for indep in training_data], lessismore[file], testing_data, [get_objective_score(d) for d in testing_data], current_pf, true_pf, file)
-
+            exit()
 
             print " GD: ",  all_data[file]['gen_dist'][-1],
             print " IGD: ",  all_data[file]['igd'][-1]
