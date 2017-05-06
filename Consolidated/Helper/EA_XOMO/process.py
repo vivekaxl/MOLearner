@@ -30,6 +30,7 @@ all_data = {}
 evals = {}
 evals["NSGAII"] = 2100
 evals["SPEA2"] = 2100
+evals["MOEAD"] = 2100
 evals["SWAY5"] = 70
 
 no_objectives = 4
@@ -40,7 +41,7 @@ def run(name):
         print subfolder
         if name not in subfolder: continue
 
-        if "NSGAII" in subfolder or "SPEA2" in subfolder:
+        if "NSGAII" in subfolder or "SPEA2" in subfolder or "MOEAD" in subfolder:
             # Find appropriate file
             problem_name = "_".join(subfolder.split('/')[-2].split('_')[1:-1])
 
@@ -60,6 +61,8 @@ def run(name):
             if "NSGAII" in subfolder:
                 file = repeat + "20.txt"
             elif  "SPEA2" in subfolder:
+                file = repeat + "20.txt"
+            elif  "MOEAD" in subfolder:
                 file = repeat + "20.txt"
             elif "SWAY5" in subfolder:
                 file = repeat + "1.txt"
@@ -96,5 +99,5 @@ def run(name):
 
 
 
-for name in ["NSGAII", "SWAY5", "SPEA2", ]:
+for name in ["NSGAII", "SWAY5", "SPEA2", "MOEAD"]:
     run(name)
