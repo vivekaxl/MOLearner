@@ -24,6 +24,7 @@ raw_mapping["results_wc-c1-3d-c1/"] = "wc-c1-3d-c1.csv"
 raw_mapping["results_wc-c3-3d-c1/"] = "wc-c3-3d-c1.csv"
 raw_mapping["results_wc+sol-3d-c4/"] = "wc+sol-3d-c4.csv"
 raw_mapping["results_wc+rs-3d-c4/"] = "wc+rs-3d-c4.csv"
+raw_mapping["results_x264-DB_2_3/"] = "x264-DB_2_3.csv"
 
 # Objectives = {}
 lessismore = {}
@@ -40,10 +41,12 @@ lessismore["results_wc-c1-3d-c1/"] = [False, True]
 lessismore["results_wc-c3-3d-c1/"] = [False, True]
 lessismore["results_wc+sol-3d-c4/"] = [False, True]
 lessismore["results_wc+rs-3d-c4/"] = [False, True]
+lessismore["results_x264-DB_2_3/"] = [True, True]
 
 
 # assign objective values to pareto data
-result_folders = ['results_sort_256/', 'results_wc+rs-3d-c4/', 'results_wc+sol-3d-c4/', 'results_wc+wc-3d-c4/', 'results_wc-3d-c4/', 'results_wc-5d-c5/', 'results_wc-6d-c1/', 'results_wc-c1-3d-c1/', 'results_wc-c3-3d-c1/', 'results_sol-6d-c2/',]
+# result_folders = ['results_sort_256/', 'results_wc+rs-3d-c4/', 'results_wc+sol-3d-c4/', 'results_wc+wc-3d-c4/', 'results_wc-3d-c4/', 'results_wc-5d-c5/', 'results_wc-6d-c1/', 'results_wc-c1-3d-c1/', 'results_wc-c3-3d-c1/', 'results_sol-6d-c2/',]
+result_folders = ['results_x264-DB_2_3/']
 
 for result_folder in result_folders:
     print "--- " * 10

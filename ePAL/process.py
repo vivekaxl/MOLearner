@@ -11,8 +11,10 @@ def process(folder):
     eval_filename = "prediction_error.csv"
     all_data = {}
     for subfolder in subfolders:
+        print subfolder
         data_dict = {}
         files = [subfolder + f for f in os.listdir(subfolder) if eval_filename not in f and 'stop' not in f and ".csv" in f]
+        print len(files)
         for file in files:
             # Extract the filename in the file path
             filename = file.split('/')[-1]

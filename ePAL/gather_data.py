@@ -20,10 +20,13 @@ raw_mapping["results_wc-c1-3d-c1/"] = "wc-c1-3d-c1.csv"
 raw_mapping["results_wc-c3-3d-c1/"] = "wc-c3-3d-c1.csv"
 raw_mapping["results_wc+sol-3d-c4/"] = "wc+sol-3d-c4.csv"
 raw_mapping["results_wc+rs-3d-c4/"] = "wc+rs-3d-c4.csv"
+raw_mapping["results_x264-DB_2_3/"] = "x264-DB_2_3.csv"
 
 def process(epsilon_value, predicted_sub_folder, actual_pareto_file, range):
     import pickle
     data_dict = pickle.load(open('results.p', 'r'))
+    # import pdb
+    # pdb.set_trace()
     key = [k for k in data_dict.keys() if predicted_sub_folder.split('/')[-2] in k]
     assert(len(key) == 1), "Something is wrong"
     key = key[-1]
@@ -46,8 +49,10 @@ if __name__ == "__main__":
     all_data = {}
     actual_folder = "./Actual_Pareto_Data/"
     predicted_folder = "./Predicted_Pareto_Data/"
-    predicted_sub_folders = [predicted_folder + f + "/" for f in os.listdir(predicted_folder) if "DS_Store" not in f and "sol-6d-c2" not in f]
-    epsilon_values = [0.01, 0.2, 0.02, 0.3, 0.04, 0.08, 0.12, 0.16]
+    # predicted_sub_folders = [predicted_folder + f + "/" for f in os.listdir(predicted_folder) if "DS_Store" not in f and "sol-6d-c2" not in f]
+    predicted_sub_folders = ['./Predicted_Pareto_Data/results_x264-DB_2_3/']
+    # epsilon_values = [0.01, 0.2, 0.02, 0.3, 0.04, 0.08, 0.12, 0.16]
+    epsilon_values = [0.2, 0.3, 0.12, 0.16]
     for predicted_sub_folder in predicted_sub_folders:
         key_all_data = "./Data/" + raw_mapping[predicted_sub_folder.split('/')[-2] + "/"]
         all_data[key_all_data] = {}
@@ -58,4 +63,4 @@ if __name__ == "__main__":
             all_data[key_all_data][epsilon_value] = process(epsilon_value, predicted_sub_folder, actual_folder+raw_mapping[predicted_sub_folder.split('/')[-2] + '/'], ranges[key_all_data])
         print
     import pickle
-    pickle.dump(all_data, open('epal.p', 'w'))
+    pickle.dump(all_data, open('epal_2.p', 'w'))
