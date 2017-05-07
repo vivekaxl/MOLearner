@@ -14,6 +14,7 @@ def get_gd_rank(problems):
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))
         spea2 = pickle.load(open('SPEA2_XOMO.p'))
         sway5 = pickle.load(open('SWAY5_XOMO.p'))
+        moead = pickle.load(open('MOEAD_XOMO.p'))
 
         lists = list()
         try:
@@ -46,6 +47,10 @@ def get_gd_rank(problems):
             lists.append(['SWAY'] + sway5[problem]['gen_dist'])
         except:
             pass
+        try:
+            lists.append(['MOEAD'] + moead[problem]['gen_dist'])
+        except:
+            pass
 
         ret_dict[problem] = rdivDemo("SS" + str(i + 1), problem.replace('_', '\_'), lists, globalMinMax=False)
     return ret_dict
@@ -60,6 +65,7 @@ def get_igd_rank(problems):
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))
         spea2 = pickle.load(open('SPEA2_XOMO.p'))
         sway5 = pickle.load(open('SWAY5_XOMO.p'))
+        moead = pickle.load(open('MOEAD_XOMO.p'))
 
         lists = list()
         try:
@@ -84,6 +90,10 @@ def get_igd_rank(problems):
             lists.append(['SWAY'] + sway5[problem]['igd'])
         except:
             pass
+        try:
+            lists.append(['MOEAD'] + moead[problem]['igd'])
+        except:
+            pass
 
         ret_dict[problem] = rdivDemo("SS" + str(i + 1), problem.replace('_', '\_'), lists,globalMinMax=False)
     return ret_dict
@@ -98,6 +108,7 @@ def get_eval_rank(problems):
         nsgaii = pickle.load(open('NSGAII_XOMO.p'))
         spea2 = pickle.load(open('SPEA2_XOMO.p'))
         sway = pickle.load(open('SWAY5_XOMO.p'))
+        moead = pickle.load(open('MOEAD_XOMO.p'))
 
         lists = list()
         try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
@@ -112,6 +123,8 @@ def get_eval_rank(problems):
         try: lists.append(['SPEA2'] + spea2[problem]['evals'])
         except: pass
         try: lists.append(['SWAY'] + sway[problem]['evals'])
+        except: pass
+        try: lists.append(['MOEAD'] + moead[problem]['evals'])
         except: pass
 
         return_dict[problem] = rdivDemo("SS"+ str(i+1), problem.replace('_', '\_'), lists, globalMinMax=False)
@@ -132,7 +145,7 @@ pickle.dump(dict, open('stat_result.p', 'w'))
 
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = ['AL2', 'NSGAII', 'SPEA2', 'SWAY']
+algorithms = ['AL2', 'NSGAII', 'SPEA2', 'MOEAD', 'SWAY']
 problems = ['xomo_ground', 'xomo_osp', 'xomoo2', 'xomo_all', 'xomo_flight']
 
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
@@ -161,12 +174,12 @@ for problem in problems:
             try:
                 int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1])*100),
             except:
-                print '100'
+                print '100',
         else:
             try:
-                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1])*100),
+                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1])*100)
             except:
-                print '100',
+                print '100'
         # if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1]),
         # else: print int(dict['evals'][problem][algorithm][1]),
         if i + 1 != len(algorithms): print '&',

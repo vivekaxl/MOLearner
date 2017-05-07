@@ -14,6 +14,7 @@ def get_gd_rank(problems):
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
         sway5 = pickle.load(open('SWAY5_POM.p'))
+        moead = pickle.load(open('MOEAD_POM.p'))
 
         lists = list()
         try:
@@ -48,6 +49,10 @@ def get_gd_rank(problems):
             lists.append(['SWAY'] + sway5[problem]['gen_dist'])
         except:
             pass
+        try:
+            lists.append(['MOEAD'] + moead[problem]['gen_dist'])
+        except:
+            pass
 
         ret_dict[problem] = rdivDemo("SS" + str(i + 1), problem.replace('_', '\_'), lists, globalMinMax=False)
     return ret_dict
@@ -62,6 +67,7 @@ def get_igd_rank(problems):
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
         sway5 = pickle.load(open('SWAY5_POM.p'))
+        moead = pickle.load(open('MOEAD_POM.p'))
 
         lists = list()
         try:
@@ -86,6 +92,10 @@ def get_igd_rank(problems):
             lists.append(['SWAY'] + sway5[problem]['igd'])
         except:
             pass
+        try:
+            lists.append(['MOEAD'] + moead[problem]['igd'])
+        except:
+            pass
 
         ret_dict[problem] = rdivDemo("SS" + str(i + 1), problem.replace('_', '\_'), lists,globalMinMax=False)
     return ret_dict
@@ -100,6 +110,7 @@ def get_eval_rank(problems):
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
         sway = pickle.load(open('SWAY5_POM.p'))
+        moead = pickle.load(open('MOEAD_POM.p'))
 
         lists = list()
         try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
@@ -114,6 +125,8 @@ def get_eval_rank(problems):
         try: lists.append(['SPEA2'] + spea2[problem]['evals'])
         except: pass
         try: lists.append(['SWAY'] + sway[problem]['evals'])
+        except: pass
+        try: lists.append(['MOEAD'] + moead[problem]['evals'])
         except: pass
 
         return_dict[problem] = rdivDemo("SS"+ str(i+1), problem.replace('_', '\_'), lists, globalMinMax=False)
@@ -133,7 +146,7 @@ assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong
 pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'SWAY']
+algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'MOEAD', 'SWAY']
 problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
 header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
