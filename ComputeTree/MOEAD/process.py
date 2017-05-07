@@ -79,12 +79,12 @@ def collect_all_points(subdir, decisions, objectives):
         deps += t_dep
     return indeps, deps
 
-def parallelize(subdir, name, rep_no):
+def parallelize(subdir, name, rep_no, decisions, objectives):
     print subdir, name, rep_no
-    indeps, deps = collect_all_points(subdir, decisions=9, objectives=3)
+    indeps, deps = collect_all_points(subdir, decisions, objectives)
     keys = lessismore.keys()
 
-    key = [k for k in keys if name in k.lower()]
+    key = [k for k in keys if name in k]
     try:
         assert (len(key) == 1), "Something is wrong"
     except:
@@ -106,17 +106,36 @@ def run():
 
     pom_dirs = [f for f in dirs if "POM" in f]
     monrp_dirs = [f for f in dirs if "MONRP" in f]
-    xomo_dirs = [f for f in dirs if "xomo" in f]
+    xomo_dirs = ['./Data/MOEAD_xomoo2_100/', './Data/MOEAD_xomo_all_100/', './Data/MOEAD_xomo_flight_100/', './Data/MOEAD_xomo_ground_100/', './Data/MOEAD_xomo_osp_100/', ]
+
 
     assert(len(pom_dirs) + len(monrp_dirs) + len(xomo_dirs) == len(dirs)), "Something is wrong"
     import multiprocessing as mp
     # Main control loop
     pool = mp.Pool()
-    for pom_dir in monrp_dirs:
-        name = pom_dir.split('/')[2].split('_')[1].lower()
-        subdirs = [pom_dir + f + "/" for f in os.listdir(pom_dir) if ".DS_Store" not in f]
+    # for pom_dir in pom_dirs:
+    #     name = pom_dir.split('/')[2].split('_')[1].lower()
+    #     subdirs = [pom_dir + f + "/" for f in os.listdir(pom_dir) if ".DS_Store" not in f]
+    #     for rep_no, subdir in enumerate(subdirs):
+    #         pool.apply_async(parallelize, (subdir, name, rep_no))
+    #         # parallelize(subdir, name, rep_no, 9, 3)
+
+    # for monrp_dir in monrp_dirs:
+    #     name = '_'.join(monrp_dir.split('/')[2].split('_')[1:7])
+    #     subdirs = [monrp_dir + f + "/" for f in os.listdir(monrp_dir) if ".DS_Store" not in f]
+    #     for rep_no, subdir in enumerate(subdirs):
+    #         pool.apply_async(parallelize, (subdir, name, rep_no, 50, 3))
+    #         # parallelize(subdir, name, rep_no, 50, 3)
+
+    for xomo_dir in xomo_dirs:
+        if "xomoo2" in xomo_dir:
+            name = "xomoo2"
+        else:
+            name = '_'.join(xomo_dir.split('/')[2].split('_')[1:3])
+        subdirs = [xomo_dir + f + "/" for f in os.listdir(xomo_dir) if ".DS_Store" not in f]
         for rep_no, subdir in enumerate(subdirs):
-            pool.apply_async(parallelize, (subdir, name, rep_no))
+            pool.apply_async(parallelize, (subdir, name, rep_no, 27, 4))
+            # parallelize(subdir, name, rep_no, 27, 4)
 
     pool.close()
     pool.join()
