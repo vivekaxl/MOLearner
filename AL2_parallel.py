@@ -102,6 +102,7 @@ def not_in_cache(list, listoflist):
     return True
 
 def run_main(files, repeat_no):
+    print files, repeat_no
     from utility import read_file, split_data, build_model
     # files = ['./Data/llvm_input.csv', './Data/noc_CM_log.csv',
     #           './Data/sort_256.csv',
@@ -265,7 +266,6 @@ if __name__ == "__main__":
     pool = mp.Pool()
     for file in files:
         for rep in xrange(20):
-            print file, rep
             pool.apply_async(run_main, ([file], rep))
             # run_main([file], rep)
 
