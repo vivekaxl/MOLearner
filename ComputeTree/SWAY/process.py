@@ -134,8 +134,8 @@ def run():
             name = '_'.join(xomo_dir.split('/')[2].split('_')[1:3])
         subdirs = [xomo_dir + f + "/" for f in os.listdir(xomo_dir) if ".DS_Store" not in f]
         for rep_no, subdir in enumerate(subdirs):
-            pool.apply_async(parallelize, (subdir, name, rep_no, 27, 4))
-            # parallelize(subdir, name, rep_no, 27, 4)
+            # pool.apply_async(parallelize, (subdir, name, rep_no, 27, 4))
+            parallelize(subdir, name, rep_no, 27, 4)
 
     pool.close()
     pool.join()
