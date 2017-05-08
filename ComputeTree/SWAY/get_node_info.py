@@ -15,5 +15,5 @@ for file in files:
 
 
 import pickle
-pickle.dump(record_dict, open('output.p'))
+pickle.dump(record_dict, open('output.p', 'w'))
 

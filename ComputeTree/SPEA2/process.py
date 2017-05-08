@@ -113,12 +113,12 @@ def run():
     import multiprocessing as mp
     # Main control loop
     pool = mp.Pool()
-    # for pom_dir in pom_dirs:
-    #     name = pom_dir.split('/')[2].split('_')[1].lower()
-    #     subdirs = [pom_dir + f + "/" for f in os.listdir(pom_dir) if ".DS_Store" not in f]
-    #     for rep_no, subdir in enumerate(subdirs):
-    #         pool.apply_async(parallelize, (subdir, name, rep_no))
-    #         # parallelize(subdir, name, rep_no, 9, 3)
+    for pom_dir in pom_dirs:
+        name = pom_dir.split('/')[2].split('_')[1]
+        subdirs = [pom_dir + f + "/" for f in os.listdir(pom_dir) if ".DS_Store" not in f]
+        for rep_no, subdir in enumerate(subdirs):
+            pool.apply_async(parallelize, (subdir, name, rep_no, 9, 3))
+            # parallelize(subdir, name, rep_no, 9, 3)
 
     # for monrp_dir in monrp_dirs:
     #     name = '_'.join(monrp_dir.split('/')[2].split('_')[1:7])
@@ -127,14 +127,14 @@ def run():
     #         pool.apply_async(parallelize, (subdir, name, rep_no, 50, 3))
     #         # parallelize(subdir, name, rep_no, 50, 3)
 
-    for xomo_dir in xomo_dirs:
-        if "xomoo2" in xomo_dir:
-            name = "xomoo2"
-        else:
-            name = '_'.join(xomo_dir.split('/')[2].split('_')[1:3])
-        subdirs = [xomo_dir + f + "/" for f in os.listdir(xomo_dir) if ".DS_Store" not in f]
-        for rep_no, subdir in enumerate(subdirs):
-            pool.apply_async(parallelize, (subdir, name, rep_no, 27, 4))
+    # for xomo_dir in xomo_dirs:
+    #     if "xomoo2" in xomo_dir:
+    #         name = "xomoo2"
+    #     else:
+    #         name = '_'.join(xomo_dir.split('/')[2].split('_')[1:3])
+    #     subdirs = [xomo_dir + f + "/" for f in os.listdir(xomo_dir) if ".DS_Store" not in f]
+    #     for rep_no, subdir in enumerate(subdirs):
+    #         pool.apply_async(parallelize, (subdir, name, rep_no, 27, 4))
             # parallelize(subdir, name, rep_no, 27, 4)
 
     pool.close()
