@@ -87,7 +87,10 @@ def same_list(list1, list2):
 def get_training_sequence(file, training_indep, training_dep, testing_data, index=0):
     # build a model and get the predicted non dominated solutions
     return_nd_independent, predicted_objectives = get_nd_solutions(file, training_indep, training_dep, testing_data)
+
     # For ordering purposes: Add summation of continious domination
+    import pdb
+    pdb.set_trace()
     cdom_scores = get_cdom_values(predicted_objectives, lessismore[file])
     assert(len(cdom_scores) == len(predicted_objectives)), "Something is wrong"
     training_sequence = [i[0] for i in sorted(enumerate(cdom_scores), key=lambda x:x[1], reverse=True)]
