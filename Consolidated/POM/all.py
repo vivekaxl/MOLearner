@@ -9,7 +9,7 @@ def get_gd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
         al2 = pickle.load(open('al2_20_POM.p'))
-        al = pickle.load(open('al_POM.p'))
+        al5 = pickle.load(open('al5.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
@@ -23,20 +23,12 @@ def get_gd_rank(problems):
             import pdb
             pdb.set_trace()
             pass
-        # flash3 = pickle.load(open('Flash4.p'))
-        # lists.append(['Flash4'] + flash3[problem + ".p"]['gen_dist'])
-        # try:
-        #     lists.append(['AL'] + al[problem]['gen_dist'])
-        # except:
-        #     pass
-        # try:
-        #     lists.append(['MMRE'] + mmre[problem]['evals'])
-        # except:
-        #     pass
-        # try:
-        #     lists.append(['Rank'] + rank[problem]['evals'])
-        # except:
-        #     pass
+        try:
+            lists.append(['AL5'] + al5[problem + ".p"]['gen_dist'])
+        except:
+            import pdb
+            pdb.set_trace()
+            pass
         try:
             lists.append(['NSGAII'] + nsgaii[problem]['gen_dist'])
         except:
@@ -62,7 +54,7 @@ def get_igd_rank(problems):
     ret_dict = {}
     for i, problem in enumerate(sorted(problems)):
         al2 = pickle.load(open('al2_20_POM.p'))
-        al = pickle.load(open('al_POM.p'))
+        al5 = pickle.load(open('al5.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
@@ -74,10 +66,9 @@ def get_igd_rank(problems):
             lists.append(['AL2'] + al2[problem+".p"]['igd'])
         except:
             pass
-        # try:
-        #     lists.append(['AL'] + al[problem]['igd'])
-        # except:
-        #     pass
+
+        lists.append(['AL5'] + al5[problem+".p"]['igd'])
+
         # flash3 = pickle.load(open('Flash4.p'))
         # lists.append(['Flash4'] + flash3[problem + ".p"]['igd'])
         try:
@@ -105,7 +96,7 @@ def get_eval_rank(problems):
     return_dict = {}
     for i, problem in enumerate(sorted(problems)):
         al2 = pickle.load(open('al2_20_POM.p'))
-        al = pickle.load(open('al_POM.p'))
+        al5 = pickle.load(open('al5.p'))
 
         nsgaii = pickle.load(open('NSGAII_POM.p'))
         spea2 = pickle.load(open('SPEA2_POM.p'))
@@ -115,11 +106,10 @@ def get_eval_rank(problems):
         lists = list()
         try: lists.append(['AL2'] + al2[problem+".p"]['evals'])
         except: pass
-        # flash3 = pickle.load(open('Flash4.p'))
-        # lists.append(['Flash4'] + flash3[problem + ".p"]['evals'])
-        # try: lists.append(['AL'] + al[problem]['evals'])
-        # except:
-        #     pass
+
+        try: lists.append(['AL5'] + al5[problem+".p"]['evals'])
+        except:
+            pass
         try:lists.append(['NSGAII'] + nsgaii[problem]['evals'])
         except: pass
         try: lists.append(['SPEA2'] + spea2[problem]['evals'])
@@ -146,42 +136,35 @@ assert(len(dict['gd'].keys()) == len(dict['evals'].keys())), "Something is wrong
 pickle.dump(dict, open('stat_result.p', 'w'))
 def r(data): return round(data, 2)
 dict = pickle.load(open('stat_result.p'))
-algorithms = [ 'AL2', 'NSGAII', 'SPEA2', 'MOEAD', 'SWAY']
+algorithms = [ 'AL2', 'AL5', 'NSGAII', 'SPEA2', 'MOEAD', 'SWAY']
 problems = ['POM3A', 'POM3B', 'POM3C', 'POM3D']
 header = "\multirow{3}{*}{\\textbf{Model}} & \multirow{3}{*}{\\textbf{\\rot{\# Decisions}}} & \multicolumn{3}{c|}{\multirow{2}{*}{\\textbf{FLASH}}} & \multicolumn{9}{l|}{\\textbf{EA}}                                                                     \\\ \cline{6-14}\n"
-header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
-header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
+header += "& & \multicolumn{3}{l|}{\\textbf{}} & \multicolumn{3}{l|}{\\textbf{NSGAII}} & \multicolumn{3}{l|}{\\textbf{SPEA2}} & \multicolumn{3}{l|}{\\textbf{MOEAD}} & \multicolumn{3}{l|}{\\textbf{SWAY}} \\\ \cline{3-14}\n"
+header += "& & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} & \\rot{GD} & \\rot{IGD} & \\rot{Evals} \\\ \hline"
 print header
 for problem in problems:
-    print '&', problem.replace('_', '\_'), '& 9 &',
+    print problem.replace('_', '\_'), '& 9 &',
     for i, algorithm in enumerate(algorithms):
         if dict['gd'][problem][algorithm][0] == 1:
 
             print '\cellcolor[HTML]{D1D5DE}',
-            try:
-                print int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['NSGAII'][1])*100) ,'&',
-            except:
-                print '100 &',
+            print r(dict['gd'][problem][algorithm][1]) ,'&',
 
         else:
-            try:
-                print int(r(dict['gd'][problem][algorithm][1])/r(dict['gd'][problem]['NSGAII'][1])*100), ' &',
-            except:
-                print '100 &',
+            print r(dict['gd'][problem][algorithm][1]), ' &',
 
         if dict['igd'][problem][algorithm][0] == 1:
             print '\cellcolor[HTML]{D1D5DE}',
-            try:
-                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1])*100),
-            except:
-                print '100'
+            print r(dict['igd'][problem][algorithm][1]),'&',
         else:
-            try:
-                print int(r(dict['igd'][problem][algorithm][1])/r(dict['igd'][problem]['NSGAII'][1])*100),
-            except:
-                print '100',
-        # if dict['evals'][problem][algorithm][0] == 1: print '\cellcolor[HTML]{D1D5DE}', int(dict['evals'][problem][algorithm][1]),
-        # else: print int(dict['evals'][problem][algorithm][1]),
+            print r(dict['igd'][problem][algorithm][1]), ' &',
+
+        if dict['evals'][problem][algorithm][0] == 1:
+            print '\cellcolor[HTML]{D1D5DE}',
+            print dict['evals'][problem][algorithm][1],
+        else:
+            print dict['evals'][problem][algorithm][1],
+
         if i + 1 != len(algorithms): print '&',
     print '\\\ \cline{2-11}'
 print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}} &",
@@ -197,16 +180,15 @@ for i,algorithm in enumerate(algorithms):
         if dict['gd'][problem][algorithm][0] == 1: gd_wins+=1
         else: gd_losses+=1
 
-
         if dict['igd'][problem][algorithm][0] == 1: igd_wins += 1
         else: igd_losses += 1
-
 
         if dict['evals'][problem][algorithm][0] == 1: eval_wins += 1
         else: eval_losses += 1
 
     print int((gd_wins * 100)/(gd_wins + gd_losses)), "&",
-    print int((igd_wins * 100) / (igd_wins + igd_losses)),
+    print int((igd_wins * 100) / (igd_wins + igd_losses)), "&",
+    print int((eval_wins * 100) / (eval_wins + eval_losses)),
     # print int((eval_wins * 100) / (eval_wins + eval_losses)),
     if i + 1 != len(algorithms): print '&',
 print '\\\ \hline'
