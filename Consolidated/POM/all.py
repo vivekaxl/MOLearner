@@ -166,7 +166,7 @@ for problem in problems:
             print dict['evals'][problem][algorithm][1],
 
         if i + 1 != len(algorithms): print '&',
-    print '\\\ \cline{2-11}'
+    print '\\\ \hline'
 print "\multicolumn{2}{|c|}{\\textbf{Win (\%)}} &",
 
 for i,algorithm in enumerate(algorithms):
