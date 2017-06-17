@@ -41,4 +41,4 @@ for file in files:
     assert(len(all_data[file + ".p"]['igd']) == 20), "Something is wrong"
     assert(len(all_data[file + ".p"]['evals']) == 20), "Something is wrong"
 
-pickle.dump(all_data, open("al5.p", "w"))
+pickle.dump(all_data, open("al4.p", "w"))

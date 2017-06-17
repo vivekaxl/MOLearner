@@ -94,7 +94,7 @@ def get_random_numbers(len_of_objectives):
     from random import random
     random_numbers = [random() for _ in xrange(len_of_objectives)]
     ret = [num/sum(random_numbers) for num in random_numbers]
-    print ret, sum(ret), int(sum(ret))==1
+    # print ret, sum(ret), int(sum(ret))==1
     # assert(int(sum(ret)) == 1), "Something is wrong"
     return ret
 
@@ -126,71 +126,75 @@ def run_main(files, repeat_no):
 
         directions = [get_random_numbers(number_of_objectives) for _ in xrange(number_of_directions)]
 
-        for rep in xrange(20):
-            shuffle(data)
+        shuffle(data)
 
-            training_indep = [d.decisions for d in data[:initial_sample_size]]
-            testing_indep = [d.decisions for d in data[initial_sample_size:]]
+        training_indep = [d.decisions for d in data[:initial_sample_size]]
+        testing_indep = [d.decisions for d in data[initial_sample_size:]]
 
-            counting_dict = {}
-            for d in data:
-                key = ",".join(map(str, d.decisions))
-                counting_dict[key] = 0
+        counting_dict = {}
+        for d in data:
+            key = ",".join(map(str, d.decisions))
+            counting_dict[key] = 0
 
-            while True:
-                print ". ",
-                sys.stdout.flush()
+        while True:
+            print ". ",
+            sys.stdout.flush()
 
-                def get_objective_score(independent):
-                    key = ",".join(map(str, independent))
-                    # print independent, counting_dict[key]
-                    counting_dict[key] += 1
-                    return objectives_dict[key]
+            def get_objective_score(independent):
+                key = ",".join(map(str, independent))
+                # print independent, counting_dict[key]
+                counting_dict[key] += 1
+                return objectives_dict[key]
 
-                training_dep = [get_objective_score(r) for r in training_indep]
+            training_dep = [get_objective_score(r) for r in training_indep]
 
-                next_point_indexes = get_next_points(file, training_indep, training_dep, testing_indep, directions)
-                print "Points Sampled: ", next_point_indexes
-                next_point_indexes = sorted(next_point_indexes, reverse=True)
-                next_points = [testing_indep[npi] for npi in next_point_indexes]
-                for next_point_index in next_point_indexes:
-                    temp = testing_indep[next_point_index]
-                    del testing_indep[next_point_index]
-                    training_indep.append(temp)
-                print len(training_indep), len(testing_indep), len(data)
-                assert(len(training_indep) + len(testing_indep) == len(data)), "Something is wrong"
-                if len(training_indep) > 50: break
+            next_point_indexes = get_next_points(file, training_indep, training_dep, testing_indep, directions)
+            # print "Points Sampled: ", next_point_indexes
+            next_point_indexes = sorted(next_point_indexes, reverse=True)
+            for next_point_index in next_point_indexes:
+                temp = testing_indep[next_point_index]
+                del testing_indep[next_point_index]
+                training_indep.append(temp)
+            # print len(training_indep), len(testing_indep), len(data)
+            assert(len(training_indep) + len(testing_indep) == len(data)), "Something is wrong"
+            if len(training_indep) > 100: break
 
-            print "Size of the frontier = ", len(training_indep), " Evals: ", get_evals(),
-            # Calculate the True ND
-            training_dependent = [get_objective_score(r) for r in training_indep]
-            all_data[file]['evals'].append(get_evals())
 
-            actual_dependent = [get_objective_score(d) for d in testing_indep]
-            true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file], [r[0] for r in ranges[file]],
-                                                 [r[1] for r in ranges[file]])
-            true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
-            print "Length of True PF: " , len(true_pf)
-            print "Length of the Actual PF: ", len(training_dependent)
-            all_data[file]['gen_dist'].append(generational_distance(true_pf, training_dependent, ranges[file]))
-            all_data[file]['igd'].append(inverted_generational_distance(true_pf, training_dependent, ranges[file]))
+        print
+        print "Size of the frontier = ", len(training_indep), " Evals: ", get_evals(),
+        # Calculate the True ND
+        training_dependent = [get_objective_score(r) for r in training_indep]
+        approx_dependent_index = non_dominated_sort(training_dependent, lessismore[file], [r[0] for r in ranges[file]],
+                                             [r[1] for r in ranges[file]])
+        approx_dependent = sorted([training_dependent[i] for i in approx_dependent_index], key=lambda x: x[0])
+        all_data[file]['evals'].append(get_evals())
 
-            print " GD: ", all_data[file]['gen_dist'][-1],
-            print " IGD: ", all_data[file]['igd'][-1]
+        actual_dependent = [d.objectives for d in data]
+        true_pf_indexes = non_dominated_sort(actual_dependent, lessismore[file], [r[0] for r in ranges[file]],
+                                             [r[1] for r in ranges[file]])
+        true_pf = sorted([actual_dependent[i] for i in true_pf_indexes], key=lambda x: x[0])
+        print "Length of True PF: " , len(true_pf)
+        print "Length of the Actual PF: ", len(training_dependent)
+        all_data[file]['gen_dist'].append(generational_distance(true_pf, approx_dependent, ranges[file]))
+        all_data[file]['igd'].append(inverted_generational_distance(true_pf, approx_dependent, ranges[file]))
 
-        print [round(x, 5) for x in all_data[file]['evals']]
-        print [round(x, 5) for x in all_data[file]['gen_dist']]
-        print [round(x, 5) for x in all_data[file]['igd']]
+        print " GD: ", all_data[file]['gen_dist'][-1],
+        print " IGD: ", all_data[file]['igd'][-1]
+
+        # print [round(x, 5) for x in all_data[file]['evals']]
+        # print [round(x, 5) for x in all_data[file]['gen_dist']]
+        # print [round(x, 5) for x in all_data[file]['igd']]
 
         import pickle
-        pickle.dump(all_data, open('AL6_PickleLocker/AL6_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
+        pickle.dump(all_data, open('-AL6_PickleLocker/AL6_'+ file.split('/')[-1][:-4] + '_' + str(repeat_no) +'.p', 'w'))
 
 if __name__ == "__main__":
     files = [
+        # './Data/POM3D.csv',
         './Data/POM3A.csv',
         './Data/POM3B.csv',
         './Data/POM3C.csv',
-        './Data/POM3D.csv', './Data/xomo_all.csv',
+        './Data/xomo_all.csv',
         './Data/xomo_flight.csv',
         './Data/xomo_ground.csv',
         './Data/xomo_osp.csv',
