@@ -143,7 +143,6 @@ def run_main(files, repeat_no):
                 def get_objective_score(independent):
                     key = ",".join(map(str, independent))
                     # print independent, counting_dict[key]
-                    counting_dict[key] += 1
                     return objectives_dict[key]
 
                 training_dep = [get_objective_score(r) for r in training_indep]
